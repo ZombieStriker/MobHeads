@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="" />
+    <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Config/ConfigController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/Broadcaster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MinecraftAccountValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MobMeta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MobNames.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/SkullFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/advancements/AdvancementsManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/EntityDeathListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/FishListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/SkullBreakListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -66,5 +85,16 @@
       <updated>1564610572624</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
