@@ -1,0 +1,12 @@
+name: MobHeads
+main: com.cyber.mobheads.Main
+version: 2.3
+authors:
+    - CyberDrain
+api-version: 1.13
+description: Allows players to behead mobs and other players!
+commands:
+    mobheads:
+        description: Main command with several sub commands
+        aliases: [mh, mobhead]
+        
