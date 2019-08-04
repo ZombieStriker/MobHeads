@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Config/ConfigController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/Broadcaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MinecraftAccountValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MobMeta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/MobNames.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/Utilities/SkullFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/advancements/AdvancementsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/EntityDeathListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/FishListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/main/java/com/cyber/mobheads/listeners/SkullBreakListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Config/ConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Config/ConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MinecraftAccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MinecraftAccountValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/SkullFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/SkullFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/advancements/AdvancementsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/advancements/AdvancementsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/EntityDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/EntityDeathListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/FishListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/FishListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/SkullBreakListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/SkullBreakListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,9 +24,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Oo2Ywiuisjny6pUPi30cDJ3xgj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -32,6 +48,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHub\MobHeads\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -91,7 +112,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

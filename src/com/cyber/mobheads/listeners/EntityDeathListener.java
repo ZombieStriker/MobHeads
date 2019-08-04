@@ -66,7 +66,7 @@
 /*     */   @EventHandler(priority = EventPriority.MONITOR)
 /*     */   public void onEntityDeath(EntityDeathEvent event) {
 /*  68 */     LivingEntity livingEntity = event.getEntity();
-/*  69 */     Player killer = event.getEntity().getKiller();
+/*  69 */    Player killer = event.getEntity().getKiller();
 /*     */ 
 /*     */     
 /*     */     try {
@@ -84,18 +84,16 @@
 /*     */       ItemStack skull;
 /*  85 */       if (livingEntity instanceof Player) {
 /*  86 */         skull = getPlayerHead((Player)livingEntity, null, true);
-/*     */       } else {
-/*     */         
+/*     */       } else {/*     */
 /*  89 */         skull = getMobHead(killer, livingEntity, true);
 /*     */       } 
-/*  91 */       event.getDrops().add(skull);
-/*     */       
-/*     */       return;
-/*     */     } 
-/*  95 */     if (killer == null) {
+/*  91 */       event.getDrops().add(skull);/*     */
 /*     */       return;
 /*     */     }
-/*     */     
+/*     */
+	if(killer==null /*&& livingEntity instanceof  Player*/)
+		return;
+	if(killer!=null)
 /*  99 */     if (livingEntity.getUniqueId().equals(killer.getUniqueId()) && 
 /* 100 */       !ConfigController.allow_self_player_head_farming()) {
 /*     */       return;
@@ -122,6 +120,7 @@
 /*     */ 
 /*     */   
 /*     */   private ItemStack getMobHead(Player killer, Entity mob, boolean forceDrop) {
+	if(killer !=null)
 /* 125 */     if (!forceDrop && !killer.hasPermission("com.cyber.mobheads.behead.mobs")) {
 /* 126 */       return null;
 /*     */     }
@@ -174,39 +173,39 @@
 /* 174 */       return (new SkullFactory()).getPlayerSkull(deadPlayer.getName(), killer);
 /*     */     }
 /*     */     
-/* 177 */     if (!killer.hasPermission("com.cyber.mobheads.behead.players")) {
-/* 178 */       return null;
-/*     */     }
-/*     */     
-/* 181 */     int lootingValue = killer.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS);
-/* 182 */     double dropChance = ConfigController.getDropChancePlayer(lootingValue);
-/*     */     
-/* 184 */     if (willDrop(dropChance)) {
-/* 185 */       Broadcaster.broadCastPlayerHead(killer, deadPlayer);
-/* 186 */       return (new SkullFactory()).getPlayerSkull(deadPlayer.getName(), killer);
-/*     */     } 
-/* 188 */     return null;
-/*     */   }
-/*     */   
-/*     */   private boolean willDrop(double dropChance) {
-/* 192 */     double randomDouble = (new Random()).nextDouble();
-/* 193 */     return (randomDouble <= dropChance);
-/*     */   }
-/*     */   
-/*     */   private String getVanillaName(Entity entity) {
-/* 197 */     switch (entity.getType()) {
-/*     */       case SKELETON:
-/* 199 */         return "Skeleton Head";
-/*     */       case CREEPER:
-/* 201 */         return "Creeper Head";
-/*     */       case ZOMBIE:
-/* 203 */         return "Zombie Head";
-/*     */       case ENDER_DRAGON:
-/* 205 */         return "Dragon Head";
-/*     */     } 
-/* 207 */     return null;
-/*     */   }
-/*     */ }
+     if (!killer.hasPermission("com.cyber.mobheads.behead.players")) {
+       return null;
+     }
+
+     int lootingValue = killer.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS);
+     double dropChance = ConfigController.getDropChancePlayer(lootingValue);
+
+     if (willDrop(dropChance)) {
+       Broadcaster.broadCastPlayerHead(killer, deadPlayer);
+       return (new SkullFactory()).getPlayerSkull(deadPlayer.getName(), killer);
+     }
+     return null;
+   }
+
+   private boolean willDrop(double dropChance) {
+     double randomDouble = (new Random()).nextDouble();
+     return (randomDouble <= dropChance);
+   }
+
+   private String getVanillaName(Entity entity) {
+     switch (entity.getType()) {
+       case SKELETON:
+         return "Skeleton Head";
+       case CREEPER:
+         return "Creeper Head";
+       case ZOMBIE:
+         return "Zombie Head";
+       case ENDER_DRAGON:
+         return "Dragon Head";
+     }
+     return null;
+   }
+ }
 
 
 /* Location:              F:\Minecraft Servers\SpigotLobby\plugins\MobHeads 2.4.jar!\com\cyber\mobheads\listeners\EntityDeathListener.class

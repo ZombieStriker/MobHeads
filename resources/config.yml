@@ -10,7 +10,7 @@
 #A few general settings
 
 #Should baby variants of mobs drop their head? true/false
-support_baby_mobs: false
+support_baby_mobs: true
 
 #Should a broadcast message message be sent when a player skull is dropped? true/false
 player_skull_broadcast_message: false
@@ -24,6 +24,8 @@ drop_player_heads_outside_inventory: false
 
 #Put this on true if you want players to be able to "farm" their own heads. For example when shooting yourself with arrows
 allow_self_player_head_farming: false
+
+#Set this to true to display the chance/percent for getting a head.
 
 
 
@@ -45,9 +47,18 @@ Messages:
     Success:
         #Shown when a player runs the "/mobheads reload" command
         Reload: "&3The config file has been successfully reloaded!"
-        
+
         #Shown to the sender of the "/mobheads give" command
         Head-given-sender: "&3Successfully gave &b[name-of-head] &3to &b[receiver]!"
+
+        #Shown to the sender of the "/mobheads probability" command
+        Head-probability-sender: "&3The probability of getting &b[name-of-head]&3 is &b[probability]%&3 (&b+[probabilitylooting]%&3 with looting)!"
+
+        #Shown to the sender of the "/mobheads probability" command
+        Head-probability-charged-sender: "&bThis mob will drop their head if killed by a charged creeper!"
+
+        #Shown to the sender of the "/mobheads probability" command
+        Head-probability-chance-sender: "&3The probability after killing 100 of them is &b[probability]%&3."
         
         #Player was given a skull and it was added to their inventory. 
         #[mobname] will be replaced by the name of the mobhead.
@@ -71,6 +82,9 @@ Messages:
     Commands-usage:
         #Shown when a player incorrectly use the "/mobshead give" command
         Give: "&3Usage: &b/mobheads give <playername> <mobname>"
+
+        #Shown when a player incorrectly use the "/mobshead give" command
+        Probability: "&3Usage: &b/mobheads probability <mobname>"
         
         #Shown together with the give command when a player types "/mobaheads help"
         Reload: "&3Usage: &b/mobheads reload"
@@ -94,7 +108,7 @@ ListOfMobs:
         dropChance: 0.1%
         lootingBonus: 0.04%
         broadcastMessage: true
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         displayName: "Bat Head"
         random_uuid: e4c5dfef-bbcc-4012-9f74-879d28fff431
         textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNmMWIzYjNmNTM5ZDJmNjNjMTcyZTk0Y2FjZmFhMzkxZThiMzg1Y2RkNjMzZjNiOTkxYzc0ZTQ0YjI4In19fQ==
@@ -104,7 +118,7 @@ ListOfMobs:
     Blaze:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Blaze Head"
         random_uuid: e4d745ba-8ad2-4059-b047-0f1fe48f2425
@@ -116,7 +130,7 @@ ListOfMobs:
     Black_Cat:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Black Cat Head"
         random_uuid: 30696a4b-b87b-4446-a821-5bc127ba4993
@@ -128,7 +142,7 @@ ListOfMobs:
     Ginger_Cat:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Ginger Cat Head"
         random_uuid: ae801ca9-fcf0-4f21-b4dd-1281b868e796
@@ -140,7 +154,7 @@ ListOfMobs:
     Siamese_Cat:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Siamese Cat Head"
         random_uuid: 2030a11c-21ae-49f0-acd2-49552fa99d73
@@ -152,7 +166,7 @@ ListOfMobs:
     Cave_Spider:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Cave Spider Head"
         random_uuid: b0b18a7e-49af-452e-afae-56554ac259d1
@@ -163,7 +177,7 @@ ListOfMobs:
     Chicken:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Chicken Head"
         random_uuid: 0d579158-bfd4-4845-beb3-7b5eb056987f
@@ -174,7 +188,7 @@ ListOfMobs:
     Cod:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Cod Head"
         random_uuid: 512d6218-cdf1-476c-9507-c9ea98574623
@@ -187,7 +201,7 @@ ListOfMobs:
     Cow:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Cow Head"
         random_uuid: b32d23be-aeca-4f40-a813-a13fbbec4372
@@ -198,7 +212,7 @@ ListOfMobs:
     Charged_Creeper:
         dropChance: 1%
         lootingBonus: 0.5%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Charged Creeper Head"
         random_uuid: 46f5c80a-e615-4f1f-ac8c-e02d7c67d710
@@ -209,7 +223,7 @@ ListOfMobs:
     Dolphin:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Dolphin Head"
         random_uuid: daef31b6-89af-4f69-948e-6120e17d2fc9
@@ -221,7 +235,7 @@ ListOfMobs:
     Donkey:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Donkey Head"
         random_uuid: aab32140-51d3-4b1f-80e3-6d0963a8e65c
@@ -232,7 +246,7 @@ ListOfMobs:
     Drowned:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Drowned Head"
         random_uuid: 17bbc41e-be73-468b-854a-670f7a6972fc
@@ -244,7 +258,7 @@ ListOfMobs:
     Elder_Guardian:
         dropChance: 1%
         lootingBonus: 0.5%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Elder Guardian Head"
         random_uuid: effa6786-a077-42f2-8775-2ead63c4ea4c
@@ -257,7 +271,7 @@ ListOfMobs:
     Enderman:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Enderman Head"
         random_uuid: dedaf353-b99a-44a3-b654-2e7e099764ce
@@ -270,7 +284,7 @@ ListOfMobs:
     Endermite:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Endermite Head"
         random_uuid: 6938b147-1eb7-441e-9056-8c4707b93ed4
@@ -282,7 +296,7 @@ ListOfMobs:
     Evoker:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Evoker Head"
         random_uuid: 4acf06c3-e591-41b7-b895-115b3bc791b1
@@ -294,7 +308,7 @@ ListOfMobs:
     Ghast:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Ghast Head"
         random_uuid: e8c871a0-dbd4-4d75-9ff7-f1b2c0e8d27e
@@ -306,7 +320,7 @@ ListOfMobs:
     Guardian:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Guardian Head"
         random_uuid: 1ba7f8ee-b511-48d1-a498-a8499d37b26f
@@ -319,7 +333,7 @@ ListOfMobs:
     Black_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Black Horse Head"
         random_uuid: d7e5febe-38f8-45b3-b4c1-02293affa78f
@@ -331,7 +345,7 @@ ListOfMobs:
     Brown_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Brown Horse Head"
         random_uuid: a9870478-3026-49ab-b64b-da127754a798
@@ -343,7 +357,7 @@ ListOfMobs:
     Chestnut_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Chestnut Horse Head"
         random_uuid: deafd397-245c-4a90-8220-7280178632a4
@@ -355,7 +369,7 @@ ListOfMobs:
     Creamy_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Creamy Horse Head"
         random_uuid: 00025a2a-eff7-40a5-8489-d8a8f40d7989
@@ -367,7 +381,7 @@ ListOfMobs:
     Dark_Brown_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Dark Brown Horse Head"
         random_uuid: 8eed27c5-8d0d-4e56-b9a9-ec2a8b207e2c
@@ -379,7 +393,7 @@ ListOfMobs:
     Gray_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Gray Horse Head"
         random_uuid: beb5a0a0-0a96-4315-9fdc-4c5c59c97fce
@@ -391,7 +405,7 @@ ListOfMobs:
     White_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "White Horse Head"
         random_uuid: 7ade5a13-ec58-4341-9ff6-9501e44e33e3
@@ -403,7 +417,7 @@ ListOfMobs:
     Skeleton_Horse:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Skeleton Horse Head"
         random_uuid: c59c4764-93b0-457f-8706-31dcffd77ac2
@@ -416,7 +430,7 @@ ListOfMobs:
     Zombie_Horse:
         dropChance: 100%
         lootingBonus: 0%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Horse Head"
         random_uuid: 1e43546c-8667-4305-be50-0ab0f8e4c3e0
@@ -427,7 +441,7 @@ ListOfMobs:
     Husk:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Husk Head"
         random_uuid: da422aa3-9025-445f-ae0e-a6a8f4b24d1a
@@ -439,7 +453,7 @@ ListOfMobs:
     Illusioner:
         dropChance: 100%
         lootingBonus: 0%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Illusioner Head"
         random_uuid: 3e6c1253-7016-4db2-ac31-2bc0f8c0657b
@@ -450,7 +464,7 @@ ListOfMobs:
     Iron_Golem:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Iron Golem Head"
         random_uuid: d23f3607-25a0-4c22-860a-0e6fb9a16412
@@ -461,7 +475,7 @@ ListOfMobs:
     Brown_Llama:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Brown Llama Head"
         random_uuid: 9953b3aa-c25c-40ae-b9d4-216d61464cd0
@@ -473,7 +487,7 @@ ListOfMobs:
     Creamy_Llama:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Creamy Llama Head"
         random_uuid: 4607d400-aaa1-47c6-9e22-fff78ddf50e0
@@ -485,7 +499,7 @@ ListOfMobs:
     Gray_Llama:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Gray Llama Head"
         random_uuid: 93f9568a-c230-482b-a26a-8e2a74fe7690
@@ -497,7 +511,7 @@ ListOfMobs:
     White_Llama:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "White Llama Head"
         random_uuid: 8b2c68f2-d666-445a-acb6-2477471a751c
@@ -509,7 +523,7 @@ ListOfMobs:
     Magma_Cube:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Magma Cube Head"
         random_uuid: 128b47df-8c26-42fc-91b7-30a846caf40e
@@ -521,7 +535,7 @@ ListOfMobs:
     Mooshroom:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Mooshroom Head"
         random_uuid: 0fba3370-1842-40d3-b4a4-06636e068f8b
@@ -532,7 +546,7 @@ ListOfMobs:
     Mule:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Mule Head"
         random_uuid: 77ed2b1c-26cf-4006-b6b5-ba09e097e13e
@@ -543,7 +557,7 @@ ListOfMobs:
     Ocelot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Ocelot Head"
         random_uuid: 69ac5cf8-a3e1-49c3-92c7-af7767f1586b
@@ -555,7 +569,7 @@ ListOfMobs:
     Blue_Parrot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Blue Parrot Head"
         random_uuid: 3c35efae-bc44-4497-9175-5d7a3e03109c
@@ -567,7 +581,7 @@ ListOfMobs:
     Cyan_Parrot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Cyan Parrot Head"
         random_uuid: 26e0a0f4-44fe-46f2-928e-238d2aeacfa2
@@ -579,7 +593,7 @@ ListOfMobs:
     Gray_Parrot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Gray Parrot Head"
         random_uuid: 78010bcf-d16f-4525-be61-28f4d4194304
@@ -591,7 +605,7 @@ ListOfMobs:
     Green_Parrot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Green Parrot Head"
         random_uuid: 9b7d7bcc-21d0-435c-9ccd-dc907008fcbc
@@ -603,7 +617,7 @@ ListOfMobs:
     Red_Parrot:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Red Parrot Head"
         random_uuid: fb78b8ea-9c34-4a8c-8eeb-c11d0a3a6ae0
@@ -615,7 +629,7 @@ ListOfMobs:
     Phantom:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Phantom Head"
         random_uuid: c7276ecb-caea-47c0-922a-50ff26209f0b
@@ -626,7 +640,7 @@ ListOfMobs:
     Pig:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Pig Head"
         random_uuid: bffb9c02-b8d0-4358-bac2-4bf8591f1388
@@ -637,7 +651,7 @@ ListOfMobs:
     Polar_Bear:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Polar Bear Head"
         random_uuid: 368419e7-0057-4dc4-862a-caa8d5154796
@@ -648,7 +662,7 @@ ListOfMobs:
     Pufferfish:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Pufferfish Head"
         random_uuid: f7e68f1e-3f55-4166-9e04-65d40663436c
@@ -661,7 +675,7 @@ ListOfMobs:
     Black_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Black Rabbit Head"
         random_uuid: 198fd44f-37be-479b-bdbd-d6b74e20ec69
@@ -673,7 +687,7 @@ ListOfMobs:
     Black_and_White_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Black and White Rabbit Head"
         random_uuid: 703b54b8-d40f-487b-a17d-713ba1ea8527
@@ -685,7 +699,7 @@ ListOfMobs:
     Brown_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Brown Rabbit Head"
         random_uuid: 44deb6f8-adc8-4679-a994-c07d77a97da1
@@ -697,7 +711,7 @@ ListOfMobs:
     Gold_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Gold Rabbit Head"
         random_uuid: 30552a92-f7af-42a0-b4b5-eae1d175bbe7
@@ -709,7 +723,7 @@ ListOfMobs:
     Salt_and_Pepper_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Salt and Pepper Rabbit Head"
         random_uuid: 0a627a07-debd-4225-8afe-bbcb061b6adf
@@ -722,7 +736,7 @@ ListOfMobs:
     The_Killer_Bunny:
         dropChance: 100%
         lootingBonus: 0%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "The Killer Bunny Head"
         random_uuid: dc32458c-8ae0-4b7b-abe2-add26204eb56
@@ -733,7 +747,7 @@ ListOfMobs:
     Toast_Rabbit:
         dropChance: 0.5%
         lootingBonus: 0.2%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Toast Rabbit Head"
         random_uuid: 2c04206a-1dbb-461b-b4d4-9e4bd2901c7f
@@ -745,7 +759,7 @@ ListOfMobs:
     Salmon:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Salmon Head"
         random_uuid: 8c986470-776d-4991-9a4d-4ccd14888c06
@@ -758,7 +772,7 @@ ListOfMobs:
     White_Rabbit:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "White Rabbit Head"
         random_uuid: 3a978cd5-66e8-4824-8020-f9c0bd363c94
@@ -770,7 +784,7 @@ ListOfMobs:
     Black_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Black Sheep Head"
         random_uuid: ede424d0-f810-4704-9424-db3c4afc402a
@@ -782,7 +796,7 @@ ListOfMobs:
     Blue_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Blue Sheep Head"
         random_uuid: f69de8f4-a1bd-485e-a587-28c676163442
@@ -794,7 +808,7 @@ ListOfMobs:
     Brown_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Brown Sheep Head"
         random_uuid: 6b15f355-f988-4c09-869a-f6603ac8739a
@@ -806,7 +820,7 @@ ListOfMobs:
     Cyan_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Cyan Sheep Head"
         random_uuid: a13f55bf-ee36-4240-9498-2598eaaab4a0
@@ -818,7 +832,7 @@ ListOfMobs:
     Gray_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Gray Sheep Head"
         random_uuid: e9814a95-7327-4d2b-9fbc-482427168225
@@ -830,7 +844,7 @@ ListOfMobs:
     Green_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Green Sheep Head"
         random_uuid: bd0e32b6-4d05-4940-b3fe-a2be1346d778
@@ -842,7 +856,7 @@ ListOfMobs:
     Light_Blue_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Light Blue Sheep Head"
         random_uuid: dfacccb8-18b6-4843-9dd7-6cab888f46d4
@@ -854,7 +868,7 @@ ListOfMobs:
     Lime_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Lime Sheep Head"
         random_uuid: a663374b-47e7-469a-864f-7c5a0d49f6d6
@@ -866,7 +880,7 @@ ListOfMobs:
     Magenta_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Magenta Sheep Head"
         random_uuid: 3c1a8e29-ed57-4532-b6e0-37b2500ade45
@@ -878,7 +892,7 @@ ListOfMobs:
     Orange_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Orange Sheep Head"
         random_uuid: d8df8e0a-1bc5-46ef-ad5d-87ae578ef818
@@ -890,7 +904,7 @@ ListOfMobs:
     Pink_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Pink Sheep Head"
         random_uuid: 29c0911d-695a-4c31-817f-3a065a7144b7
@@ -902,7 +916,7 @@ ListOfMobs:
     Purple_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Purple Sheep Head"
         random_uuid: c2219329-0558-48ec-a0cc-51b07789c184
@@ -914,7 +928,7 @@ ListOfMobs:
     Rainbow_Sheep:
         dropChance: 0.5%
         lootingBonus: 0.2%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Rainbow Sheep Head"
         random_uuid: bcea22f3-8e5c-4ce0-bf2e-9099424f3714
@@ -926,7 +940,7 @@ ListOfMobs:
     Red_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Red Sheep Head"
         random_uuid: 71b8b9d8-fa5b-42df-b15f-e125ae28d9b0
@@ -938,7 +952,7 @@ ListOfMobs:
     Light_Gray_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Silver Sheep Head"
         random_uuid: 597f03f8-654e-42bd-bc0d-d59386606da7
@@ -950,7 +964,7 @@ ListOfMobs:
     White_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "White Sheep Head"
         random_uuid: 5ac388b4-f0b1-4b17-af3c-c2afb4df7e12
@@ -962,7 +976,7 @@ ListOfMobs:
     Yellow_Sheep:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Yellow Sheep Head"
         random_uuid: 8bf2ed0c-5ecc-4f39-9c6e-1be94040f5bc
@@ -974,7 +988,7 @@ ListOfMobs:
     Shulker:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Shulker Head"
         random_uuid: 1d71be7c-4cf6-4560-973e-36971ddb040e
@@ -986,7 +1000,7 @@ ListOfMobs:
     Silverfish:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Silverfish Head"
         random_uuid: 7760f85e-1a3b-4723-8d5c-4e7c8b079f13
@@ -997,7 +1011,7 @@ ListOfMobs:
     Slime:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Slime Head"
         random_uuid: a7dfa2a8-4097-45ac-bf2d-b6191ec352ef
@@ -1008,7 +1022,7 @@ ListOfMobs:
     Snow_Golem:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Snow Golem Head"
         random_uuid: f8184dd2-279c-4e04-8db5-177b63104adb
@@ -1019,7 +1033,7 @@ ListOfMobs:
     Spider:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Spider Head"
         random_uuid: caafc438-4d2c-42f1-a986-ed79d24f143b
@@ -1030,7 +1044,7 @@ ListOfMobs:
     Squid:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Squid Head"
         random_uuid: d5187627-541c-4ad6-8020-35e3dffe295f
@@ -1042,7 +1056,7 @@ ListOfMobs:
     Stray:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Stray Head"
         random_uuid: 2bfa9704-7778-4b93-a2e0-444b52cf783a
@@ -1053,7 +1067,7 @@ ListOfMobs:
     Tropical_Fish:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Tropical Fish Head"
         random_uuid: 7da93a8e-c42c-4dff-b9c6-01f659807576
@@ -1066,7 +1080,7 @@ ListOfMobs:
     Turtle:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Turtle Head"
         random_uuid: d22e5c5e-1444-4bfa-9b7f-ea6cb02a8569
@@ -1078,7 +1092,7 @@ ListOfMobs:
     Vex:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Vex Head"
         random_uuid: 09fc3b6f-5c13-40f2-bd0f-d63d4171bcbb
@@ -1090,7 +1104,7 @@ ListOfMobs:
     Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Villager Head"
         random_uuid: 834e4f81-46d6-4e90-9e60-39bdf4a68c48
@@ -1101,7 +1115,7 @@ ListOfMobs:
     Vindicator:
         dropChance: 0.2%
         lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Vindicator Head"
         random_uuid: df6eabbb-588b-4820-bacd-025806a8bae8
@@ -1113,7 +1127,7 @@ ListOfMobs:
     Witch:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Witch Head"
         random_uuid: a93f8517-c2b3-4bac-81b6-367d8734a79e
@@ -1124,7 +1138,7 @@ ListOfMobs:
     Wild_Wolf:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Wild Wolf Head"
         random_uuid: 0d0cb002-321b-406c-8fec-bae45a85a8d6
@@ -1135,7 +1149,7 @@ ListOfMobs:
     Tamed_Wolf:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Tamed Wolf Head"
         random_uuid: 38a890f4-8ec6-4e45-8169-4a6c0a5ba32e
@@ -1146,7 +1160,7 @@ ListOfMobs:
     Zombie_Pigman:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Pigman Head"
         random_uuid: 3b08d8ef-4c34-4bee-b0a7-a655302c389f
@@ -1158,7 +1172,7 @@ ListOfMobs:
     Zombie_Butcher_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Butcher Villager Head"
         random_uuid: ba0907e5-5de9-4461-9da7-84ca6f9e7912
@@ -1169,7 +1183,7 @@ ListOfMobs:
     Zombie_Cleric_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Cleric Villager Head"
         random_uuid: 7506a75e-136f-471c-8032-c3950b4a5561
@@ -1180,7 +1194,7 @@ ListOfMobs:
     Zombie_Farmer_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Farmer Villager Head"
         random_uuid: 573bd8d0-f9a1-4885-af08-7c554b45e767
@@ -1191,7 +1205,7 @@ ListOfMobs:
     Zombie_Librarian_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Librarian Villager Head"
         random_uuid: fa2368c1-5299-43cb-84c0-40adaa25cb40
@@ -1202,7 +1216,7 @@ ListOfMobs:
     Zombie_Nitwit_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Nitwit Villager Head"
         random_uuid: 614cb8ea-bb85-4e0a-96fb-f2d83273d06a
@@ -1213,7 +1227,7 @@ ListOfMobs:
     Zombie_Smith_Villager:
         dropChance: 0.1%
         lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
+        dropOnChargedCreeperDeath: true
         broadcastMessage: true
         displayName: "Zombie Smith Villager Head"
         random_uuid: f061c450-161c-4a7c-bdf7-2a70d42892f6
@@ -1221,7 +1235,169 @@ ListOfMobs:
         advancements:
             - "mobheads:firstmobhead first_mob_head"
             - "mobheads:thelegend27 zombie_smith_villager"
-            
+    Wandering_Trader:
+        dropChance: 1%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Wandering Trader Head"
+        random_uuid: f061c450-161c-4a7c-bdf7-2a70d45892f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM0NTM4MDIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jZWU4MGE1ZWJhYjFlNmFjOGM4YjUzMzM0YTYwOWVjODkzMjg0MmZjZDUwNDlkYzJlMjFkYzM1NjA0ZWRjMjVkIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 wandering_trader"
+
+
+    Pillager:
+        dropChance: 0.3%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Pillager Head"
+        random_uuid: f061c450-361c-4a7c-bdf7-2a70d45892f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM5OTQ0NDAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83OTQzMmJjZTcwOTFjMDIwZTEwNTk0YzZlNDc5OGZiNjZkMGU1M2MyZTU0YjM2ZDNmOTYzMmI5NmEyNWMyNmY1In19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 pillager"
+
+    Mooshroom_Brown:
+        dropChance: 0.1%
+        lootingBonus: 0.04%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Mooshroom[Brown] Head"
+        random_uuid: 0fba3370-1812-40d3-b4a4-06636e068f8b
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTQ2MzA5MDksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYjg5YTZiMTdlMzRjNjBmMTE4ODlhMTBiOGY4NTkxNjk5YWRlNGEzY2I1NmZiNjc3ZWFkMzE4YmY1NGJhNDNjIn19fQ==
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 mooshroom_brown"
+
+    Ravager:
+        dropChance: 1%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Ravager Head"
+        random_uuid: f061c450-341c-4a7c-bdf7-2a74d45892f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTUxMzQ1MzYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xZjNmNzQyNjI5MjhkNTZiNWI0MDY2OTQ1YjhjYjYzMGZlNTI0MzU0NzcwNjQ2ZDUzMDc3YWU5NWU1OTkwMWNjIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 ravager"
+
+
+    Panda_Aggressive:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Agressive] Head"
+        random_uuid: f061c450-341c-4a7c-bdf7-2a71d45822f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM2MzkxNTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTBjODU1OTNmZTBkZDI3YjVmZWVjZTE5Y2Q3NjBhOTI2NWE5ZjE5NzEzN2UyMDFlMmNhZWFhMmY2N2E1ZWJmIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_agressive"
+
+
+    Panda_Brown:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Brown] Head"
+        random_uuid: f061c450-341c-4a7c-bdf7-2a70d42222f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM4MTcwOTYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81ZmM1ZTlmOWJlYzlkNWQwY2ZiMTQ3MjI5OTlmOWExODI2YzljMjZmZmZiZmViYzFmZjBjZTMyMDY2ZTU4OWNkIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_brown"
+
+    Panda_Lazy:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Lazy] Head"
+        random_uuid: f061c450-341c-4a7c-bdf7-2a70d45822f9
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM4NTU2NDcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iMWRiY2NmYzVlYzdiM2U5MTA5OTY5NGE4NjgwNGMzZjAzZDNmY2Y5MzY0ZmNmOWIzMTFlZmU5Y2Q2MTk0NjhkIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_lazy"
+
+    Panda_Normal:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Normal] Head"
+        random_uuid: f361c450-341c-4a7c-bdf7-2a73d45822f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM5MzMyOTMsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YzZmODliM2E3MDc3YWQ5N2M0NzY2ZDFjNzliYzk2MzMxOWI4MzVmMzgyMDI0ZGE0OTA1MWFhMzQzYWY2MmU5In19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_normal"
+
+    Panda_Playful:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Playful] Head"
+        random_uuid: f061c450-344c-4a7c-bdf9-2a70d45822f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM5NjQyNjEsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85Y2U2NjkyNzVhZGFmYWFhYjMzODAzNmEyNTQzZDc1MmU1MTFmNTAxZjNhNTZjZTViZGE0YWM2NzVmOTJhNmZlIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_playful"
+
+    Panda_Weak:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Weak] Head"
+        random_uuid: f061c450-381c-4a7c-bdf7-2a70d45821f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQwMDA3MTMsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZTBhODBiNmU3YzljZWE2ZjIyOThhOTkxZjk2YmM3YmYwYzIxNzdlNWYwYjliNWNjODQzM2I2NmJiOTI1MDc2In19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_weak"
+
+    Panda_Worried:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Panda[Worried] Head"
+        random_uuid: f061c450-391c-4a7c-bdf7-2a70d45822f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQwMzkyMjksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYmVmZjEyNDExYzdhYmY1OWU4ZDNiZTc0ZjlhYThjMDU3NzQ5YTE3NDUyNzk5Zjk1Mjg5NTkzOWRjYzFlZTIwIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 panda_worried"
+
+
+
+    Fox_Normal:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Fox Head"
+        random_uuid: f061c110-391c-4a7c-bdf7-2a70d45822f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ3NTY0MjAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83Mzk4ZWQ5ZmExYzFjYzYxMTc2OWMxNDI3YmFmNzQwZGZkMzE1ZTdmNzQ4ZDYxMmYzYTYzYjUzNjA2ODY3YTlmIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 fox"
+
+
+    Fox_Snow:
+        dropChance: 0.2%
+        lootingBonus: 0.1%
+        dropOnChargedCreeperDeath: true
+        broadcastMessage: true
+        displayName: "Fox[Snow] Head"
+        random_uuid: f061c110-391c-4a7c-bdf7-2a70d41122f6
+        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ4MDIyNTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYWM5NTU0NWU1NDFiNDU0Y2NlNWRjYTcwNTZlNjIzZDI5NGM4NjZmM2I1MTM0NjVhYmE2NjQ2NTdmZDU2YTNiIn19fQ
+        advancements:
+            - "mobheads:firstmobhead first_mob_head"
+            - "mobheads:thelegend27 fox_snow"
+
+
     #Optional skulls, because they also drop in vanilla when killed by a charged creeper. 
     Zombie:
         dropChance: 0.1%
