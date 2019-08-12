@@ -1,0 +1,50 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all fish heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "You smell!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "tropical_fish",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "fish": {
+      "trigger": "minecraft:impossible"
+    },
+    "tropical_fish": {
+      "trigger": "minecraft:impossible"
+    },
+    "pufferfish": {
+      "trigger": "minecraft:impossible"
+    },
+    "salmon": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "fish"
+    ],
+    [
+      "tropical_fish"
+    ],
+    [
+      "pufferfish"
+    ],
+    [
+      "salmon"
+    ]
+  ],
+  "filename": 19,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

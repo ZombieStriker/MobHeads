@@ -39,7 +39,8 @@ public class ConfigController {
 	}
 
 	public static void configurationCheck() {
-		if (!CONFIGURATION.contains("support_baby_mobs") ||
+		if (!CONFIGURATION.contains("default_looting_chance") || !CONFIGURATION.contains("Messages.Success.Head-achievements")||
+				!CONFIGURATION.contains("support_baby_mobs") ||
 				!CONFIGURATION.contains("player_skull_broadcast_message") ||
 				!CONFIGURATION.contains("Player.dropChance") ||
 				!CONFIGURATION.contains("Player.lootingBonus") ||
@@ -76,7 +77,7 @@ public class ConfigController {
 		String message = CONFIGURATION.getString(path);
 		if (message == null || message.length()==0) {
 			Broadcaster.outputInfoConsole("Could not find message in config file! Try to rebuild the config file if this issue persists!", 2);
-			return "Check Console...";
+			return "Check Console...["+path+"]";
 		}
 		return ChatColor.translateAlternateColorCodes('&', message);
 	}
@@ -93,8 +94,8 @@ public class ConfigController {
 								ChatColor.translateAlternateColorCodes('&', CONFIGURATION.getString(root.name + "." + configName + ".displayName")), CONFIGURATION
 								.getString(root.name + "." + configName + ".random_uuid"), CONFIGURATION
 								.getString(root.name + "." + configName + ".textureCode"),
-								percentageToDouble(CONFIGURATION.getString(root.name + "." + configName + ".dropChance")),
-								percentageToDouble(CONFIGURATION.getString(root.name + "." + configName + "." + root.bonus)), CONFIGURATION
+								getDropChance(configName,root.name.equals("ListOfFish")),
+								getDropBonus(configName,root.name.equals("ListOfFish")), CONFIGURATION
 								.getBoolean(root.name + "." + configName + ".broadcastMessage"), CONFIGURATION
 								.getBoolean(root.name + "." + configName + ".dropOnChargedCreeperDeath"), CONFIGURATION
 								.getStringList(root.name + "." + configName + ".advancements"));
@@ -113,8 +114,8 @@ public class ConfigController {
 									ChatColor.translateAlternateColorCodes('&', CONFIGURATION.getString(root.name + "." + configName + ".skullList." + listItem + ".displayName")), CONFIGURATION
 									.getString(root.name + "." + configName + ".skullList." + listItem + ".random_uuid"), CONFIGURATION
 									.getString(root.name + "." + configName + ".skullList." + listItem + ".textureCode"),
-									percentageToDouble(CONFIGURATION.getString(root.name + "." + configName + ".dropChance")),
-									percentageToDouble(CONFIGURATION.getString(root.name + "." + configName + "." + root.bonus)), CONFIGURATION
+
+									getDropChance(configName,root.name.equals("ListOfFish")),getDropBonus(configName,root.name.equals("ListOfFish")), CONFIGURATION
 									.getBoolean(root.name + "." + configName + ".broadcastMessage"), CONFIGURATION
 									.getBoolean(root.name + "." + configName + ".dropOnChargedCreeperDeath"), CONFIGURATION
 									.getStringList(root.name + "." + configName + ".skullList." + listItem + ".advancements"));
@@ -150,8 +151,7 @@ public class ConfigController {
 							ChatColor.translateAlternateColorCodes('&', CONFIGURATION.getString(root + "." + configName + ".skullList." + name + ".displayName")), CONFIGURATION
 							.getString(root + "." + configName + ".skullList." + name + ".random_uuid"), CONFIGURATION
 							.getString(root + "." + configName + ".skullList." + name + ".textureCode"),
-							percentageToDouble(CONFIGURATION.getString(root + "." + configName + ".dropChance")),
-							percentageToDouble(CONFIGURATION.getString(root + "." + configName + "." + bonus)), CONFIGURATION
+							getDropChance(configName,fish),getDropBonus(configName,fish), CONFIGURATION
 							.getBoolean(root + "." + configName + ".broadcastMessage"), CONFIGURATION
 							.getBoolean(root + "." + configName + ".dropOnChargedCreeperDeath"), CONFIGURATION
 							.getStringList(root + "." + configName + ".skullList." + name + ".advancements"));
@@ -160,8 +160,7 @@ public class ConfigController {
 						ChatColor.translateAlternateColorCodes('&', CONFIGURATION.getString(root + "." + configName + ".displayName")), CONFIGURATION
 						.getString(root + "." + configName + ".random_uuid"), CONFIGURATION
 						.getString(root + "." + configName + ".textureCode"),
-						percentageToDouble(CONFIGURATION.getString(root + "." + configName + ".dropChance")),
-						percentageToDouble(CONFIGURATION.getString(root + "." + configName + "." + bonus)), CONFIGURATION
+						getDropChance(configName,fish),getDropBonus(configName,fish), CONFIGURATION
 						.getBoolean(root + "." + configName + ".broadcastMessage"), CONFIGURATION
 						.getBoolean(root + "." + configName + ".dropOnChargedCreeperDeath"), CONFIGURATION
 						.getStringList(root + "." + configName + ".advancements"));
@@ -171,6 +170,42 @@ public class ConfigController {
 		Broadcaster.outputInfoConsole("Could not find the " + mobName.name() + " mob in the config file! Try to rebuild your config file, if this won't fix it, report this issue to the developer!", 2);
 		return null;
 	}
+	private static double getDropBonus(String configName){
+		return getDropBonus(configName,false);
+	}
+		private static double getDropChance(String configName){
+		return getDropChance(configName,false);
+		}
+
+	private static double getDropChance(String configName, boolean fish){
+		String bonus, root;
+		if (fish) {
+			root = "ListOfFish";
+			bonus = "luckOfTheSeaBonus";
+		} else {
+			root = "ListOfMobs";
+			bonus = "lootingBonus";
+		}
+		String input = CONFIGURATION.getString(root+"."+configName+".dropChance");
+		if(input.equals("DEFAULT"))
+			return percentageToDouble(CONFIGURATION.getString("default_looting_chance"));
+		return percentageToDouble(input);
+	}
+	private static double getDropBonus(String configName, boolean fish){
+		String bonus, root;
+		if (fish) {
+			root = "ListOfFish";
+			bonus = "luckOfTheSeaBonus";
+		} else {
+			root = "ListOfMobs";
+			bonus = "lootingBonus";
+		}
+		String input = CONFIGURATION.getString(root+"."+configName+"."+bonus);
+		if(input.equals("DEFAULT"))
+			return percentageToDouble(CONFIGURATION.getString("default_looting_bonus"));
+		return percentageToDouble(input);
+	}
+
 
 	private static double percentageToDouble(String percentage) {
 		if (percentage == null) return 0.0D;

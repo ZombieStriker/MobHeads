@@ -1,0 +1,33 @@
+{
+  "display": {
+    "description": {
+      "text": "Kill and behead the killer bunny",
+      "color": "white"
+    },
+    "title": {
+      "text": "The Killer Bunny",
+      "color": "white"
+    },
+    "icon": {
+      "item": "golden_carrot",
+      "tag": 0
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "criteria": {
+    "the_killer_bunny": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "the_killer_bunny"
+    ]
+  ],
+  "filename": 20,
+  "parent-count": 8,
+  "parent-type": "child",
+  "parent": "mobheads:rabbit"
+}

@@ -1,0 +1,99 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all cat heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Cat Lady",
+      "color": "white"
+    },
+    "icon": {
+      "item": "salmon",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "cat_allblack": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_black": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_british_shorthair": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_calico": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_jellie": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_persian": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_ragdoll": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_red": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_siamese": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_tabby": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_white": {
+      "trigger": "minecraft:impossible"
+    },
+    "ocelot": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "cat_allblack"
+    ],
+    [
+      "cat_black"
+    ],
+    [
+      "cat_british_shorthair"
+    ],
+    [
+      "cat_calico"
+    ],
+    [
+      "cat_jellie"
+    ],
+    [
+      "cat_persian"
+    ],
+    [
+      "cat_ragdoll"
+    ],
+    [
+      "cat_red"
+    ],
+    [
+      "cat_siamese"
+    ],
+    [
+      "cat_tabby"
+    ],
+    [
+      "cat_white"
+    ],
+    [
+      "ocelot"
+    ]
+  ],
+  "filename": 16,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

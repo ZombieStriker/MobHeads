@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MobHeads" target="8" />
+      <module name="MobHeads" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

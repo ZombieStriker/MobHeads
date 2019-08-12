@@ -1,0 +1,34 @@
+{
+  "display": {
+    "description": {
+      "text": "Kill an behead an illusioner",
+      "color": "white"
+    },
+    "title": {
+      "text": "Illusioner",
+      "color": "white"
+    },
+    "icon": {
+      "item": "bow",
+      "tag": 0
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "criteria": {
+    "illusioner": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "illusioner"
+    ]
+  ],
+  "filename": 22,
+  "parent-count": 16,
+  "parent-type": "child",
+  "parent": "mobheads:woodland_mansion"
+}

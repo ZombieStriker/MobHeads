@@ -1,0 +1,74 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all horse heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Legend Cowboy",
+      "color": "white"
+    },
+    "icon": {
+      "item": "saddle",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "skeleton_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "dark_brown_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "creamy_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "chestnut_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_horse": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "skeleton_horse"
+    ],
+    [
+      "white_horse"
+    ],
+    [
+      "gray_horse"
+    ],
+    [
+      "dark_brown_horse"
+    ],
+    [
+      "creamy_horse"
+    ],
+    [
+      "chestnut_horse"
+    ],
+    [
+      "brown_horse"
+    ],
+    [
+      "black_horse"
+    ]
+  ],
+  "filename": 12,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

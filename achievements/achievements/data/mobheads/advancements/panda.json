@@ -1,0 +1,68 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all panda heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Black, White, and Head all over",
+      "color": "white"
+    },
+    "icon": {
+      "item": "bamboo",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "panda_agressive": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_brown": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_lazy": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_normal": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_playful": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_weak": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_worried": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "panda_agressive"
+    ],
+    [
+      "panda_brown"
+    ],
+    [
+      "panda_lazy"
+    ],
+    [
+      "panda_normal"
+    ],
+    [
+      "panda_playful"
+    ],
+    [
+      "panda_weak"
+    ],
+    [
+      "panda_worried"
+    ]
+  ],
+  "filename": 9,
+  "parent-count": 3,
+  "parent-type": "child",
+  "parent": "mobheads:firstmobhead"
+}

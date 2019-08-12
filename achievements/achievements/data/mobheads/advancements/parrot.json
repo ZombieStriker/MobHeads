@@ -1,0 +1,57 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all parrot heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Beak-a-boo",
+      "color": "white"
+    },
+    "icon": {
+      "item": "minecraft:beetroot_seeds",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "red_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "green_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "blue_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "cyan_parrot": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "red_parrot"
+    ],
+    [
+      "gray_parrot"
+    ],
+    [
+      "green_parrot"
+    ],
+    [
+      "blue_parrot"
+    ],
+    [
+      "cyan_parrot"
+    ]
+  ],
+  "filename": 14,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

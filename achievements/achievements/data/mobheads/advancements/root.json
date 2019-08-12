@@ -1,0 +1,31 @@
+{
+  "display": {
+    "description": {
+      "text": "Gotta behead 'm all",
+      "color": "white"
+    },
+    "title": {
+      "text": "Mob Heads",
+      "color": "white"
+    },
+    "icon": {
+      "item": "parrot_spawn_egg",
+      "tag": 0
+    },
+    "background": "minecraft:textures/block/oak_log.png",
+    "announce_to_chat": false,
+    "show_toast": false
+  },
+  "criteria": {
+    "instant": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "instant"
+    ]
+  ]
+}

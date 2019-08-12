@@ -1,0 +1,87 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all water creatures heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Legendary Poseidon",
+      "color": "white"
+    },
+    "icon": {
+      "item": "trident",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "cod": {
+      "trigger": "minecraft:impossible"
+    },
+    "dolphin": {
+      "trigger": "minecraft:impossible"
+    },
+    "drowned": {
+      "trigger": "minecraft:impossible"
+    },
+    "elder_guardian": {
+      "trigger": "minecraft:impossible"
+    },
+    "guardian": {
+      "trigger": "minecraft:impossible"
+    },
+    "pufferfish": {
+      "trigger": "minecraft:impossible"
+    },
+    "salmon": {
+      "trigger": "minecraft:impossible"
+    },
+    "squid": {
+      "trigger": "minecraft:impossible"
+    },
+    "tropical_fish": {
+      "trigger": "minecraft:impossible"
+    },
+    "turtle": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "cod"
+    ],
+    [
+      "dolphin"
+    ],
+    [
+      "drowned"
+    ],
+    [
+      "elder_guardian"
+    ],
+    [
+      "guardian"
+    ],
+    [
+      "pufferfish"
+    ],
+    [
+      "salmon"
+    ],
+    [
+      "squid"
+    ],
+    [
+      "tropical_fish"
+    ],
+    [
+      "turtle"
+    ]
+  ],
+  "filename": 21,
+  "parent-count": 3,
+  "parent-type": "child",
+  "parent": "mobheads:ocean_monument"
+}

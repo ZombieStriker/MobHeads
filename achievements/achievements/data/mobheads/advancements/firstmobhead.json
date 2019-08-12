@@ -1,0 +1,32 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain a mob head",
+      "color": "white"
+    },
+    "title": {
+      "text": "First mob head!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "creeper_head",
+      "tag": 0
+    }
+  },
+  "criteria": {
+    "first_mob_head": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "first_mob_head"
+    ]
+  ],
+  "parent": "mobheads:root",
+  "filename": 3,
+  "parent-count": 1,
+  "parent-type": "child"
+}

@@ -1,0 +1,33 @@
+{
+  "display": {
+    "description": {
+      "text": "Kill and behead a zombie horse",
+      "color": "white"
+    },
+    "title": {
+      "text": "Zombie Horse",
+      "color": "white"
+    },
+    "icon": {
+      "item": "rotten_flesh",
+      "tag": 0
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "criteria": {
+    "zombie_horse": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "zombie_horse"
+    ]
+  ],
+  "filename": 21,
+  "parent-count": 12,
+  "parent-type": "child",
+  "parent": "mobheads:horse"
+}

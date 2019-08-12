@@ -1,0 +1,45 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all woodland mansion mob heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Woodland Mansion",
+      "color": "white"
+    },
+    "icon": {
+      "item": "totem_of_undying",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "vindicator": {
+      "trigger": "minecraft:impossible"
+    },
+    "vex": {
+      "trigger": "minecraft:impossible"
+    },
+    "evoker": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "vindicator"
+    ],
+    [
+      "vex"
+    ],
+    [
+      "evoker"
+    ]
+  ],
+  "filename": 16,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

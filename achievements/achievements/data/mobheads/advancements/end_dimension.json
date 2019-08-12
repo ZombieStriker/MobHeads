@@ -1,0 +1,50 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all end dimension mob heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "End dimension conquered!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "end_stone",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "enderman": {
+      "trigger": "minecraft:impossible"
+    },
+    "endermite": {
+      "trigger": "minecraft:impossible"
+    },
+    "ender_dragon": {
+      "trigger": "minecraft:impossible"
+    },
+    "shulker": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "enderman"
+    ],
+    [
+      "endermite"
+    ],
+    [
+      "ender_dragon"
+    ],
+    [
+      "shulker"
+    ]
+  ],
+  "filename": 9,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

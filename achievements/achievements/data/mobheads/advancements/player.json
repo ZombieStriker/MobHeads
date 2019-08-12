@@ -1,0 +1,32 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain a player head",
+      "color": "white"
+    },
+    "title": {
+      "text": "First player head!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "player_head",
+      "tag": 0
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "first_player_head": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "first_player_head"
+    ]
+  ],
+  "parent": "mobheads:root",
+  "filename": 4,
+  "parent-count": 1,
+  "parent-type": "parent"
+}

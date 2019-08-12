@@ -1,0 +1,767 @@
+{
+  "display": {
+    "description": {
+      "text": "Collect every single [naturally spawning] mob head in the game",
+      "color": "white"
+    },
+    "title": {
+      "text": "thelegend27",
+      "color": "white"
+    },
+    "icon": {
+      "item": "dragon_head",
+      "tag": 0
+    }
+  },
+  "criteria": {
+    "bat": {
+      "trigger": "minecraft:impossible"
+    },
+    "blaze": {
+      "trigger": "minecraft:impossible"
+    },
+    "cave_spider": {
+      "trigger": "minecraft:impossible"
+    },
+    "chicken": {
+      "trigger": "minecraft:impossible"
+    },
+    "cod": {
+      "trigger": "minecraft:impossible"
+    },
+    "cow": {
+      "trigger": "minecraft:impossible"
+    },
+    "charged_creeper": {
+      "trigger": "minecraft:impossible"
+    },
+    "dolphin": {
+      "trigger": "minecraft:impossible"
+    },
+    "donkey": {
+      "trigger": "minecraft:impossible"
+    },
+    "drowned": {
+      "trigger": "minecraft:impossible"
+    },
+    "elder_guardian": {
+      "trigger": "minecraft:impossible"
+    },
+    "enderman": {
+      "trigger": "minecraft:impossible"
+    },
+    "endermite": {
+      "trigger": "minecraft:impossible"
+    },
+    "evoker": {
+      "trigger": "minecraft:impossible"
+    },
+    "ghast": {
+      "trigger": "minecraft:impossible"
+    },
+    "guardian": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "chestnut_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "creamy_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "dark_brown_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "skeleton_horse": {
+      "trigger": "minecraft:impossible"
+    },
+    "husk": {
+      "trigger": "minecraft:impossible"
+    },
+    "iron_golem": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_llama": {
+      "trigger": "minecraft:impossible"
+    },
+    "creamy_llama": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_llama": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_llama": {
+      "trigger": "minecraft:impossible"
+    },
+    "magma_cube": {
+      "trigger": "minecraft:impossible"
+    },
+    "mooshroom": {
+      "trigger": "minecraft:impossible"
+    },
+    "mule": {
+      "trigger": "minecraft:impossible"
+    },
+    "ocelot": {
+      "trigger": "minecraft:impossible"
+    },
+    "blue_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "cyan_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "green_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "red_parrot": {
+      "trigger": "minecraft:impossible"
+    },
+    "phantom": {
+      "trigger": "minecraft:impossible"
+    },
+    "pig": {
+      "trigger": "minecraft:impossible"
+    },
+    "polar_bear": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_and_white_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "gold_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "salt_and_pepper_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "toast_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "blue_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "cyan_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "gray_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "green_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "light_blue_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "lime_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "magenta_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "orange_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "pink_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "purple_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "rainbow_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "red_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "light_gray_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "yellow_sheep": {
+      "trigger": "minecraft:impossible"
+    },
+    "shulker": {
+      "trigger": "minecraft:impossible"
+    },
+    "silverfish": {
+      "trigger": "minecraft:impossible"
+    },
+    "slime": {
+      "trigger": "minecraft:impossible"
+    },
+    "snow_golem": {
+      "trigger": "minecraft:impossible"
+    },
+    "spider": {
+      "trigger": "minecraft:impossible"
+    },
+    "squid": {
+      "trigger": "minecraft:impossible"
+    },
+    "stray": {
+      "trigger": "minecraft:impossible"
+    },
+    "tropical_fish": {
+      "trigger": "minecraft:impossible"
+    },
+    "turtle": {
+      "trigger": "minecraft:impossible"
+    },
+    "vex": {
+      "trigger": "minecraft:impossible"
+    },
+    "villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "vindicator": {
+      "trigger": "minecraft:impossible"
+    },
+    "witch": {
+      "trigger": "minecraft:impossible"
+    },
+    "wild_wolf": {
+      "trigger": "minecraft:impossible"
+    },
+    "tamed_wolf": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_pigman": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_butcher_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_cleric_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_farmer_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_librarian_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_nitwit_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie_smith_villager": {
+      "trigger": "minecraft:impossible"
+    },
+    "zombie": {
+      "trigger": "minecraft:impossible"
+    },
+    "skeleton": {
+      "trigger": "minecraft:impossible"
+    },
+    "creeper": {
+      "trigger": "minecraft:impossible"
+    },
+    "ender_dragon": {
+      "trigger": "minecraft:impossible"
+    },
+    "wither_1": {
+      "trigger": "minecraft:impossible"
+    },
+    "wither_2": {
+      "trigger": "minecraft:impossible"
+    },
+    "invulnerable_wither_1": {
+      "trigger": "minecraft:impossible"
+    },
+    "invulnerable_wither_2": {
+      "trigger": "minecraft:impossible"
+    },
+    "fish": {
+      "trigger": "minecraft:impossible"
+    },
+    "clownfish": {
+      "trigger": "minecraft:impossible"
+    },
+    "salmon": {
+      "trigger": "minecraft:impossible"
+    },
+    "pufferfish": {
+      "trigger": "minecraft:impossible"
+    },
+    "wandering_trader": {
+      "trigger": "minecraft:impossible"
+    },
+    "pillager": {
+      "trigger": "minecraft:impossible"
+    },
+    "mooshroom_brown": {
+      "trigger": "minecraft:impossible"
+    },
+    "ravager": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_agressive": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_brown": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_lazy": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_normal": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_playful": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_weak": {
+      "trigger": "minecraft:impossible"
+    },
+    "panda_worried": {
+      "trigger": "minecraft:impossible"
+    },
+    "fox": {
+      "trigger": "minecraft:impossible"
+    },
+    "fox_snow": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_allblack": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_black": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_british_shorthair": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_calico": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_jellie": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_persian": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_ragdoll": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_red": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_siamese": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_tabby": {
+      "trigger": "minecraft:impossible"
+    },
+    "cat_white": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+  },
+  "requirements": [
+    [
+      "bat"
+    ],
+    [
+      "blaze"
+    ],
+    [
+      "cave_spider"
+    ],
+    [
+      "chicken"
+    ],
+    [
+      "cod"
+    ],
+    [
+      "cow"
+    ],
+    [
+      "charged_creeper"
+    ],
+    [
+      "dolphin"
+    ],
+    [
+      "donkey"
+    ],
+    [
+      "drowned"
+    ],
+    [
+      "elder_guardian"
+    ],
+    [
+      "enderman"
+    ],
+    [
+      "endermite"
+    ],
+    [
+      "evoker"
+    ],
+    [
+      "ghast"
+    ],
+    [
+      "guardian"
+    ],
+    [
+      "black_horse"
+    ],
+    [
+      "brown_horse"
+    ],
+    [
+      "chestnut_horse"
+    ],
+    [
+      "creamy_horse"
+    ],
+    [
+      "dark_brown_horse"
+    ],
+    [
+      "gray_horse"
+    ],
+    [
+      "white_horse"
+    ],
+    [
+      "skeleton_horse"
+    ],
+    [
+      "husk"
+    ],
+    [
+      "iron_golem"
+    ],
+    [
+      "brown_llama"
+    ],
+    [
+      "creamy_llama"
+    ],
+    [
+      "gray_llama"
+    ],
+    [
+      "white_llama"
+    ],
+    [
+      "magma_cube"
+    ],
+    [
+      "mooshroom"
+    ],
+    [
+      "mule"
+    ],
+    [
+      "ocelot"
+    ],
+    [
+      "blue_parrot"
+    ],
+    [
+      "cyan_parrot"
+    ],
+    [
+      "gray_parrot"
+    ],
+    [
+      "green_parrot"
+    ],
+    [
+      "red_parrot"
+    ],
+    [
+      "phantom"
+    ],
+    [
+      "pig"
+    ],
+    [
+      "polar_bear"
+    ],
+    [
+      "black_rabbit"
+    ],
+    [
+      "black_and_white_rabbit"
+    ],
+    [
+      "brown_rabbit"
+    ],
+    [
+      "gold_rabbit"
+    ],
+    [
+      "salt_and_pepper_rabbit"
+    ],
+    [
+      "toast_rabbit"
+    ],
+    [
+      "white_rabbit"
+    ],
+    [
+      "black_sheep"
+    ],
+    [
+      "blue_sheep"
+    ],
+    [
+      "brown_sheep"
+    ],
+    [
+      "cyan_sheep"
+    ],
+    [
+      "gray_sheep"
+    ],
+    [
+      "green_sheep"
+    ],
+    [
+      "light_blue_sheep"
+    ],
+    [
+      "lime_sheep"
+    ],
+    [
+      "magenta_sheep"
+    ],
+    [
+      "orange_sheep"
+    ],
+    [
+      "pink_sheep"
+    ],
+    [
+      "purple_sheep"
+    ],
+    [
+      "rainbow_sheep"
+    ],
+    [
+      "red_sheep"
+    ],
+    [
+      "light_gray_sheep"
+    ],
+    [
+      "white_sheep"
+    ],
+    [
+      "yellow_sheep"
+    ],
+    [
+      "shulker"
+    ],
+    [
+      "silverfish"
+    ],
+    [
+      "slime"
+    ],
+    [
+      "snow_golem"
+    ],
+    [
+      "spider"
+    ],
+    [
+      "squid"
+    ],
+    [
+      "stray"
+    ],
+    [
+      "tropical_fish"
+    ],
+    [
+      "turtle"
+    ],
+    [
+      "vex"
+    ],
+    [
+      "villager"
+    ],
+    [
+      "vindicator"
+    ],
+    [
+      "witch"
+    ],
+    [
+      "wild_wolf"
+    ],
+    [
+      "tamed_wolf"
+    ],
+    [
+      "zombie_pigman"
+    ],
+    [
+      "zombie_butcher_villager"
+    ],
+    [
+      "zombie_cleric_villager"
+    ],
+    [
+      "zombie_farmer_villager"
+    ],
+    [
+      "zombie_librarian_villager"
+    ],
+    [
+      "zombie_nitwit_villager"
+    ],
+    [
+      "zombie_smith_villager"
+    ],
+    [
+      "zombie"
+    ],
+    [
+      "skeleton"
+    ],
+    [
+      "creeper"
+    ],
+    [
+      "ender_dragon"
+    ],
+    [
+      "wither_1"
+    ],
+    [
+      "wither_2"
+    ],
+    [
+      "invulnerable_wither_1"
+    ],
+    [
+      "invulnerable_wither_2"
+    ],
+    [
+      "fish"
+    ],
+    [
+      "clownfish"
+    ],
+    [
+      "salmon"
+    ],
+    [
+      "pufferfish"
+    ],
+    [
+      "wandering_trader"
+    ],
+    [
+      "pillager"
+    ],
+    [
+      "mooshroom_brown"
+    ],
+    [
+      "ravager"
+    ],
+    [
+      "panda_agressive"
+    ],
+    [
+      "panda_brown"
+    ],
+    [
+      "panda_lazy"
+    ],
+    [
+      "panda_normal"
+    ],
+    [
+      "panda_playful"
+    ],
+    [
+      "panda_weak"
+    ],
+    [
+      "panda_worried"
+    ],
+    [
+      "fox"
+    ],
+    [
+      "fox_snow"
+    ],
+    [
+      "cat_allblack"
+    ],
+    [
+      "cat_black"
+    ],
+    [
+      "cat_british_shorthair"
+    ],
+    [
+      "cat_calico"
+    ],
+    [
+      "cat_jellie"
+    ],
+    [
+      "cat_persian"
+    ],
+    [
+      "cat_ragdoll"
+    ],
+    [
+      "cat_red"
+    ],
+    [
+      "cat_siamese"
+    ],
+    [
+      "cat_tabby"
+    ],
+    [
+      "cat_white"
+    ]
+  ],
+  "parent": "mobheads:root"
+}

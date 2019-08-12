@@ -1,0 +1,38 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all ocean monument mob heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Ocean monument",
+      "color": "white"
+    },
+    "icon": {
+      "item": "prismarine",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "guardian": {
+      "trigger": "minecraft:impossible"
+    },
+    "elder_guardian": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "guardian"
+    ],
+    [
+      "elder_guardian"
+    ]
+  ],
+  "filename": 15,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

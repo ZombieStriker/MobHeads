@@ -8,6 +8,7 @@ import com.cyber.mobheads.Utilities.SkullFactory;
 import com.cyber.mobheads.listeners.EntityDeathListener;
 import com.cyber.mobheads.listeners.FishListener;
 import com.cyber.mobheads.listeners.SkullBreakListener;
+import com.sun.jdi.event.ExceptionEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -18,12 +19,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
+import java.io.*;
 import java.text.DecimalFormat;
-import java.text.Format;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
 
 public class Main
 		extends JavaPlugin {
@@ -73,6 +77,7 @@ public class Main
 			a(tabs, "give", args[0]);
 			a(tabs, "probability", args[0]);
 			a(tabs, "reload", args[0]);
+			a(tabs,"initachievements",args[0]);
 			return tabs;
 		} else if (args.length == 2) {
 			if (args[0].equalsIgnoreCase("probability")) {
@@ -93,11 +98,102 @@ public class Main
 		}
 		return null;
 	}
+	public void copyFile(String inputPrefix, String inputPath, String outputPath ) throws IOException {
+
+		InputStream inputStream = null;
+
+		OutputStream outputStream = null;
+		try {
+
+			inputStream = getClass().getResourceAsStream("/"+inputPrefix+"/"+inputPath);
+			outputStream = new FileOutputStream(outputPath+"/"+inputPath);
+
+			byte[] buf = new byte[1024];
+
+			int bytesRead;
+
+			while ((bytesRead = inputStream.read(buf)) > 0) {
+
+				outputStream.write(buf, 0, bytesRead);
+
+			}
+		}catch (Exception e5){
+			e5.printStackTrace();
+		} finally {
+			inputStream.close();
+			outputStream.close();
+		}
+	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (args.length >= 1) {
 			String message;
 			switch (args[0]) {
+				case "initachievements":
+					if (!sender.hasPermission("com.cyber.mobheads.initachievements")) {
+						message = ConfigController.getMessage("Messages.Error.No-permission");
+
+						if (!message.isEmpty()) {
+							sender.sendMessage(message);
+						}
+						return false;
+					}
+
+					File baseDirectory = getDataFolder().getParentFile().getParentFile();
+					File world = new File(baseDirectory,Bukkit.getWorlds().get(0).getName());
+					File datapacks = new File(world,"datapacks");
+					File mobHeads = new File(datapacks,"mobheads");
+
+
+
+					String achievementsDir = null;
+				try {
+					achievementsDir = getClass().getResource("").getPath();
+					achievementsDir = achievementsDir.substring(5,achievementsDir.indexOf("!")).replaceAll("%20"," ");
+
+					if(!mobHeads.exists())
+						mobHeads.mkdirs();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+					try{
+						final JarFile jar = new JarFile(achievementsDir);
+						final Enumeration<JarEntry> entries = jar.entries(); //gives ALL entries in jar
+						while(((Enumeration) entries).hasMoreElements()) {
+							final String name = entries.nextElement().getName();
+
+							if (name.startsWith("achievements")) { //filter according to the path
+								String relavtivePath = name.substring("achievements".length()+1);
+								String fileName = name.substring(name.lastIndexOf('/')+1);
+
+								if(name.contains("."))//has extension
+								{
+									copyFile("achievements",relavtivePath, mobHeads.getPath());
+								}else{
+									new File(mobHeads.getPath(),relavtivePath).mkdirs();
+								}
+							}
+						}
+						jar.close();
+
+						//copyContentsTo(achievementsDir,mobHeads);
+
+
+					}catch (Error|Exception e4){
+						message = ConfigController.getMessage("Messages.Error.Fail");
+						if (!message.isEmpty()) {
+							sender.sendMessage(message);
+						}
+						e4.printStackTrace();
+						return true;
+					}
+					message = ConfigController.getMessage("Messages.Success.Head-achievements");
+					if (!message.isEmpty()) {
+						sender.sendMessage(message);
+					}
+
+					return true;
 				case "probability":
 
 					if (!sender.hasPermission("com.cyber.mobheads.probability")) {
@@ -122,19 +218,7 @@ public class Main
 
 						MobMeta mobmeta = ConfigController.getSpecificConfigMobMeta(args[1]);
 
-						if (skullList == null && mobmeta == null) {/*
-					               if (MinecraftAccountValidator.isValidPlayer(args[1])) {
-
-							                 String targetPlayer = Bukkit.getOfflinePlayer(args[1]).getName();
-							                  message = ConfigController.getMessage("Messages.Success.Head-given-sender");
-							                 if (!message.isEmpty()) {
-								                   sender.sendMessage(message.replace("[name-of-head]", targetPlayer).replace("[receiver]", player.getName()));
-								                 }
-							                // givePlayerSkull(player, targetPlayer);
-							                 return true;
-							               }*/
-
-
+						if (skullList == null && mobmeta == null) {
 							showAllSupportedMobs(sender);
 							return false;
 						}
@@ -167,7 +251,9 @@ public class Main
 						if (!message.isEmpty()) {
 							int chance = (int) ((1.0 - Math.pow(1.0 - mobmeta.getDropChance(), 100)) * 100);
 							if (chance > 100) chance = 100;
-							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getDisplayName()).replace("[probability]", chance + ""));
+							int chanceB = (int) ((1.0 - Math.pow(1.0 - (mobmeta.getDropChance()+(mobmeta.getDropBonus()*3)), 100)) * 100);
+							if (chanceB > 100) chanceB = 100;
+							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getDisplayName()).replace("[probability]", chance + "").replace("[bonusprobability]",""+chanceB));
 						}
 						if(mobmeta.isChargedCreeperDrop()) {
 							message = ConfigController.getMessage("Messages.Success.Head-probability-charged-sender");
@@ -175,9 +261,6 @@ public class Main
 								sender.sendMessage(message);
 							}
 						}
-
-
-						// giveMobSkull(player, mobmeta);
 					}
 					return true;
 
@@ -311,7 +394,7 @@ public class Main
 
 		if (player.getInventory().firstEmpty() != -1) {
 
-			player.getInventory().addItem(new ItemStack[]{skull});
+			player.getInventory().addItem(skull);
 			player.updateInventory();
 		} else {
 
@@ -333,7 +416,7 @@ public class Main
 
 		if (receiver.getInventory().firstEmpty() != -1) {
 
-			receiver.getInventory().addItem(new ItemStack[]{skull});
+			receiver.getInventory().addItem(skull);
 			receiver.updateInventory();
 		} else {
 
@@ -351,10 +434,10 @@ public class Main
 
 		for (int i = 0; i < mobList.size(); i++) {
 			if (i < mobList.size()) {
-				output = output + (String) mobList.get(i) + ", ";
+				output = output + mobList.get(i) + ", ";
 			} else {
 
-				output = output + "and " + (String) mobList.get(i);
+				output = output + "and " + mobList.get(i);
 			}
 		}
 		String message = ConfigController.getMessage("Messages.Commands-usage.Show-all-supported-heads");
@@ -363,9 +446,3 @@ public class Main
 		}
 	}
 }
-
-
-/* Location:              F:\Minecraft Servers\SpigotLobby\plugins\MobHeads 2.4.jar!\com\cyber\mobheads\Main.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.0.7
- */

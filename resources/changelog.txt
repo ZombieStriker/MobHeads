@@ -1,0 +1,18 @@
+v3.1
+    Fixed Sheep Mob Head
+    Added all cat heads!
+    Added achievements
+    Fixed Achievement hierarchy for watermobs.
+    Added Panda achievements
+    Added /mh initAchievements
+    Increase probability of heads dropping for all mobs. Instead of a MAX of 0.22% chance per head, you now have a 0.375% chance, coming close to the probability of default Wither skulls
+    Increased probability bonus for all heads from 0.04% to 0.075%. Looting now makes more of a difference, while being close to matching base minecraft's head drop rate
+    Fixed probability of bonus for Illusioners
+    Added DEFAULT probability and probability bonus so you don't have to manually change all the entries if you want to make heads rarer/more common
+    Fixed mob head drop achievements for Zombies, Skeletons, and Creepers, that would be able to drop their heads twice for charged creepers
+
+v3.0
+    init post
+    Converted plugin to 1.14.
+    Added Pillager, Ravager, Wandering Trader, Foxes, and Pandas
+    Added /mh probability

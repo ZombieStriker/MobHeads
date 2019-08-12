@@ -25,7 +25,9 @@ drop_player_heads_outside_inventory: false
 #Put this on true if you want players to be able to "farm" their own heads. For example when shooting yourself with arrows
 allow_self_player_head_farming: false
 
-#Set this to true to display the chance/percent for getting a head.
+#Sets the default looting chance/bonus chance for most default mobs. This makes it easier to tweak what the default value should be
+default_looting_chance: 0.15%
+default_looting_bonus: 0.075%
 
 
 
@@ -33,70 +35,76 @@ allow_self_player_head_farming: false
 #For certain commands there will be extra variables such as [player], these will be mentioned for each message.
 #Color formats are allowed! For a list of format codes, see: https://minecraft.gamepedia.com/Formatting_codes
 Messages:
-    Error:
-        #Shown when a player has no permission to a command
-        No-permission: "&3You do not have permission to use this command!"
-        
-        #Shown when a player tries to give a skull to a player, but the player does not exist. 
-        #[given-player-name] will be replaced with the given player name.
-        No-such-player: "&3Could not find player &b[given-player-name]"
-        
-        #Player was given a skull (by command), but their inventory is full, so the skull dropped at their feet.
-        Inventory-full: "&3Your inventory is full, the head is dropped on the ground!"
-        
-    Success:
-        #Shown when a player runs the "/mobheads reload" command
-        Reload: "&3The config file has been successfully reloaded!"
+  Error:
+    #Shown when a player has no permission to a command
+    No-permission: '&3You do not have permission to use this command!'
 
-        #Shown to the sender of the "/mobheads give" command
-        Head-given-sender: "&3Successfully gave &b[name-of-head] &3to &b[receiver]!"
+    #Shown when a player tries to give a skull to a player, but the player does not exist.
+    #[given-player-name] will be replaced with the given player name.
+    No-such-player: "&3Could not find player &b[given-player-name]"
 
-        #Shown to the sender of the "/mobheads probability" command
-        Head-probability-sender: "&3The probability of getting &b[name-of-head]&3 is &b[probability]%&3 (&b+[probabilitylooting]%&3 with looting)!"
+    #Player was given a skull (by command), but their inventory is full, so the skull dropped at their feet.
+    Inventory-full: "&3Your inventory is full, the head is dropped on the ground!"
 
-        #Shown to the sender of the "/mobheads probability" command
-        Head-probability-charged-sender: "&bThis mob will drop their head if killed by a charged creeper!"
+    #Something Failed
+    Fail: "&3Something has failed!"
 
-        #Shown to the sender of the "/mobheads probability" command
-        Head-probability-chance-sender: "&3The probability after killing 100 of them is &b[probability]%&3."
-        
-        #Player was given a skull and it was added to their inventory. 
-        #[mobname] will be replaced by the name of the mobhead.
-        Mob-head-given-receiver: "&3You have been given a &b[mobname]&3!"
-        
-        #Player was given a skull and it was added to their inventory. 
-        #[mobname] will be replaced by the name of the mobhead.
-        Player-head-given-receiver: "&3You have been given &b[playername]&3's player head!"
-        
-        #When a player gets a mob head and the broadcastMessage option is enable for this mobtype, the following message is broadcastMessageed to the whole server. 
-        #[playername] will be replaced with the corresponding player. 
-        #[mobnames will be replaced with the corresponding mobname.
-        #NOTE, if you added a color to the displayName of a head, it will also show that color in the broadcast.
-        Broadcast-message-mob: "&b[playername] &3just looted a &b[mobname]!"
-        
-        #When a player kills another player and obtains their head, the following message will be broadcastMessageed.
-        #[killer] will be replaced with the name of the killer.
-        #[victim] will be replaced with the name of the victim.
-        Broadcast-message-player: "&b[killer] &3has beheaded &b[victim]"
-        
-    Commands-usage:
-        #Shown when a player incorrectly use the "/mobshead give" command
-        Give: "&3Usage: &b/mobheads give <playername> <mobname>"
+  Success:
+    #Shown when a player runs the "/mobheads reload" command
+    Reload: "&3The config file has been successfully reloaded!"
 
-        #Shown when a player incorrectly use the "/mobshead give" command
-        Probability: "&3Usage: &b/mobheads probability <mobname>"
-        
-        #Shown together with the give command when a player types "/mobaheads help"
-        Reload: "&3Usage: &b/mobheads reload"
-        
-        #Shown when a player typed in an invalid head to give with the "/mobheads give" command. 
-        #[list-of-all-mobs] will be replaced with a list of all supported mob heads.
-        Show-all-supported-heads: "&3The following mobs are supported: &b[list-of-all-mobs]"
-        
-        #When a player tries to give a skull to a player which has multiple sub skulls. The following message will be shown.
-        #[input] will be replaced with the skull name that was used in the command.
-        #[skull-list] will be replaced with a list of possible sub skulls.
-        Show-sub-skulls: "&3There are multiple variants for the &b[input] &3skull. Try to use one of the following sub skulls: &b[skull-list]"
+    #Shown to the sender of the "/mobheads give" command
+    Head-given-sender: "&3Successfully gave &b[name-of-head] &3to &b[receiver]!"
+
+    Head-achievements: "&3Successfully initialized datapack to the datapack folder! Reload server to apply the advancements. When a new update of MobHeads is released, make sure to run the command again to update the advancements."
+
+
+    #Shown to the sender of the "/mobheads probability" command
+    Head-probability-sender: "&3The probability of getting &b[name-of-head]&3 is &b[probability]%&3 (&b+[probabilitylooting]%&3 per looting level)!"
+
+    #Shown to the sender of the "/mobheads probability" command
+    Head-probability-charged-sender: "&bThis mob will drop their head if killed by a charged creeper!"
+
+    #Shown to the sender of the "/mobheads probability" command
+    Head-probability-chance-sender: "&3The probability after killing 100 of them is &b[probability]%&3 (or &b[bonusprobability]%&3 with Looting[III])."
+
+    #Player was given a skull and it was added to their inventory.
+    #[mobname] will be replaced by the name of the mobhead.
+    Mob-head-given-receiver: "&3You have been given a &b[mobname]&3!"
+
+    #Player was given a skull and it was added to their inventory.
+    #[mobname] will be replaced by the name of the mobhead.
+    Player-head-given-receiver: "&3You have been given &b[playername]&3's player head!"
+
+    #When a player gets a mob head and the broadcastMessage option is enable for this mobtype, the following message is broadcastMessageed to the whole server.
+    #[playername] will be replaced with the corresponding player.
+    #[mobnames will be replaced with the corresponding mobname.
+    #NOTE, if you added a color to the displayName of a head, it will also show that color in the broadcast.
+    Broadcast-message-mob: "&b[playername] &3just looted a &b[mobname]!"
+
+    #When a player kills another player and obtains their head, the following message will be broadcastMessageed.
+    #[killer] will be replaced with the name of the killer.
+    #[victim] will be replaced with the name of the victim.
+    Broadcast-message-player: "&b[killer] &3has beheaded &b[victim]"
+
+  Commands-usage:
+    #Shown when a player incorrectly use the "/mobshead give" command
+    Give: "&3Usage: &b/mobheads give <playername> <mobname>"
+
+    #Shown when a player incorrectly use the "/mobshead give" command
+    Probability: "&3Usage: &b/mobheads probability <mobname>"
+
+    #Shown together with the give command when a player types "/mobaheads help"
+    Reload: "&3Usage: &b/mobheads reload"
+
+    #Shown when a player typed in an invalid head to give with the "/mobheads give" command.
+    #[list-of-all-mobs] will be replaced with a list of all supported mob heads.
+    Show-all-supported-heads: "&3The following mobs are supported: &b[list-of-all-mobs]"
+
+    #When a player tries to give a skull to a player which has multiple sub skulls. The following message will be shown.
+    #[input] will be replaced with the skull name that was used in the command.
+    #[skull-list] will be replaced with a list of possible sub skulls.
+    Show-sub-skulls: "&3There are multiple variants for the &b[input] &3skull. Try to use one of the following sub skulls: &b[skull-list]"
 
 
 #List of all mobs that are supported in this plugin.
@@ -104,1446 +112,1599 @@ Messages:
 #lootingBonus = the added drop bonus when the mob was killed by a sword with looting. This value is multiplied by the level of looting and added to the dropChance.
 #broadcastMessage = when a player kills a mob and it drops their head, it will broadcastMessage a message to the server. You might want to disable the broadcastMessage option for mobs that are easily farmable, such as an enderman farm.
 ListOfMobs:
-    Bat:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        broadcastMessage: true
-        dropOnChargedCreeperDeath: true
-        displayName: "Bat Head"
-        random_uuid: e4c5dfef-bbcc-4012-9f74-879d28fff431
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNmMWIzYjNmNTM5ZDJmNjNjMTcyZTk0Y2FjZmFhMzkxZThiMzg1Y2RkNjMzZjNiOTkxYzc0ZTQ0YjI4In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 bat"
-    Blaze:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Blaze Head"
-        random_uuid: e4d745ba-8ad2-4059-b047-0f1fe48f2425
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjc4ZWYyZTRjZjJjNDFhMmQxNGJmZGU5Y2FmZjEwMjE5ZjViMWJmNWIzNWE0OWViNTFjNjQ2Nzg4MmNiNWYwIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 blaze"
-            - "mobheads:nether_dimension blaze"
-    Black_Cat:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Black Cat Head"
-        random_uuid: 30696a4b-b87b-4446-a821-5bc127ba4993
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJhNjYyZjJhZTdkZWJlZTY1MjkyYzJiZjQyZmJiMDliOTdiMmZmYmRiMjcwNTIwYzJkYjk2ZTUxZDg5NDUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 black_cat"
-            - "mobheads:cat black_cat"
-    Ginger_Cat:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Ginger Cat Head"
-        random_uuid: ae801ca9-fcf0-4f21-b4dd-1281b868e796
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTc1NWU3ZGYwNGQxOGIzMWQ2M2MxN2Y0YTdiNGM3MzkyNGJkNjI2NWRhNjllMTEzZWRkZDk3NTE2ZmM3In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 ginger_cat"
-            - "mobheads:cat ginger_cat"
-    Siamese_Cat:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Siamese Cat Head"
-        random_uuid: 2030a11c-21ae-49f0-acd2-49552fa99d73
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWI4ODFjMzliM2FmZGNjNzlmOTFmZTVkZTNjZGQwMTViYzMzNTM4NDNmNTkxZjRkMjNjZDMwMjdkZTRlNiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 siamese_cat"
-            - "mobheads:cat siamese_cat"
-    Cave_Spider:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Cave Spider Head"
-        random_uuid: b0b18a7e-49af-452e-afae-56554ac259d1
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2NDVkZmQ3N2QwOTkyMzEwN2IzNDk2ZTk0ZWViNWMzMDMyOWY5N2VmYzk2ZWQ3NmUyMjZlOTgyMjQifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cave_spider"
-    Chicken:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Chicken Head"
-        random_uuid: 0d579158-bfd4-4845-beb3-7b5eb056987f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzODQ2OWE1OTljZWVmNzIwNzUzNzYwMzI0OGE5YWIxMWZmNTkxZmQzNzhiZWE0NzM1YjM0NmE3ZmFlODkzIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 chicken"
-    Cod:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Cod Head"
-        random_uuid: 512d6218-cdf1-476c-9507-c9ea98574623
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg5MmQ3ZGQ2YWFkZjM1Zjg2ZGEyN2ZiNjNkYTRlZGRhMjExZGY5NmQyODI5ZjY5MTQ2MmE0ZmIxY2FiMCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cod"
-            - "mobheads:fish cod"
-            - "mobheads:watermobs cod"
-    Cow:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Cow Head"
-        random_uuid: b32d23be-aeca-4f40-a813-a13fbbec4372
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWQ2YzZlZGE5NDJmN2Y1ZjcxYzMxNjFjNzMwNmY0YWVkMzA3ZDgyODk1ZjlkMmIwN2FiNDUyNTcxOGVkYzUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cow"
-    Charged_Creeper:
-        dropChance: 1%
-        lootingBonus: 0.5%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Charged Creeper Head"
-        random_uuid: 46f5c80a-e615-4f1f-ac8c-e02d7c67d710
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJjZWIzOWRkNGRlMjRhN2FkZmUyOTFhM2EwY2ZjN2NmNGY2NDVkZTU5YjYwM2ZjZmUwNmM2YjVhMDZlMjYifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 charged_creeper"
-    Dolphin:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Dolphin Head"
-        random_uuid: daef31b6-89af-4f69-948e-6120e17d2fc9
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU5Njg4Yjk1MGQ4ODBiNTViN2FhMmNmY2Q3NmU1YTBmYTk0YWFjNmQxNmY3OGU4MzNmNzQ0M2VhMjlmZWQzIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 dolphin"
-            - "mobheads:watermobs dolphin"
-    Donkey:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Donkey Head"
-        random_uuid: aab32140-51d3-4b1f-80e3-6d0963a8e65c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiNmMzYzA1MmNmNzg3ZDIzNmEyOTE1ZjgwNzJiNzdjNTQ3NDk3NzE1ZDFkMmY4Y2JjOWQyNDFkODhhIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 donkey"
-    Drowned:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Drowned Head"
-        random_uuid: 17bbc41e-be73-468b-854a-670f7a6972fc
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzNmN2NjZjYxZGJjM2Y5ZmU5YTYzMzNjZGUwYzBlMTQzOTllYjJlZWE3MWQzNGNmMjIzYjNhY2UyMjA1MSJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 drowned"
-            - "mobheads:watermobs drowned"
-    Elder_Guardian:
-        dropChance: 1%
-        lootingBonus: 0.5%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Elder Guardian Head"
-        random_uuid: effa6786-a077-42f2-8775-2ead63c4ea4c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM3OTc0ODJhMTRiZmNiODc3MjU3Y2IyY2ZmMWI2ZTZhOGI4NDEzMzM2ZmZiNGMyOWE2MTM5Mjc4YjQzNmIifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 elder_guardian"
-            - "mobheads:ocean_monument elder_guardian"
-            - "mobheads:watermobs elder_guardian"
-    Enderman:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Enderman Head"
-        random_uuid: dedaf353-b99a-44a3-b654-2e7e099764ce
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E1OWJiMGE3YTMyOTY1YjNkOTBkOGVhZmE4OTlkMTgzNWY0MjQ1MDllYWRkNGU2YjcwOWFkYTUwYjljZiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 enderman"
-            - "mobheads:end_dimension enderman"
-            - "mobheads:nether_dimension enderman"
-    Endermite:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Endermite Head"
-        random_uuid: 6938b147-1eb7-441e-9056-8c4707b93ed4
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRhYWZmYTRjMDllMmVhZmI4NWQzNTIyMTIyZGIwYWE0NTg3NGJlYTRlM2Y1ZTc1NjZiNGQxNjZjN2RmOCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 endermite"
-            - "mobheads:end_dimension endermite"
-    Evoker:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Evoker Head"
-        random_uuid: 4acf06c3-e591-41b7-b895-115b3bc791b1
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQzMzMyMmUyY2NiZDljNTVlZjQxZDk2ZjM4ZGJjNjY2YzgwMzA0NWIyNDM5MWFjOTM5MWRjY2FkN2NkIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 evoker"
-            - "mobheads:woodland_mansion evoker"
-    Ghast:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Ghast Head"
-        random_uuid: e8c871a0-dbd4-4d75-9ff7-f1b2c0e8d27e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGI2YTcyMTM4ZDY5ZmJiZDJmZWEzZmEyNTFjYWJkODcxNTJlNGYxYzk3ZTVmOTg2YmY2ODU1NzFkYjNjYzAifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 ghast"
-            - "mobheads:nether_dimension ghast"
-    Guardian:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Guardian Head"
-        random_uuid: 1ba7f8ee-b511-48d1-a498-a8499d37b26f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiNjc1Y2I1YTdlM2ZkMjVlMjlkYTgyNThmMjRmYzAyMGIzZmE5NTAzNjJiOGJjOGViMjUyZTU2ZTc0In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 guardian"
-            - "mobheads:ocean_monument guardian"
-            - "mobheads:watermobs guardian"
-    Black_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Black Horse Head"
-        random_uuid: d7e5febe-38f8-45b3-b4c1-02293affa78f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRiN2ZjNWY3YTlkZGZkZDFhYTc5MzE3NDEwZmMxOTI5ZjkxYmRkZjk4NTg1OTM4YTJhNTYxOTlhNjMzY2MifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 black_horse"
-            - "mobheads:horse black_horse"
-    Brown_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Brown Horse Head"
-        random_uuid: a9870478-3026-49ab-b64b-da127754a798
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGE1ZmFiYmNiYzU0ODE5NzZmYjkzOGE1MTllYWQ1OWVlZWUyYTA3MWRmMjk3Mzg0YThmZTk2Nzg4YTlkZjVhNiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 brown_horse"
-            - "mobheads:horse brown_horse"
-    Chestnut_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Chestnut Horse Head"
-        random_uuid: deafd397-245c-4a90-8220-7280178632a4
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjY2YjJiMzJkMzE1MzljNzM4M2Q5MjNiYWU0ZmFhZjY1ZGE2NzE1Y2Q1MjZjMzVkMmU0ZTY4MjVkYTExZmIifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 chestnut_horse"
-            - "mobheads:horse chestnut_horse"
-    Creamy_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Creamy Horse Head"
-        random_uuid: 00025a2a-eff7-40a5-8489-d8a8f40d7989
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjI4ZDFhYjRiZTFlMjhiN2I0NjFmZGVhNDYzODFhYzM2M2E3ZTVjMzU5MWM5ZTVkMjY4M2ZiZTFlYzlmY2QzIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 creamy_horse"
-            - "mobheads:horse creamy_horse"
-    Dark_Brown_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Dark Brown Horse Head"
-        random_uuid: 8eed27c5-8d0d-4e56-b9a9-ec2a8b207e2c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDJlYjk2N2FiOTRmZGQ0MWE2MzI1ZjEyNzdkNmRjMDE5MjI2ZTVjZjM0OTc3ZWVlNjk1OTdmYWZjZjVlIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 dark_brown_horse"
-            - "mobheads:horse dark_brown_horse"
-    Gray_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Gray Horse Head"
-        random_uuid: beb5a0a0-0a96-4315-9fdc-4c5c59c97fce
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDEzODEzZGQ0NWVkMGVmODM4NDQ4Y2Y2ZjYzMWMxNTdjMjNmOTY1MGM1YWU0NTFlOTc4YTUzMzgzMzEyZmUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 gray_horse"
-            - "mobheads:horse gray_horse"
-    White_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "White Horse Head"
-        random_uuid: 7ade5a13-ec58-4341-9ff6-9501e44e33e3
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjBhMmRiMmYxZWI5M2U1OTc4ZDJkYzkxYTc0ZGY0M2Q3Yjc1ZDllYzBlNjk0ZmQ3ZjJhNjUyZmJkMTUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 white_horse"
-            - "mobheads:horse white_horse"
-    Skeleton_Horse:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Skeleton Horse Head"
-        random_uuid: c59c4764-93b0-457f-8706-31dcffd77ac2
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDdlZmZjZTM1MTMyYzg2ZmY3MmJjYWU3N2RmYmIxZDIyNTg3ZTk0ZGYzY2JjMjU3MGVkMTdjZjg5NzNhIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 skeleton_horse"
-            - "mobheads:horse skeleton_horse"
-    #Does not spawn naturally
-    Zombie_Horse:
-        dropChance: 100%
-        lootingBonus: 0%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Horse Head"
-        random_uuid: 1e43546c-8667-4305-be50-0ab0f8e4c3e0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDIyOTUwZjJkM2VmZGRiMThkZTg2ZjhmNTVhYzUxOGRjZTczZjEyYTZlMGY4NjM2ZDU1MWQ4ZWI0ODBjZWVjIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:zombiehorse zombie_horse"
-    Husk:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Husk Head"
-        random_uuid: da422aa3-9025-445f-ae0e-a6a8f4b24d1a
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzc3MDY4MWQxYTI1NWZiNGY3NTQ3OTNhYTA1NWIyMjA0NDFjZGFiOWUxMTQxZGZhNTIzN2I0OTkzMWQ5YjkxYyJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 husk"
-    #Does not spawn naturally
-    Illusioner:
-        dropChance: 100%
-        lootingBonus: 0%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Illusioner Head"
-        random_uuid: 3e6c1253-7016-4db2-ac31-2bc0f8c0657b
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM2NzhjOWY0YzZkZDRkOTkxOTMwZjgyZTZlN2Q4Yjg5YjI4OTFmMzVjYmE0OGE0YjE4NTM5YmJlN2VjOTI3In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:illusioner illusioner"
-    Iron_Golem:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Iron Golem Head"
-        random_uuid: d23f3607-25a0-4c22-860a-0e6fb9a16412
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODkwOTFkNzllYTBmNTllZjdlZjk0ZDdiYmE2ZTVmMTdmMmY3ZDQ1NzJjNDRmOTBmNzZjNDgxOWE3MTQifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 iron_golem"
-    Brown_Llama:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Brown Llama Head"
-        random_uuid: 9953b3aa-c25c-40ae-b9d4-216d61464cd0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzJiMWVjZmY3N2ZmZTNiNTAzYzMwYTU0OGViMjNhMWEwOGZhMjZmZDY3Y2RmZjM4OTg1NWQ3NDkyMTM2OCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 brown_llama"
-            - "mobheads:llama brown_llama"
-    Creamy_Llama:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Creamy Llama Head"
-        random_uuid: 4607d400-aaa1-47c6-9e22-fff78ddf50e0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ2N2ZkNGJmZjI5MzI2OWNiOTA4OTc0ZGNhODNjMzM0ODVlNDM1ZWQ1YThlMWRiZDY1MjFjNjE2ODcxNDAifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 creamy_llama"
-            - "mobheads:llama creamy_llama"
-    Gray_Llama:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Gray Llama Head"
-        random_uuid: 93f9568a-c230-482b-a26a-8e2a74fe7690
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2YyNGU1NmZkOWZmZDcxMzNkYTZkMWYzZTJmNDU1OTUyYjFkYTQ2MjY4NmY3NTNjNTk3ZWU4MjI5OWEifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 gray_llama"
-            - "mobheads:llama gray_llama"
-    White_Llama:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "White Llama Head"
-        random_uuid: 8b2c68f2-d666-445a-acb6-2477471a751c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODAyNzdlNmIzZDlmNzgxOWVmYzdkYTRiNDI3NDVmN2FiOWE2M2JhOGYzNmQ2Yjg0YTdhMjUwYzZkMWEzNThlYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 white_llama"
-            - "mobheads:llama white_llama"
-    Magma_Cube:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Magma Cube Head"
-        random_uuid: 128b47df-8c26-42fc-91b7-30a846caf40e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzg5NTdkNTAyM2M5MzdjNGM0MWFhMjQxMmQ0MzQxMGJkYTIzY2Y3OWE5ZjZhYjM2Yjc2ZmVmMmQ3YzQyOSJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 magma_cube"
-            - "mobheads:nether_dimension magma_cube"
-    Mooshroom:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Mooshroom Head"
-        random_uuid: 0fba3370-1842-40d3-b4a4-06636e068f8b
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDBiYzYxYjk3NTdhN2I4M2UwM2NkMjUwN2EyMTU3OTEzYzJjZjAxNmU3YzA5NmE0ZDZjZjFmZTFiOGRiIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 mooshroom"
-    Mule:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Mule Head"
-        random_uuid: 77ed2b1c-26cf-4006-b6b5-ba09e097e13e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTA0ODZhNzQyZTdkZGEwYmFlNjFjZTJmNTVmYTEzNTI3ZjFjM2IzMzRjNTdjMDM0YmI0Y2YxMzJmYjVmNWYifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 mule"
-    Ocelot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Ocelot Head"
-        random_uuid: 69ac5cf8-a3e1-49c3-92c7-af7767f1586b
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY1N2NkNWMyOTg5ZmY5NzU3MGZlYzRkZGNkYzY5MjZhNjhhMzM5MzI1MGMxYmUxZjBiMTE0YTFkYjEifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 ocelot"
-            - "mobheads:cat ocelot"
-    Blue_Parrot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Blue Parrot Head"
-        random_uuid: 3c35efae-bc44-4497-9175-5d7a3e03109c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWNhNTgwYjA1MWM2M2JlMjlkYTU0NWE5YWE3ZmY3ZTEzNmRmNzdhODFjNjdkYzFlZTllNjE3MGMxNGZiMzEwIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 blue_parrot"
-            - "mobheads:parrot blue_parrot"
-    Cyan_Parrot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Cyan Parrot Head"
-        random_uuid: 26e0a0f4-44fe-46f2-928e-238d2aeacfa2
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmI5NGYyMzZjNGE2NDJlYjJiY2RjMzU4OWI5YzNjNGEwYjViZDVkZjljZDVkNjhmMzdmOGM4M2Y4ZTNmMSJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cyan_parrot"
-            - "mobheads:parrot cyan_parrot"
-    Gray_Parrot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Gray Parrot Head"
-        random_uuid: 78010bcf-d16f-4525-be61-28f4d4194304
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q2ZjRhMjFlMGQ2MmFmODI0Zjg3MDhhYzYzNDEwZjFhMDFiYmI0MWQ3ZjRhNzAyZDk0NjljNjExMzIyMiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 gray_parrot"
-            - "mobheads:parrot gray_parrot"
-    Green_Parrot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Green Parrot Head"
-        random_uuid: 9b7d7bcc-21d0-435c-9ccd-dc907008fcbc
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWI5YTM2YzU1ODlmM2EyZTU5YzFjYWE5YjNiODhmYWRhNzY3MzJiZGI0YTc5MjYzODhhOGMwODhiYmJjYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 green_parrot"
-            - "mobheads:parrot green_parrot"
-    Red_Parrot:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Red Parrot Head"
-        random_uuid: fb78b8ea-9c34-4a8c-8eeb-c11d0a3a6ae0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTRiYThkNjZmZWNiMTk5MmU5NGI4Njg3ZDZhYjRhNTMyMGFiNzU5NGFjMTk0YTI2MTVlZDRkZjgxOGVkYmMzIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 red_parrot"
-            - "mobheads:parrot red_parrot"
-    Phantom:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Phantom Head"
-        random_uuid: c7276ecb-caea-47c0-922a-50ff26209f0b
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ2ODMwZGE1ZjgzYTNhYWVkODM4YTk5MTU2YWQ3ODFhNzg5Y2ZjZjEzZTI1YmVlZjdmNTRhODZlNGZhNCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 phantom"
-    Pig:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Pig Head"
-        random_uuid: bffb9c02-b8d0-4358-bac2-4bf8591f1388
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIxNjY4ZWY3Y2I3OWRkOWMyMmNlM2QxZjNmNGNiNmUyNTU5ODkzYjZkZjRhNDY5NTE0ZTY2N2MxNmFhNCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 pig"
-    Polar_Bear:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Polar Bear Head"
-        random_uuid: 368419e7-0057-4dc4-862a-caa8d5154796
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDQ2ZDIzZjA0ODQ2MzY5ZmEyYTM3MDJjMTBmNzU5MTAxYWY3YmZlODQxOTk2NjQyOTUzM2NkODFhMTFkMmIifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 polar_bear"
-    Pufferfish:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Pufferfish Head"
-        random_uuid: f7e68f1e-3f55-4166-9e04-65d40663436c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxNTI4NzZiYzNhOTZkZDJhMjI5OTI0NWVkYjNiZWVmNjQ3YzhhNTZhYzg4NTNhNjg3YzNlN2I1ZDhiYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 pufferfish"
-            - "mobheads:fish pufferfish"
-            - "mobheads:watermobs pufferfish"
-    Black_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Black Rabbit Head"
-        random_uuid: 198fd44f-37be-479b-bdbd-d6b74e20ec69
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJjNTgxMTZhMTQ3ZDFhOWEyNjI2OTIyNGE4YmUxODRmZThlNWYzZjNkZjliNjE3NTEzNjlhZDg3MzgyZWM5In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 black_rabbit"
-            - "mobheads:rabbit black_rabbit"
-    Black_and_White_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Black and White Rabbit Head"
-        random_uuid: 703b54b8-d40f-487b-a17d-713ba1ea8527
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2I4Y2ZmNGIxNWI4Y2EzN2UyNTc1MGYzNDU3MThmMjg5Y2IyMmM1YjNhZDIyNjI3YTcxMjIzZmFjY2MifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 black_and_white_rabbit"
-            - "mobheads:rabbit black_and_white_rabbit"
-    Brown_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Brown Rabbit Head"
-        random_uuid: 44deb6f8-adc8-4679-a994-c07d77a97da1
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2QxMTY5YjI2OTRhNmFiYTgyNjM2MDk5MjM2NWJjZGE1YTEwYzg5YTNhYTJiNDhjNDM4NTMxZGQ4Njg1YzNhNyJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 brown_rabbit"
-            - "mobheads:rabbit brown_rabbit"
-    Gold_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Gold Rabbit Head"
-        random_uuid: 30552a92-f7af-42a0-b4b5-eae1d175bbe7
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzk3N2EzMjY2YmYzYjllYWYxN2U1YTAyZWE1ZmJiNDY4MDExNTk4NjNkZDI4OGI5M2U2YzEyYzljYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 gold_rabbit"
-            - "mobheads:rabbit gold_rabbit"
-    Salt_and_Pepper_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Salt and Pepper Rabbit Head"
-        random_uuid: 0a627a07-debd-4225-8afe-bbcb061b6adf
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmZlY2M2YjVlNmVhNWNlZDc0YzQ2ZTc2MjdiZTNmMDgyNjMyN2ZiYTI2Mzg2YzZjYzc4NjMzNzJlOWJjIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 salt_and_pepper_rabbit"
-            - "mobheads:rabbit salt_and_pepper_rabbit"
-    #Does not spawn naturally
-    The_Killer_Bunny:
-        dropChance: 100%
-        lootingBonus: 0%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "The Killer Bunny Head"
-        random_uuid: dc32458c-8ae0-4b7b-abe2-add26204eb56
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWY1OTg1MWRlOTNmNGM2NTQ3ZjgwOWNhM2FlZDE4OWU5NGJiZjRmODg4ZjFmNzUyMDhlOTRjMzczMzg1MmExIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thekillerbunny the_killer_bunny"
-    Toast_Rabbit:
-        dropChance: 0.5%
-        lootingBonus: 0.2%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Toast Rabbit Head"
-        random_uuid: 2c04206a-1dbb-461b-b4d4-9e4bd2901c7f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJmYzNiNzQ2NjY1NDVmMmQ0MWJjMmI1MzQwZTFkZjY5ZGQyNWUyYTdlMmIzNGVmZDFhOTUzMTFhN2Q2YyJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 toast_rabbit"
-            - "mobheads:rabbit toast_rabbit"
-    Salmon:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Salmon Head"
-        random_uuid: 8c986470-776d-4991-9a4d-4ccd14888c06
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFlYjIxYTI1ZTQ2ODA2Y2U4NTM3ZmJkNjY2ODI4MWNmMTc2Y2VhZmU5NWFmOTBlOTRhNWZkODQ5MjQ4NzgifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 salmon"
-            - "mobheads:fish salmon"
-            - "mobheads:watermobs salmon"
-    White_Rabbit:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "White Rabbit Head"
-        random_uuid: 3a978cd5-66e8-4824-8020-f9c0bd363c94
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU0MmQ3MTYwOTg3MTQ4YTVkOGUyMGU0NjliZDliM2MyYTM5NDZjN2ZiNTkyM2Y1NWI5YmVhZTk5MTg1ZiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 white_rabbit"
-            - "mobheads:rabbit white_rabbit"
-    Black_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Black Sheep Head"
-        random_uuid: ede424d0-f810-4704-9424-db3c4afc402a
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzI2NTIwODNmMjhlZDFiNjFmOWI5NjVkZjFhYmYwMTBmMjM0NjgxYzIxNDM1OTUxYzY3ZDg4MzY0NzQ5ODIyIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 black_sheep"
-            - "mobheads:sheep black_sheep"
-    Blue_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Blue Sheep Head"
-        random_uuid: f69de8f4-a1bd-485e-a587-28c676163442
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDllYzIyODE4ZDFmYmZjODE2N2ZiZTM2NzI4YjI4MjQwZTM0ZTE2NDY5YTI5MjlkMDNmZGY1MTFiZjJjYTEifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 blue_sheep"
-            - "mobheads:sheep blue_sheep"
-    Brown_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Brown Sheep Head"
-        random_uuid: 6b15f355-f988-4c09-869a-f6603ac8739a
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTU1YWQ2ZTVkYjU2OTJkODdmNTE1MTFmNGUwOWIzOWZmOWNjYjNkZTdiNDgxOWE3Mzc4ZmNlODU1M2I4In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 brown_sheep"
-            - "mobheads:sheep brown_sheep"
-    Cyan_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Cyan Sheep Head"
-        random_uuid: a13f55bf-ee36-4240-9498-2598eaaab4a0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZmNmM3ZTdmZDUxNGNlMGFjYzY4NTkzMjI5ZTQwZmNjNDM1MmI4NDE2NDZlNGYwZWJjY2NiMGNlMjNkMTYifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cyan_sheep"
-            - "mobheads:sheep cyan_sheep"
-    Gray_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Gray Sheep Head"
-        random_uuid: e9814a95-7327-4d2b-9fbc-482427168225
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDI4N2ViNTAxMzkxZjI3NTM4OWYxNjZlYzlmZWJlYTc1ZWM0YWU5NTFiODhiMzhjYWU4N2RmN2UyNGY0YyJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 gray_sheep"
-            - "mobheads:sheep gray_sheep"
-    Green_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Green Sheep Head"
-        random_uuid: bd0e32b6-4d05-4940-b3fe-a2be1346d778
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTAxNzIxNWM3ZjhkYjgyMDQwYWEyYzQ3Mjk4YjY2NTQxYzJlYjVmN2Y5MzA0MGE1ZDIzZDg4ZjA2ODdkNGIzNCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 green_sheep"
-            - "mobheads:sheep green_sheep"
-    Light_Blue_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Light Blue Sheep Head"
-        random_uuid: dfacccb8-18b6-4843-9dd7-6cab888f46d4
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM4YTk3YTM4ODU2NTE0YTE2NDEzZTJjOTk1MjEyODlmNGM1MzYzZGM4MmZjOWIyODM0Y2ZlZGFjNzhiODkifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 light_blue_sheep"
-            - "mobheads:sheep light_blue_sheep"
-    Lime_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Lime Sheep Head"
-        random_uuid: a663374b-47e7-469a-864f-7c5a0d49f6d6
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTJhMjQ0OGY1OGE0OTEzMzI0MzRlODVjNDVkNzg2ZDg3NDM5N2U4MzBhM2E3ODk0ZTZkOTI2OTljNDJiMzAifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 lime_sheep"
-            - "mobheads:sheep lime_sheep"
-    Magenta_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Magenta Sheep Head"
-        random_uuid: 3c1a8e29-ed57-4532-b6e0-37b2500ade45
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTgzNjU2NWM3ODk3ZDQ5YTcxYmMxODk4NmQxZWE2NTYxMzIxYTBiYmY3MTFkNDFhNTZjZTNiYjJjMjE3ZTdhIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 magenta_sheep"
-            - "mobheads:sheep magenta_sheep"
-    Orange_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Orange Sheep Head"
-        random_uuid: d8df8e0a-1bc5-46ef-ad5d-87ae578ef818
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjA5ODM5N2EyNzBiNGMzZDJiMWU1NzRiOGNmZDNjYzRlYTM0MDkwNjZjZWZlMzFlYTk5MzYzM2M5ZDU3NiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 orange_sheep"
-            - "mobheads:sheep orange_sheep"
-    Pink_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Pink Sheep Head"
-        random_uuid: 29c0911d-695a-4c31-817f-3a065a7144b7
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmFjNzRhMmI5YjkxNDUyZTU2ZmExZGRhNWRiODEwNzc4NTZlNDlmMjdjNmUyZGUxZTg0MWU1Yzk1YTZmYzVhYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 pink_sheep"
-            - "mobheads:sheep pink_sheep"
-    Purple_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Purple Sheep Head"
-        random_uuid: c2219329-0558-48ec-a0cc-51b07789c184
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWU1Mjg2N2FmZWYzOGJiMTRhMjZkMTQyNmM4YzBmMTE2YWQzNDc2MWFjZDkyZTdhYWUyYzgxOWEwZDU1Yjg1In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 purple_sheep"
-            - "mobheads:sheep purple_sheep"
-    Rainbow_Sheep:
-        dropChance: 0.5%
-        lootingBonus: 0.2%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Rainbow Sheep Head"
-        random_uuid: bcea22f3-8e5c-4ce0-bf2e-9099424f3714
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmM0Y2JmMmRhYzQyZGUzYjJjYmZkMGFhMWRjNDAzNjNiNmQzZDViNTczNmIyYTc4OGMwNWQxYjRhYmIxOWU3In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 rainbow_sheep"
-            - "mobheads:sheep rainbow_sheep"
-    Red_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Red Sheep Head"
-        random_uuid: 71b8b9d8-fa5b-42df-b15f-e125ae28d9b0
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM5YWY0NzdlYjYyNzgxNWY3MjNhNTY2MjU1NmVjOWRmY2JhYjVkNDk0ZDMzOGJkMjE0MjMyZjIzZTQ0NiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 red_sheep"
-            - "mobheads:sheep red_sheep"
-    Light_Gray_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Silver Sheep Head"
-        random_uuid: 597f03f8-654e-42bd-bc0d-d59386606da7
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2UxYWM2ODM5OTNiZTM1NTEyZTFiZTMxZDFmNGY5OGU1ODNlZGIxNjU4YTllMjExOTJjOWIyM2I1Y2NjZGMzIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 light_gray_sheep"
-            - "mobheads:sheep light_gray_sheep"
-    White_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "White Sheep Head"
-        random_uuid: 5ac388b4-f0b1-4b17-af3c-c2afb4df7e12
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjMxZjljY2M2YjNlMzJlY2YxM2I4YTExYWMyOWNkMzNkMThjOTVmYzczZGI4YTY2YzVkNjU3Y2NiOGJlNzAifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 white_sheep"
-            - "mobheads:sheep white_sheep"
-    Yellow_Sheep:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Yellow Sheep Head"
-        random_uuid: 8bf2ed0c-5ecc-4f39-9c6e-1be94040f5bc
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjZhNDExMmRmMWU0YmNlMmE1ZTI4NDE3ZjNhYWZmNzljZDY2ZTg4NWMzNzI0NTU0MTAyY2VmOGViOCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 yellow_sheep"
-            - "mobheads:sheep yellow_sheep"
-    Shulker:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Shulker Head"
-        random_uuid: 1d71be7c-4cf6-4560-973e-36971ddb040e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFkMzUzNGQyMWZlODQ5OTI2MmRlODdhZmZiZWFjNGQyNWZmZGUzNWM4YmRjYTA2OWU2MWUxNzg3ZmYyZiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 shulker"
-            - "mobheads:end_dimension shulker"
-    Silverfish:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Silverfish Head"
-        random_uuid: 7760f85e-1a3b-4723-8d5c-4e7c8b079f13
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE5MWRhYjgzOTFhZjVmZGE1NGFjZDJjMGIxOGZiZDgxOWI4NjVlMWE4ZjFkNjIzODEzZmE3NjFlOTI0NTQwIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 silverfish"
-    Slime:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Slime Head"
-        random_uuid: a7dfa2a8-4097-45ac-bf2d-b6191ec352ef
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZhZDIwZmMyZDU3OWJlMjUwZDNkYjY1OWM4MzJkYTJiNDc4YTczYTY5OGI3ZWExMGQxOGM5MTYyZTRkOWI1In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 slime"
-    Snow_Golem:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Snow Golem Head"
-        random_uuid: f8184dd2-279c-4e04-8db5-177b63104adb
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZkZmQxZjc1MzhjMDQwMjU4YmU3YTkxNDQ2ZGE4OWVkODQ1Y2M1ZWY3MjhlYjVlNjkwNTQzMzc4ZmNmNCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 snow_golem"
-    Spider:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Spider Head"
-        random_uuid: caafc438-4d2c-42f1-a986-ed79d24f143b
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q1NDE1NDFkYWFmZjUwODk2Y2QyNThiZGJkZDRjZjgwYzNiYTgxNjczNTcyNjA3OGJmZTM5MzkyN2U1N2YxIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 spider"
-    Squid:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Squid Head"
-        random_uuid: d5187627-541c-4ad6-8020-35e3dffe295f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMDE0MzNiZTI0MjM2NmFmMTI2ZGE0MzRiODczNWRmMWViNWIzY2IyY2VkZTM5MTQ1OTc0ZTljNDgzNjA3YmFjIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 squid"
-            - "mobheads:watermobs squid"
-    Stray:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Stray Head"
-        random_uuid: 2bfa9704-7778-4b93-a2e0-444b52cf783a
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzhkZGY3NmU1NTVkZDVjNGFhOGEwYTVmYzU4NDUyMGNkNjNkNDg5YzI1M2RlOTY5ZjdmMjJmODVhOWEyZDU2In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 stray"
-    Tropical_Fish:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Tropical Fish Head"
-        random_uuid: 7da93a8e-c42c-4dff-b9c6-01f659807576
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc5ZTQ4ZDgxNGFhM2JjOTg0ZThhNmZkNGZiMTcwYmEwYmI0ODkzZjRiYmViZGU1ZmRmM2Y4Zjg3MWNiMjkyZiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 tropical_fish"
-            - "mobheads:fish tropical_fish"
-            - "mobheads:watermobs tropical_fish"
-    Turtle:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Turtle Head"
-        random_uuid: d22e5c5e-1444-4bfa-9b7f-ea6cb02a8569
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMGE0MDUwZTdhYWNjNDUzOTIwMjY1OGZkYzMzOWRkMTgyZDdlMzIyZjlmYmNjNGQ1Zjk5YjU3MThhIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 turtle"
-            - "mobheads:watermobs turtle"
-    Vex:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Vex Head"
-        random_uuid: 09fc3b6f-5c13-40f2-bd0f-d63d4171bcbb
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWU3MzMwYzdkNWNkOGEwYTU1YWI5ZTk1MzIxNTM1YWM3YWUzMGZlODM3YzM3ZWE5ZTUzYmVhN2JhMmRlODZiIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 vex"
-            - "mobheads:woodland_mansion vex"
-    Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Villager Head"
-        random_uuid: 834e4f81-46d6-4e90-9e60-39bdf4a68c48
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIyZDhlNzUxYzhmMmZkNGM4OTQyYzQ0YmRiMmY1Y2E0ZDhhZThlNTc1ZWQzZWIzNGMxOGE4NmU5M2IifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 villager"
-    Vindicator:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Vindicator Head"
-        random_uuid: df6eabbb-588b-4820-bacd-025806a8bae8
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGY2ZmI4OWQxYzYzMWJkN2U3OWZlMTg1YmExYTY3MDU0MjVmNWMzMWE1ZmY2MjY1MjFlMzk1ZDRhNmY3ZTIifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 vindicator"
-            - "mobheads:woodland_mansion vindicator"
-    Witch:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Witch Head"
-        random_uuid: a93f8517-c2b3-4bac-81b6-367d8734a79e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODllOGI1ZjE1YTliMjlhMWUzODljOTUyMThmZDM3OTVmMzI4NzJlNWFlZTk0NjRhNzY0OTVjNTI3ZDIyNDUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 witch"
-    Wild_Wolf:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Wild Wolf Head"
-        random_uuid: 0d0cb002-321b-406c-8fec-bae45a85a8d6
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk1Y2JiNGY3NWVhODc2MTdmMmY3MTNjNmQ0OWRhYzMyMDliYTFiZDRiOTM2OTY1NGIxNDU5ZWExNTMxNyJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 wild_wolf"
-    Tamed_Wolf:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Tamed Wolf Head"
-        random_uuid: 38a890f4-8ec6-4e45-8169-4a6c0a5ba32e
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ4MzczMWQ3N2Y1NGY1ZDRmOTNkZGQ5OWI5NDc2ZTRmMWZlNWI3ZTEzMThmMWUxNjI2ZjdkM2ZhM2FhODQ3In19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 tamed_wolf"
-    Zombie_Pigman:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Pigman Head"
-        random_uuid: 3b08d8ef-4c34-4bee-b0a7-a655302c389f
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzRlOWM2ZTk4NTgyZmZkOGZmOGZlYjMzMjJjZDE4NDljNDNmYjE2YjE1OGFiYjExY2E3YjQyZWRhNzc0M2ViIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_pigman"
-            - "mobheads:nether_dimension zombie_pigman"
-    Zombie_Butcher_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Butcher Villager Head"
-        random_uuid: ba0907e5-5de9-4461-9da7-84ca6f9e7912
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYxZjE5ZmZkOGFlNDI1NzkyYzRiMTgxNzU2YWRmZjhkNDgxNzRhZWVmNThhMGYzMjdhMjhjNzQyYzcyNDQyIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_butcher_villager"
-    Zombie_Cleric_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Cleric Villager Head"
-        random_uuid: 7506a75e-136f-471c-8032-c3950b4a5561
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTI4YzJiYWQ1Mzg5Y2IzNTkyYjU2NWIzYzQ3ZWNjMTg5ZTA1NDJhODc4MzUwMjhkNjE0OGJiZTMzNDU2NDUifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_cleric_villager"
-    Zombie_Farmer_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Farmer Villager Head"
-        random_uuid: 573bd8d0-f9a1-4885-af08-7c554b45e767
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2ZmMDQ4MmZkMzJmYWIyY2U5ZjVmYTJlMmQ5YjRkYzc1NjFkYTQyMjE1MmM5OWZjODA0YjkxMzljYWYyNTZiIn19fQ==
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_farmer_villager"
-    Zombie_Librarian_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Librarian Villager Head"
-        random_uuid: fa2368c1-5299-43cb-84c0-40adaa25cb40
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmMDhlYmQ0ZTI1Y2RhM2FkZTQ1Yjg2MzM3OGFkMzc3ZjE4YzUxMGRiNGQyOGU4MmJiMjQ0NTE0MzliMzczNCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_librarian_villager"
-    Zombie_Nitwit_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Nitwit Villager Head"
-        random_uuid: 614cb8ea-bb85-4e0a-96fb-f2d83273d06a
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdlODM4Y2NjMjY3NzZhMjE3YzY3ODM4NmY2YTY1NzkxZmU4Y2RhYjhjZTljYTRhYzZiMjgzOTdhNGQ4MWMyMiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_nitwit_villager"
-    Zombie_Smith_Villager:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Zombie Smith Villager Head"
-        random_uuid: f061c450-161c-4a7c-bdf7-2a70d42892f6
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE2MTU1ZmNmMzY2Y2Y0ZTA2Y2U1ZGZmYzQ4Y2E1NGU4ZWE0OGRmZTUyNTM1OGI2MTJkYzQ0ZmQ0MzIifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie_smith_villager"
-    Wandering_Trader:
-        dropChance: 1%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Wandering Trader Head"
-        random_uuid: f061c450-161c-4a7c-bdf7-2a70d45892f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM0NTM4MDIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jZWU4MGE1ZWJhYjFlNmFjOGM4YjUzMzM0YTYwOWVjODkzMjg0MmZjZDUwNDlkYzJlMjFkYzM1NjA0ZWRjMjVkIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 wandering_trader"
+  Bat:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    broadcastMessage: true
+    dropOnChargedCreeperDeath: true
+    displayName: "&eBat Head"
+    random_uuid: e4c5dfef-bbcc-4012-9f74-879d28fff431
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNmMWIzYjNmNTM5ZDJmNjNjMTcyZTk0Y2FjZmFhMzkxZThiMzg1Y2RkNjMzZjNiOTkxYzc0ZTQ0YjI4In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 bat"
+  Blaze:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlaze Head"
+    random_uuid: e4d745ba-8ad2-4059-b047-0f1fe48f2425
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjc4ZWYyZTRjZjJjNDFhMmQxNGJmZGU5Y2FmZjEwMjE5ZjViMWJmNWIzNWE0OWViNTFjNjQ2Nzg4MmNiNWYwIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 blaze"
+      - "mobheads:nether_dimension blaze"
+  #The old cats will no longer spawn
+  Black_Cat:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&e[OLD]Black Cat Head"
+    random_uuid: 30696a4b-b87b-4446-a821-5bc127ba4993
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJhNjYyZjJhZTdkZWJlZTY1MjkyYzJiZjQyZmJiMDliOTdiMmZmYmRiMjcwNTIwYzJkYjk2ZTUxZDg5NDUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_allblack"
+      - "mobheads:cat cat_allblack"
+  #The old cats will no longer spawn
+  Ginger_Cat:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&e[OLD]Ginger Cat Head"
+    random_uuid: ae801ca9-fcf0-4f21-b4dd-1281b868e796
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTc1NWU3ZGYwNGQxOGIzMWQ2M2MxN2Y0YTdiNGM3MzkyNGJkNjI2NWRhNjllMTEzZWRkZDk3NTE2ZmM3In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 ginger_cat"
+      - "mobheads:cat ginger_cat"
+   #The old cats will no longer spawn
+  Siamese_Cat:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&e[OLD]Siamese Cat Head"
+    random_uuid: 2030a11c-21ae-49f0-acd2-49552fa99d73
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWI4ODFjMzliM2FmZGNjNzlmOTFmZTVkZTNjZGQwMTViYzMzNTM4NDNmNTkxZjRkMjNjZDMwMjdkZTRlNiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_siamese"
+      - "mobheads:cat cat_siamese"
+  Cave_Spider:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCave Spider Head"
+    random_uuid: b0b18a7e-49af-452e-afae-56554ac259d1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2NDVkZmQ3N2QwOTkyMzEwN2IzNDk2ZTk0ZWViNWMzMDMyOWY5N2VmYzk2ZWQ3NmUyMjZlOTgyMjQifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cave_spider"
+  Chicken:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eChicken Head"
+    random_uuid: 0d579158-bfd4-4845-beb3-7b5eb056987f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzODQ2OWE1OTljZWVmNzIwNzUzNzYwMzI0OGE5YWIxMWZmNTkxZmQzNzhiZWE0NzM1YjM0NmE3ZmFlODkzIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 chicken"
+  Cod:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCod Head"
+    random_uuid: 512d6218-cdf1-476c-9507-c9ea98574623
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg5MmQ3ZGQ2YWFkZjM1Zjg2ZGEyN2ZiNjNkYTRlZGRhMjExZGY5NmQyODI5ZjY5MTQ2MmE0ZmIxY2FiMCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cod"
+      - "mobheads:fish cod"
+      - "mobheads:watermobs cod"
+  Cow:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCow Head"
+    random_uuid: b32d23be-aeca-4f40-a813-a13fbbec4372
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWQ2YzZlZGE5NDJmN2Y1ZjcxYzMxNjFjNzMwNmY0YWVkMzA3ZDgyODk1ZjlkMmIwN2FiNDUyNTcxOGVkYzUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cow"
+  Charged_Creeper:
+    dropChance: 2%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCharged Creeper Head"
+    random_uuid: 46f5c80a-e615-4f1f-ac8c-e02d7c67d710
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJjZWIzOWRkNGRlMjRhN2FkZmUyOTFhM2EwY2ZjN2NmNGY2NDVkZTU5YjYwM2ZjZmUwNmM2YjVhMDZlMjYifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 charged_creeper"
+  Dolphin:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eDolphin Head"
+    random_uuid: daef31b6-89af-4f69-948e-6120e17d2fc9
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU5Njg4Yjk1MGQ4ODBiNTViN2FhMmNmY2Q3NmU1YTBmYTk0YWFjNmQxNmY3OGU4MzNmNzQ0M2VhMjlmZWQzIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 dolphin"
+      - "mobheads:watermobs dolphin"
+  Donkey:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eDonkey Head"
+    random_uuid: aab32140-51d3-4b1f-80e3-6d0963a8e65c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiNmMzYzA1MmNmNzg3ZDIzNmEyOTE1ZjgwNzJiNzdjNTQ3NDk3NzE1ZDFkMmY4Y2JjOWQyNDFkODhhIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 donkey"
+  Drowned:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eDrowned Head"
+    random_uuid: 17bbc41e-be73-468b-854a-670f7a6972fc
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzNmN2NjZjYxZGJjM2Y5ZmU5YTYzMzNjZGUwYzBlMTQzOTllYjJlZWE3MWQzNGNmMjIzYjNhY2UyMjA1MSJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 drowned"
+      - "mobheads:watermobs drowned"
+  Elder_Guardian:
+    dropChance: 1%
+    lootingBonus: 0.5%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eElder Guardian Head"
+    random_uuid: effa6786-a077-42f2-8775-2ead63c4ea4c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM3OTc0ODJhMTRiZmNiODc3MjU3Y2IyY2ZmMWI2ZTZhOGI4NDEzMzM2ZmZiNGMyOWE2MTM5Mjc4YjQzNmIifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 elder_guardian"
+      - "mobheads:ocean_monument elder_guardian"
+      - "mobheads:watermobs elder_guardian"
+  Enderman:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eEnderman Head"
+    random_uuid: dedaf353-b99a-44a3-b654-2e7e099764ce
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E1OWJiMGE3YTMyOTY1YjNkOTBkOGVhZmE4OTlkMTgzNWY0MjQ1MDllYWRkNGU2YjcwOWFkYTUwYjljZiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 enderman"
+      - "mobheads:end_dimension enderman"
+      - "mobheads:nether_dimension enderman"
+  Endermite:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eEndermite Head"
+    random_uuid: 6938b147-1eb7-441e-9056-8c4707b93ed4
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRhYWZmYTRjMDllMmVhZmI4NWQzNTIyMTIyZGIwYWE0NTg3NGJlYTRlM2Y1ZTc1NjZiNGQxNjZjN2RmOCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 endermite"
+      - "mobheads:end_dimension endermite"
+  Evoker:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eEvoker Head"
+    random_uuid: 4acf06c3-e591-41b7-b895-115b3bc791b1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQzMzMyMmUyY2NiZDljNTVlZjQxZDk2ZjM4ZGJjNjY2YzgwMzA0NWIyNDM5MWFjOTM5MWRjY2FkN2NkIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 evoker"
+      - "mobheads:woodland_mansion evoker"
+  Ghast:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGhast Head"
+    random_uuid: e8c871a0-dbd4-4d75-9ff7-f1b2c0e8d27e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGI2YTcyMTM4ZDY5ZmJiZDJmZWEzZmEyNTFjYWJkODcxNTJlNGYxYzk3ZTVmOTg2YmY2ODU1NzFkYjNjYzAifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 ghast"
+      - "mobheads:nether_dimension ghast"
+  Guardian:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGuardian Head"
+    random_uuid: 1ba7f8ee-b511-48d1-a498-a8499d37b26f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiNjc1Y2I1YTdlM2ZkMjVlMjlkYTgyNThmMjRmYzAyMGIzZmE5NTAzNjJiOGJjOGViMjUyZTU2ZTc0In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 guardian"
+      - "mobheads:ocean_monument guardian"
+      - "mobheads:watermobs guardian"
+  Black_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlack Horse Head"
+    random_uuid: d7e5febe-38f8-45b3-b4c1-02293affa78f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRiN2ZjNWY3YTlkZGZkZDFhYTc5MzE3NDEwZmMxOTI5ZjkxYmRkZjk4NTg1OTM4YTJhNTYxOTlhNjMzY2MifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 black_horse"
+      - "mobheads:horse black_horse"
+  Brown_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBrown Horse Head"
+    random_uuid: a9870478-3026-49ab-b64b-da127754a798
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGE1ZmFiYmNiYzU0ODE5NzZmYjkzOGE1MTllYWQ1OWVlZWUyYTA3MWRmMjk3Mzg0YThmZTk2Nzg4YTlkZjVhNiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 brown_horse"
+      - "mobheads:horse brown_horse"
+  Chestnut_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eChestnut Horse Head"
+    random_uuid: deafd397-245c-4a90-8220-7280178632a4
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjY2YjJiMzJkMzE1MzljNzM4M2Q5MjNiYWU0ZmFhZjY1ZGE2NzE1Y2Q1MjZjMzVkMmU0ZTY4MjVkYTExZmIifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 chestnut_horse"
+      - "mobheads:horse chestnut_horse"
+  Creamy_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCreamy Horse Head"
+    random_uuid: 00025a2a-eff7-40a5-8489-d8a8f40d7989
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjI4ZDFhYjRiZTFlMjhiN2I0NjFmZGVhNDYzODFhYzM2M2E3ZTVjMzU5MWM5ZTVkMjY4M2ZiZTFlYzlmY2QzIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 creamy_horse"
+      - "mobheads:horse creamy_horse"
+  Dark_Brown_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eDark Brown Horse Head"
+    random_uuid: 8eed27c5-8d0d-4e56-b9a9-ec2a8b207e2c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDJlYjk2N2FiOTRmZGQ0MWE2MzI1ZjEyNzdkNmRjMDE5MjI2ZTVjZjM0OTc3ZWVlNjk1OTdmYWZjZjVlIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 dark_brown_horse"
+      - "mobheads:horse dark_brown_horse"
+  Gray_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGray Horse Head"
+    random_uuid: beb5a0a0-0a96-4315-9fdc-4c5c59c97fce
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDEzODEzZGQ0NWVkMGVmODM4NDQ4Y2Y2ZjYzMWMxNTdjMjNmOTY1MGM1YWU0NTFlOTc4YTUzMzgzMzEyZmUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gray_horse"
+      - "mobheads:horse gray_horse"
+  White_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Horse Head"
+    random_uuid: 7ade5a13-ec58-4341-9ff6-9501e44e33e3
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjBhMmRiMmYxZWI5M2U1OTc4ZDJkYzkxYTc0ZGY0M2Q3Yjc1ZDllYzBlNjk0ZmQ3ZjJhNjUyZmJkMTUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 white_horse"
+      - "mobheads:horse white_horse"
+  Skeleton_Horse:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSkeleton Horse Head"
+    random_uuid: c59c4764-93b0-457f-8706-31dcffd77ac2
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDdlZmZjZTM1MTMyYzg2ZmY3MmJjYWU3N2RmYmIxZDIyNTg3ZTk0ZGYzY2JjMjU3MGVkMTdjZjg5NzNhIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 skeleton_horse"
+      - "mobheads:horse skeleton_horse"
+  #Does not spawn naturally
+  Zombie_Horse:
+    dropChance: 100%
+    lootingBonus: 0%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Horse Head"
+    random_uuid: 1e43546c-8667-4305-be50-0ab0f8e4c3e0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDIyOTUwZjJkM2VmZGRiMThkZTg2ZjhmNTVhYzUxOGRjZTczZjEyYTZlMGY4NjM2ZDU1MWQ4ZWI0ODBjZWVjIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:zombiehorse zombie_horse"
+  Husk:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eHusk Head"
+    random_uuid: da422aa3-9025-445f-ae0e-a6a8f4b24d1a
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzc3MDY4MWQxYTI1NWZiNGY3NTQ3OTNhYTA1NWIyMjA0NDFjZGFiOWUxMTQxZGZhNTIzN2I0OTkzMWQ5YjkxYyJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 husk"
+  Illusioner:
+    dropChance: 10%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eIllusioner Head"
+    random_uuid: 3e6c1253-7016-4db2-ac31-2bc0f8c0657b
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM2NzhjOWY0YzZkZDRkOTkxOTMwZjgyZTZlN2Q4Yjg5YjI4OTFmMzVjYmE0OGE0YjE4NTM5YmJlN2VjOTI3In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:illusioner illusioner"
+  Iron_Golem:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eIron Golem Head"
+    random_uuid: d23f3607-25a0-4c22-860a-0e6fb9a16412
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODkwOTFkNzllYTBmNTllZjdlZjk0ZDdiYmE2ZTVmMTdmMmY3ZDQ1NzJjNDRmOTBmNzZjNDgxOWE3MTQifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 iron_golem"
+  Brown_Llama:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBrown Llama Head"
+    random_uuid: 9953b3aa-c25c-40ae-b9d4-216d61464cd0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzJiMWVjZmY3N2ZmZTNiNTAzYzMwYTU0OGViMjNhMWEwOGZhMjZmZDY3Y2RmZjM4OTg1NWQ3NDkyMTM2OCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 brown_llama"
+      - "mobheads:llama brown_llama"
+  Creamy_Llama:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCreamy Llama Head"
+    random_uuid: 4607d400-aaa1-47c6-9e22-fff78ddf50e0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ2N2ZkNGJmZjI5MzI2OWNiOTA4OTc0ZGNhODNjMzM0ODVlNDM1ZWQ1YThlMWRiZDY1MjFjNjE2ODcxNDAifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 creamy_llama"
+      - "mobheads:llama creamy_llama"
+  Gray_Llama:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGray Llama Head"
+    random_uuid: 93f9568a-c230-482b-a26a-8e2a74fe7690
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2YyNGU1NmZkOWZmZDcxMzNkYTZkMWYzZTJmNDU1OTUyYjFkYTQ2MjY4NmY3NTNjNTk3ZWU4MjI5OWEifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gray_llama"
+      - "mobheads:llama gray_llama"
+  White_Llama:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Llama Head"
+    random_uuid: 8b2c68f2-d666-445a-acb6-2477471a751c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODAyNzdlNmIzZDlmNzgxOWVmYzdkYTRiNDI3NDVmN2FiOWE2M2JhOGYzNmQ2Yjg0YTdhMjUwYzZkMWEzNThlYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 white_llama"
+      - "mobheads:llama white_llama"
+  Magma_Cube:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eMagma Cube Head"
+    random_uuid: 128b47df-8c26-42fc-91b7-30a846caf40e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzg5NTdkNTAyM2M5MzdjNGM0MWFhMjQxMmQ0MzQxMGJkYTIzY2Y3OWE5ZjZhYjM2Yjc2ZmVmMmQ3YzQyOSJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 magma_cube"
+      - "mobheads:nether_dimension magma_cube"
+  Mooshroom:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eMooshroom Head"
+    random_uuid: 0fba3370-1842-40d3-b4a4-06636e068f8b
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDBiYzYxYjk3NTdhN2I4M2UwM2NkMjUwN2EyMTU3OTEzYzJjZjAxNmU3YzA5NmE0ZDZjZjFmZTFiOGRiIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 mooshroom"
+  Mule:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eMule Head"
+    random_uuid: 77ed2b1c-26cf-4006-b6b5-ba09e097e13e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTA0ODZhNzQyZTdkZGEwYmFlNjFjZTJmNTVmYTEzNTI3ZjFjM2IzMzRjNTdjMDM0YmI0Y2YxMzJmYjVmNWYifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 mule"
+  Ocelot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eOcelot Head"
+    random_uuid: 69ac5cf8-a3e1-49c3-92c7-af7767f1586b
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY1N2NkNWMyOTg5ZmY5NzU3MGZlYzRkZGNkYzY5MjZhNjhhMzM5MzI1MGMxYmUxZjBiMTE0YTFkYjEifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 ocelot"
+      - "mobheads:cat ocelot"
+  Blue_Parrot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlue Parrot Head"
+    random_uuid: 3c35efae-bc44-4497-9175-5d7a3e03109c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWNhNTgwYjA1MWM2M2JlMjlkYTU0NWE5YWE3ZmY3ZTEzNmRmNzdhODFjNjdkYzFlZTllNjE3MGMxNGZiMzEwIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 blue_parrot"
+      - "mobheads:parrot blue_parrot"
+  Cyan_Parrot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCyan Parrot Head"
+    random_uuid: 26e0a0f4-44fe-46f2-928e-238d2aeacfa2
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmI5NGYyMzZjNGE2NDJlYjJiY2RjMzU4OWI5YzNjNGEwYjViZDVkZjljZDVkNjhmMzdmOGM4M2Y4ZTNmMSJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cyan_parrot"
+      - "mobheads:parrot cyan_parrot"
+  Gray_Parrot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGray Parrot Head"
+    random_uuid: 78010bcf-d16f-4525-be61-28f4d4194304
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Q2ZjRhMjFlMGQ2MmFmODI0Zjg3MDhhYzYzNDEwZjFhMDFiYmI0MWQ3ZjRhNzAyZDk0NjljNjExMzIyMiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gray_parrot"
+      - "mobheads:parrot gray_parrot"
+  Green_Parrot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGreen Parrot Head"
+    random_uuid: 9b7d7bcc-21d0-435c-9ccd-dc907008fcbc
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWI5YTM2YzU1ODlmM2EyZTU5YzFjYWE5YjNiODhmYWRhNzY3MzJiZGI0YTc5MjYzODhhOGMwODhiYmJjYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 green_parrot"
+      - "mobheads:parrot green_parrot"
+  Red_Parrot:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRed Parrot Head"
+    random_uuid: fb78b8ea-9c34-4a8c-8eeb-c11d0a3a6ae0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTRiYThkNjZmZWNiMTk5MmU5NGI4Njg3ZDZhYjRhNTMyMGFiNzU5NGFjMTk0YTI2MTVlZDRkZjgxOGVkYmMzIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 red_parrot"
+      - "mobheads:parrot red_parrot"
+  Phantom:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePhantom Head"
+    random_uuid: c7276ecb-caea-47c0-922a-50ff26209f0b
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ2ODMwZGE1ZjgzYTNhYWVkODM4YTk5MTU2YWQ3ODFhNzg5Y2ZjZjEzZTI1YmVlZjdmNTRhODZlNGZhNCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 phantom"
+  Pig:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePig Head"
+    random_uuid: bffb9c02-b8d0-4358-bac2-4bf8591f1388
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIxNjY4ZWY3Y2I3OWRkOWMyMmNlM2QxZjNmNGNiNmUyNTU5ODkzYjZkZjRhNDY5NTE0ZTY2N2MxNmFhNCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 pig"
+  Polar_Bear:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePolar Bear Head"
+    random_uuid: 368419e7-0057-4dc4-862a-caa8d5154796
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDQ2ZDIzZjA0ODQ2MzY5ZmEyYTM3MDJjMTBmNzU5MTAxYWY3YmZlODQxOTk2NjQyOTUzM2NkODFhMTFkMmIifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 polar_bear"
+  Pufferfish:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePufferfish Head"
+    random_uuid: f7e68f1e-3f55-4166-9e04-65d40663436c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxNTI4NzZiYzNhOTZkZDJhMjI5OTI0NWVkYjNiZWVmNjQ3YzhhNTZhYzg4NTNhNjg3YzNlN2I1ZDhiYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 pufferfish"
+      - "mobheads:fish pufferfish"
+      - "mobheads:watermobs pufferfish"
+  Black_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlack Rabbit Head"
+    random_uuid: 198fd44f-37be-479b-bdbd-d6b74e20ec69
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJjNTgxMTZhMTQ3ZDFhOWEyNjI2OTIyNGE4YmUxODRmZThlNWYzZjNkZjliNjE3NTEzNjlhZDg3MzgyZWM5In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 black_rabbit"
+      - "mobheads:rabbit black_rabbit"
+  Black_and_White_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlack and White Rabbit Head"
+    random_uuid: 703b54b8-d40f-487b-a17d-713ba1ea8527
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2I4Y2ZmNGIxNWI4Y2EzN2UyNTc1MGYzNDU3MThmMjg5Y2IyMmM1YjNhZDIyNjI3YTcxMjIzZmFjY2MifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 black_and_white_rabbit"
+      - "mobheads:rabbit black_and_white_rabbit"
+  Brown_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBrown Rabbit Head"
+    random_uuid: 44deb6f8-adc8-4679-a994-c07d77a97da1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2QxMTY5YjI2OTRhNmFiYTgyNjM2MDk5MjM2NWJjZGE1YTEwYzg5YTNhYTJiNDhjNDM4NTMxZGQ4Njg1YzNhNyJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 brown_rabbit"
+      - "mobheads:rabbit brown_rabbit"
+  Gold_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGold Rabbit Head"
+    random_uuid: 30552a92-f7af-42a0-b4b5-eae1d175bbe7
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzk3N2EzMjY2YmYzYjllYWYxN2U1YTAyZWE1ZmJiNDY4MDExNTk4NjNkZDI4OGI5M2U2YzEyYzljYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gold_rabbit"
+      - "mobheads:rabbit gold_rabbit"
+  Salt_and_Pepper_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSalt and Pepper Rabbit Head"
+    random_uuid: 0a627a07-debd-4225-8afe-bbcb061b6adf
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmZlY2M2YjVlNmVhNWNlZDc0YzQ2ZTc2MjdiZTNmMDgyNjMyN2ZiYTI2Mzg2YzZjYzc4NjMzNzJlOWJjIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 salt_and_pepper_rabbit"
+      - "mobheads:rabbit salt_and_pepper_rabbit"
+  #Does not spawn naturally
+  The_Killer_Bunny:
+    dropChance: 100%
+    lootingBonus: 0%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eThe Killer Bunny Head"
+    random_uuid: dc32458c-8ae0-4b7b-abe2-add26204eb56
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWY1OTg1MWRlOTNmNGM2NTQ3ZjgwOWNhM2FlZDE4OWU5NGJiZjRmODg4ZjFmNzUyMDhlOTRjMzczMzg1MmExIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thekillerbunny the_killer_bunny"
+  Toast_Rabbit:
+    dropChance: 0.5%
+    lootingBonus: 0.2%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eToast Rabbit Head"
+    random_uuid: 2c04206a-1dbb-461b-b4d4-9e4bd2901c7f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJmYzNiNzQ2NjY1NDVmMmQ0MWJjMmI1MzQwZTFkZjY5ZGQyNWUyYTdlMmIzNGVmZDFhOTUzMTFhN2Q2YyJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 toast_rabbit"
+      - "mobheads:rabbit toast_rabbit"
+  Salmon:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSalmon Head"
+    random_uuid: 8c986470-776d-4991-9a4d-4ccd14888c06
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFlYjIxYTI1ZTQ2ODA2Y2U4NTM3ZmJkNjY2ODI4MWNmMTc2Y2VhZmU5NWFmOTBlOTRhNWZkODQ5MjQ4NzgifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 salmon"
+      - "mobheads:fish salmon"
+      - "mobheads:watermobs salmon"
+  White_Rabbit:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Rabbit Head"
+    random_uuid: 3a978cd5-66e8-4824-8020-f9c0bd363c94
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU0MmQ3MTYwOTg3MTQ4YTVkOGUyMGU0NjliZDliM2MyYTM5NDZjN2ZiNTkyM2Y1NWI5YmVhZTk5MTg1ZiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 white_rabbit"
+      - "mobheads:rabbit white_rabbit"
+  Black_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlack Sheep Head"
+    random_uuid: ede424d0-f810-4704-9424-db3c4afc402a
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzI2NTIwODNmMjhlZDFiNjFmOWI5NjVkZjFhYmYwMTBmMjM0NjgxYzIxNDM1OTUxYzY3ZDg4MzY0NzQ5ODIyIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 black_sheep"
+      - "mobheads:sheep black_sheep"
+  Blue_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlue Sheep Head"
+    random_uuid: f69de8f4-a1bd-485e-a587-28c676163442
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDllYzIyODE4ZDFmYmZjODE2N2ZiZTM2NzI4YjI4MjQwZTM0ZTE2NDY5YTI5MjlkMDNmZGY1MTFiZjJjYTEifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 blue_sheep"
+      - "mobheads:sheep blue_sheep"
+  Brown_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBrown Sheep Head"
+    random_uuid: 6b15f355-f988-4c09-869a-f6603ac8739a
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTU1YWQ2ZTVkYjU2OTJkODdmNTE1MTFmNGUwOWIzOWZmOWNjYjNkZTdiNDgxOWE3Mzc4ZmNlODU1M2I4In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 brown_sheep"
+      - "mobheads:sheep brown_sheep"
+  Cyan_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCyan Sheep Head"
+    random_uuid: a13f55bf-ee36-4240-9498-2598eaaab4a0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZmNmM3ZTdmZDUxNGNlMGFjYzY4NTkzMjI5ZTQwZmNjNDM1MmI4NDE2NDZlNGYwZWJjY2NiMGNlMjNkMTYifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cyan_sheep"
+      - "mobheads:sheep cyan_sheep"
+  Gray_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGray Sheep Head"
+    random_uuid: e9814a95-7327-4d2b-9fbc-482427168225
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDI4N2ViNTAxMzkxZjI3NTM4OWYxNjZlYzlmZWJlYTc1ZWM0YWU5NTFiODhiMzhjYWU4N2RmN2UyNGY0YyJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gray_sheep"
+      - "mobheads:sheep gray_sheep"
+  Green_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGreen Sheep Head"
+    random_uuid: bd0e32b6-4d05-4940-b3fe-a2be1346d778
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTAxNzIxNWM3ZjhkYjgyMDQwYWEyYzQ3Mjk4YjY2NTQxYzJlYjVmN2Y5MzA0MGE1ZDIzZDg4ZjA2ODdkNGIzNCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 green_sheep"
+      - "mobheads:sheep green_sheep"
+  Light_Blue_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eLight Blue Sheep Head"
+    random_uuid: dfacccb8-18b6-4843-9dd7-6cab888f46d4
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWM4YTk3YTM4ODU2NTE0YTE2NDEzZTJjOTk1MjEyODlmNGM1MzYzZGM4MmZjOWIyODM0Y2ZlZGFjNzhiODkifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 light_blue_sheep"
+      - "mobheads:sheep light_blue_sheep"
+  Lime_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eLime Sheep Head"
+    random_uuid: a663374b-47e7-469a-864f-7c5a0d49f6d6
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTJhMjQ0OGY1OGE0OTEzMzI0MzRlODVjNDVkNzg2ZDg3NDM5N2U4MzBhM2E3ODk0ZTZkOTI2OTljNDJiMzAifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 lime_sheep"
+      - "mobheads:sheep lime_sheep"
+  Magenta_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eMagenta Sheep Head"
+    random_uuid: 3c1a8e29-ed57-4532-b6e0-37b2500ade45
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTgzNjU2NWM3ODk3ZDQ5YTcxYmMxODk4NmQxZWE2NTYxMzIxYTBiYmY3MTFkNDFhNTZjZTNiYjJjMjE3ZTdhIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 magenta_sheep"
+      - "mobheads:sheep magenta_sheep"
+  Orange_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eOrange Sheep Head"
+    random_uuid: d8df8e0a-1bc5-46ef-ad5d-87ae578ef818
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjA5ODM5N2EyNzBiNGMzZDJiMWU1NzRiOGNmZDNjYzRlYTM0MDkwNjZjZWZlMzFlYTk5MzYzM2M5ZDU3NiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 orange_sheep"
+      - "mobheads:sheep orange_sheep"
+  Pink_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePink Sheep Head"
+    random_uuid: 29c0911d-695a-4c31-817f-3a065a7144b7
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmFjNzRhMmI5YjkxNDUyZTU2ZmExZGRhNWRiODEwNzc4NTZlNDlmMjdjNmUyZGUxZTg0MWU1Yzk1YTZmYzVhYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 pink_sheep"
+      - "mobheads:sheep pink_sheep"
+  Purple_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePurple Sheep Head"
+    random_uuid: c2219329-0558-48ec-a0cc-51b07789c184
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWU1Mjg2N2FmZWYzOGJiMTRhMjZkMTQyNmM4YzBmMTE2YWQzNDc2MWFjZDkyZTdhYWUyYzgxOWEwZDU1Yjg1In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 purple_sheep"
+      - "mobheads:sheep purple_sheep"
+  Rainbow_Sheep:
+    dropChance: 1%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRainbow Sheep Head"
+    random_uuid: bcea22f3-8e5c-4ce0-bf2e-9099424f3714
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmM0Y2JmMmRhYzQyZGUzYjJjYmZkMGFhMWRjNDAzNjNiNmQzZDViNTczNmIyYTc4OGMwNWQxYjRhYmIxOWU3In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 rainbow_sheep"
+      - "mobheads:sheep rainbow_sheep"
+  Red_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRed Sheep Head"
+    random_uuid: 71b8b9d8-fa5b-42df-b15f-e125ae28d9b0
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM5YWY0NzdlYjYyNzgxNWY3MjNhNTY2MjU1NmVjOWRmY2JhYjVkNDk0ZDMzOGJkMjE0MjMyZjIzZTQ0NiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 red_sheep"
+      - "mobheads:sheep red_sheep"
+  Light_Gray_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSilver Sheep Head"
+    random_uuid: 597f03f8-654e-42bd-bc0d-d59386606da7
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2UxYWM2ODM5OTNiZTM1NTEyZTFiZTMxZDFmNGY5OGU1ODNlZGIxNjU4YTllMjExOTJjOWIyM2I1Y2NjZGMzIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 light_gray_sheep"
+      - "mobheads:sheep light_gray_sheep"
+  White_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Sheep Head"
+    random_uuid: 5ac388b4-f0b1-4b17-af3c-c2afb4df7e12
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjMxZjljY2M2YjNlMzJlY2YxM2I4YTExYWMyOWNkMzNkMThjOTVmYzczZGI4YTY2YzVkNjU3Y2NiOGJlNzAifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 white_sheep"
+      - "mobheads:sheep white_sheep"
+  Yellow_Sheep:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eYellow Sheep Head"
+    random_uuid: 8bf2ed0c-5ecc-4f39-9c6e-1be94040f5bc
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjZhNDExMmRmMWU0YmNlMmE1ZTI4NDE3ZjNhYWZmNzljZDY2ZTg4NWMzNzI0NTU0MTAyY2VmOGViOCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 yellow_sheep"
+      - "mobheads:sheep yellow_sheep"
+  Shulker:
+    dropChance: 2%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eShulker Head"
+    random_uuid: 1d71be7c-4cf6-4560-973e-36971ddb040e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFkMzUzNGQyMWZlODQ5OTI2MmRlODdhZmZiZWFjNGQyNWZmZGUzNWM4YmRjYTA2OWU2MWUxNzg3ZmYyZiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 shulker"
+      - "mobheads:end_dimension shulker"
+  Silverfish:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSilverfish Head"
+    random_uuid: 7760f85e-1a3b-4723-8d5c-4e7c8b079f13
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE5MWRhYjgzOTFhZjVmZGE1NGFjZDJjMGIxOGZiZDgxOWI4NjVlMWE4ZjFkNjIzODEzZmE3NjFlOTI0NTQwIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 silverfish"
+  Slime:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSlime Head"
+    random_uuid: a7dfa2a8-4097-45ac-bf2d-b6191ec352ef
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZhZDIwZmMyZDU3OWJlMjUwZDNkYjY1OWM4MzJkYTJiNDc4YTczYTY5OGI3ZWExMGQxOGM5MTYyZTRkOWI1In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 slime"
+  Snow_Golem:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSnow Golem Head"
+    random_uuid: f8184dd2-279c-4e04-8db5-177b63104adb
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZkZmQxZjc1MzhjMDQwMjU4YmU3YTkxNDQ2ZGE4OWVkODQ1Y2M1ZWY3MjhlYjVlNjkwNTQzMzc4ZmNmNCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 snow_golem"
+  Spider:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSpider Head"
+    random_uuid: caafc438-4d2c-42f1-a986-ed79d24f143b
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q1NDE1NDFkYWFmZjUwODk2Y2QyNThiZGJkZDRjZjgwYzNiYTgxNjczNTcyNjA3OGJmZTM5MzkyN2U1N2YxIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 spider"
+  Squid:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSquid Head"
+    random_uuid: d5187627-541c-4ad6-8020-35e3dffe295f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMDE0MzNiZTI0MjM2NmFmMTI2ZGE0MzRiODczNWRmMWViNWIzY2IyY2VkZTM5MTQ1OTc0ZTljNDgzNjA3YmFjIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 squid"
+      - "mobheads:watermobs squid"
+  Stray:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eStray Head"
+    random_uuid: 2bfa9704-7778-4b93-a2e0-444b52cf783a
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzhkZGY3NmU1NTVkZDVjNGFhOGEwYTVmYzU4NDUyMGNkNjNkNDg5YzI1M2RlOTY5ZjdmMjJmODVhOWEyZDU2In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 stray"
+  Tropical_Fish:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTropical Fish Head"
+    random_uuid: 7da93a8e-c42c-4dff-b9c6-01f659807576
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc5ZTQ4ZDgxNGFhM2JjOTg0ZThhNmZkNGZiMTcwYmEwYmI0ODkzZjRiYmViZGU1ZmRmM2Y4Zjg3MWNiMjkyZiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 tropical_fish"
+      - "mobheads:fish tropical_fish"
+      - "mobheads:watermobs tropical_fish"
+  Turtle:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTurtle Head"
+    random_uuid: d22e5c5e-1444-4bfa-9b7f-ea6cb02a8569
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMGE0MDUwZTdhYWNjNDUzOTIwMjY1OGZkYzMzOWRkMTgyZDdlMzIyZjlmYmNjNGQ1Zjk5YjU3MThhIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 turtle"
+      - "mobheads:watermobs turtle"
+  Vex:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVex Head"
+    random_uuid: 09fc3b6f-5c13-40f2-bd0f-d63d4171bcbb
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWU3MzMwYzdkNWNkOGEwYTU1YWI5ZTk1MzIxNTM1YWM3YWUzMGZlODM3YzM3ZWE5ZTUzYmVhN2JhMmRlODZiIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 vex"
+      - "mobheads:woodland_mansion vex"
+  Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager Head"
+    random_uuid: 834e4f81-46d6-4e90-9e60-39bdf4a68c48
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIyZDhlNzUxYzhmMmZkNGM4OTQyYzQ0YmRiMmY1Y2E0ZDhhZThlNTc1ZWQzZWIzNGMxOGE4NmU5M2IifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Vindicator:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVindicator Head"
+    random_uuid: df6eabbb-588b-4820-bacd-025806a8bae8
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGY2ZmI4OWQxYzYzMWJkN2U3OWZlMTg1YmExYTY3MDU0MjVmNWMzMWE1ZmY2MjY1MjFlMzk1ZDRhNmY3ZTIifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 vindicator"
+      - "mobheads:woodland_mansion vindicator"
+  Witch:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWitch Head"
+    random_uuid: a93f8517-c2b3-4bac-81b6-367d8734a79e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODllOGI1ZjE1YTliMjlhMWUzODljOTUyMThmZDM3OTVmMzI4NzJlNWFlZTk0NjRhNzY0OTVjNTI3ZDIyNDUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 witch"
+  Wild_Wolf:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWild Wolf Head"
+    random_uuid: 0d0cb002-321b-406c-8fec-bae45a85a8d6
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk1Y2JiNGY3NWVhODc2MTdmMmY3MTNjNmQ0OWRhYzMyMDliYTFiZDRiOTM2OTY1NGIxNDU5ZWExNTMxNyJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 wild_wolf"
+  Tamed_Wolf:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTamed Wolf Head"
+    random_uuid: 38a890f4-8ec6-4e45-8169-4a6c0a5ba32e
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ4MzczMWQ3N2Y1NGY1ZDRmOTNkZGQ5OWI5NDc2ZTRmMWZlNWI3ZTEzMThmMWUxNjI2ZjdkM2ZhM2FhODQ3In19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 tamed_wolf"
+  Zombie_Pigman:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Pigman Head"
+    random_uuid: 3b08d8ef-4c34-4bee-b0a7-a655302c389f
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzRlOWM2ZTk4NTgyZmZkOGZmOGZlYjMzMjJjZDE4NDljNDNmYjE2YjE1OGFiYjExY2E3YjQyZWRhNzc0M2ViIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_pigman"
+      - "mobheads:nether_dimension zombie_pigman"
+  Zombie_Butcher_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Butcher Villager Head"
+    random_uuid: ba0907e5-5de9-4461-9da7-84ca6f9e7912
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTYxZjE5ZmZkOGFlNDI1NzkyYzRiMTgxNzU2YWRmZjhkNDgxNzRhZWVmNThhMGYzMjdhMjhjNzQyYzcyNDQyIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_butcher_villager"
+  Zombie_Cleric_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Cleric Villager Head"
+    random_uuid: 7506a75e-136f-471c-8032-c3950b4a5561
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTI4YzJiYWQ1Mzg5Y2IzNTkyYjU2NWIzYzQ3ZWNjMTg5ZTA1NDJhODc4MzUwMjhkNjE0OGJiZTMzNDU2NDUifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_cleric_villager"
+  Zombie_Farmer_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Farmer Villager Head"
+    random_uuid: 573bd8d0-f9a1-4885-af08-7c554b45e767
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2ZmMDQ4MmZkMzJmYWIyY2U5ZjVmYTJlMmQ5YjRkYzc1NjFkYTQyMjE1MmM5OWZjODA0YjkxMzljYWYyNTZiIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_farmer_villager"
+  Zombie_Librarian_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Librarian Villager Head"
+    random_uuid: fa2368c1-5299-43cb-84c0-40adaa25cb40
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmMDhlYmQ0ZTI1Y2RhM2FkZTQ1Yjg2MzM3OGFkMzc3ZjE4YzUxMGRiNGQyOGU4MmJiMjQ0NTE0MzliMzczNCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_librarian_villager"
+  Zombie_Nitwit_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Nitwit Villager Head"
+    random_uuid: 614cb8ea-bb85-4e0a-96fb-f2d83273d06a
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzdlODM4Y2NjMjY3NzZhMjE3YzY3ODM4NmY2YTY1NzkxZmU4Y2RhYjhjZTljYTRhYzZiMjgzOTdhNGQ4MWMyMiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_nitwit_villager"
+  Zombie_Smith_Villager:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Smith Villager Head"
+    random_uuid: f061c450-161c-4a7c-bdf7-2a70d42892f6
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE2MTU1ZmNmMzY2Y2Y0ZTA2Y2U1ZGZmYzQ4Y2E1NGU4ZWE0OGRmZTUyNTM1OGI2MTJkYzQ0ZmQ0MzIifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie_smith_villager"
+  Wandering_Trader:
+    dropChance: 2%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWandering Trader Head"
+    random_uuid: f061c450-161c-4a7c-bdf7-2a70d45892f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM0NTM4MDIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jZWU4MGE1ZWJhYjFlNmFjOGM4YjUzMzM0YTYwOWVjODkzMjg0MmZjZDUwNDlkYzJlMjFkYzM1NjA0ZWRjMjVkIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 wandering_trader"
 
 
-    Pillager:
-        dropChance: 0.3%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Pillager Head"
-        random_uuid: f061c450-361c-4a7c-bdf7-2a70d45892f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM5OTQ0NDAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83OTQzMmJjZTcwOTFjMDIwZTEwNTk0YzZlNDc5OGZiNjZkMGU1M2MyZTU0YjM2ZDNmOTYzMmI5NmEyNWMyNmY1In19fQ
+  Pillager:
+    dropChance: 0.4%
+    lootingBonus: 0.2%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePillager Head"
+    random_uuid: f061c450-361c-4a7c-bdf7-2a70d45892f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTM5OTQ0NDAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83OTQzMmJjZTcwOTFjMDIwZTEwNTk0YzZlNDc5OGZiNjZkMGU1M2MyZTU0YjM2ZDNmOTYzMmI5NmEyNWMyNmY1In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 pillager"
+
+  Mooshroom_Brown:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eMooshroom[Brown] Head"
+    random_uuid: 0fba3370-1812-40d3-b4a4-06636e068f8b
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTQ2MzA5MDksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYjg5YTZiMTdlMzRjNjBmMTE4ODlhMTBiOGY4NTkxNjk5YWRlNGEzY2I1NmZiNjc3ZWFkMzE4YmY1NGJhNDNjIn19fQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 mooshroom_brown"
+
+  Ravager:
+    dropChance: 2%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRavager Head"
+    random_uuid: f061c450-341c-4a7c-bdf7-2a74d45892f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTUxMzQ1MzYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xZjNmNzQyNjI5MjhkNTZiNWI0MDY2OTQ1YjhjYjYzMGZlNTI0MzU0NzcwNjQ2ZDUzMDc3YWU5NWU1OTkwMWNjIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 ravager"
+
+
+  Panda_Aggressive:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Agressive] Head"
+    random_uuid: f061c450-341c-4a7c-bdf7-2a71d45822f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTIzMDUzNTgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mM2NhMGRiZjliM2M4YjcxMGI0OTM4OTc4ZTk0Y2ZjYTIzN2YwMmViM2E5YjdkNmQzZGZmNjA2NTAxYTdiYWMxIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_agressive"
+      - "mobheads:panda panda_agressive"
+
+
+  Panda_Brown:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Brown] Head"
+    random_uuid: f061c450-341c-4a7c-bdf7-2a70d42222f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTE4MjcyOTYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iYzBjNWZjMGE5Y2Y2Mjk2Y2UzZTcyNzUyMzVhNzkwN2QzZDllMTFkZmJlZDNmNTEwNTFiNDlhMDc0NzJjZGVjIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_brown"
+      - "mobheads:panda panda_brown"
+
+  Panda_Lazy:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Lazy] Head"
+    random_uuid: f061c450-341c-4a7c-bdf7-2a70d45822f9
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTIzNDU1OTcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYjIzZmZhZjQyOWNmNjRlYWViZDFjNmE3MmIzY2E1N2MzNjIyOGIzNWIzNDcyOGRmZTQ0MGEzOTQ2Mzc2N2Q4In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_lazy"
+      - "mobheads:panda panda_lazy"
+
+  Panda_Normal:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Normal] Head"
+    random_uuid: f361c450-341c-4a7c-bdf7-2a73d45822f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTIzNDU1OTcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYjIzZmZhZjQyOWNmNjRlYWViZDFjNmE3MmIzY2E1N2MzNjIyOGIzNWIzNDcyOGRmZTQ0MGEzOTQ2Mzc2N2Q4In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_normal"
+      - "mobheads:panda panda_normal"
+
+  Panda_Playful:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Playful] Head"
+    random_uuid: f061c450-344c-4a7c-bdf9-2a70d45822f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTI0MTU0MDQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83NzY4ZTdiMjhhM2ExYjMyOGNmNDBhZTgwYmEwNTA2MTk4MTMwMTk4ZDg1NTU3MzhkMGEwNWE0MzMxNjI5ZTAzIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_playful"
+      - "mobheads:panda panda_playful"
+
+  Panda_Weak:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Weak] Head"
+    random_uuid: f061c450-381c-4a7c-bdf7-2a70d45821f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTI0NDc5NjcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kZjJjMjJkMGM0YzQyYjQ5MTFmZTVmM2EwY2ZmOGM2YjIwYTdiYTgxZGYyNzk3ZmI0Zjc4YTkyMzljNjJlMzkwIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_weak"
+      - "mobheads:panda panda_weak"
+
+  Panda_Worried:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePanda[Worried] Head"
+    random_uuid: f061c450-391c-4a7c-bdf7-2a70d45822f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUyMTI0ODYzMjQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYmVmZjEyNDExYzdhYmY1OWU4ZDNiZTc0ZjlhYThjMDU3NzQ5YTE3NDUyNzk5Zjk1Mjg5NTkzOWRjYzFlZTIwIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 panda_worried"
+      - "mobheads:panda panda_worried"
+
+
+
+  Fox_Normal:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eFox Head"
+    random_uuid: f061c110-391c-4a7c-bdf7-2a70d45822f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ3NTY0MjAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83Mzk4ZWQ5ZmExYzFjYzYxMTc2OWMxNDI3YmFmNzQwZGZkMzE1ZTdmNzQ4ZDYxMmYzYTYzYjUzNjA2ODY3YTlmIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 fox"
+
+
+  Fox_Snow:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eFox[Snow] Head"
+    random_uuid: f061c110-391c-4a7c-bdf7-2a70d41122f6
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ4MDIyNTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYWM5NTU0NWU1NDFiNDU0Y2NlNWRjYTcwNTZlNjIzZDI5NGM4NjZmM2I1MTM0NjVhYmE2NjQ2NTdmZDU2YTNiIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 fox_snow"
+
+
+  Cat_Siamese:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSiamese Cat Head"
+    random_uuid: 2030a11c-81ab-49b0-3332-49552fa99d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjEzNjQ0NzYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zNjk5NDBkN2JiMmViYTFjZWZjODIwZDI3MWIyNGMxODMyMjQ1MmRlMjljZmFjZDU0NmE2YzlhZjUxZmNiNWMzIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_siamese"
+      - "mobheads:cat cat_siamese"
+
+  Cat_AllBack:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eAll-Black Cat Head"
+    random_uuid: 2030a11c-81ab-49b5-3332-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE0Mzk4NDAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82M2RlYjk1MmFlMmQxMDc2OGM5ZjE4NTY4MGJhY2Y3MWY2MzljMzY3MWE2MzU2MjljODNiNzRhZTc2YzVlN2M2In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_allblack"
+      - "mobheads:cat cat_allblack"
+
+  Cat_British_ShortHair:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBritish Shorthair Cat Head"
+    random_uuid: 2030a112-81ab-49b0-3332-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE0NzA1MjEsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yN2NmODk5NWQ5ODliYzI5N2UxMTIxZWNhMTg1YTNlYmVmZjQxZDQ5YWYyNzEyYjhjNTcxYmI5NzNjMzIyZjA0In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_british_shorthair"
+      - "mobheads:cat cat_british_shorthair"
+
+  Cat_Ragdoll:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRagdoll Cat Head"
+    random_uuid: 20b0a11c-81ab-49b0-3332-49552f729d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE1MDIyNDIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80OGZjZjc1NmFhNjY1MWI4NjU0NGQ3NzU3YTUwYjQ2ZWFhYzU5YzM0YjNiN2ZhN2Y2NjUwZDNlZDA1NGU3MDI0In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_ragdoll"
+      - "mobheads:cat cat_ragdoll"
+
+  Cat_Persian:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePersian Cat Head"
+    random_uuid: 2030a11c-81ab-49b0-3332-49552f7b9d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE1MzUyOTksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xZWY2ODU4NzVjMmMxMjAzYWQ5MTY2NzZmZDYwY2MwY2ExNWQwZjQwNTA4ZTljMTRhM2I3MDYxYzZkODk4NzdjIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_persain"
+      - "mobheads:cat cat_persian"
+
+  Cat_Jellie:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eJellie Cat Head"
+    random_uuid: 2030a21c-81ab-49b0-3332-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE1NzUzOTcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jNGQ5ZGQwODdkYzcyZTNmMWYyNTVmZmQyOTUxN2FlOWIzYWJmYzgwNzVhY2Y4ZjFmNzU3NmNmMzhhNDhmNmJhIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_jellie"
+      - "mobheads:cat cat_jellie"
+
+  Cat_Calico:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCalico Cat Head"
+    random_uuid: 2030a11c-86ab-49f0-3332-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE2MTU1OTIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xYzFmZTU1MGIxZGMwZTBkYzEyZDkxMGU1NmY2OGVhOTk5NzEyZWIwZjc1YTU1YWU5MjJhNjBkNzc4NWRiMmJkIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_calico"
+      - "mobheads:cat cat_calico"
+
+  Cat_White:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Cat Head"
+    random_uuid: 2030a11c-81ab-49b0-3332-4d552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE2NTA1ODMsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iMGQzMGI5ZWNkYjYxOGE4MmQ0N2FjNjhmYmZjOTQzMmQ0NmFiMjAwMTViZDNiMmRlMGRlNDNhZWRjMmNjNmFhIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_white"
+      - "mobheads:cat cat_white"
+
+  Cat_Tabby:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTabby Cat Head"
+    random_uuid: 2030a11c-81ab-43b0-3332-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE2OTEzOTgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zNTY2Njg3YTlmYzRhN2ZhNmJkZGY1YzE0ZDM2ODE2NTRiM2IzMDRmZmQyMzNlOGNkMGNlYWU1MjI0NDA2ODRlIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_tabby"
+      - "mobheads:cat cat_tabby"
+
+  Cat_Black:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBlack Cat Head"
+    random_uuid: 2030affc-81ab-49b0-3132-49552f799d73
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE3MjUxMTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81M2UyYTZhOGFhOTZmZmQ5ZWUyNDkwOWIxMGY0ZGZjYzA1YzQyN2IwMjFkNzgyMWQxNDFlZDNmYzY4YTEwNjc4In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_black"
+      - "mobheads:cat cat_black"
+
+  Cat_Red:
+    dropChance: 1%
+    lootingBonus: 0.02%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eRed Cat Head"
+    random_uuid: 2f30a11c-81fb-49b0-3332-49552f799d23
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE3NjEyMjAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82OTNkZjQwZTQ3YzhkMjk1ODJjNzliYTE1MWI1YTVhZTMxYmM2ZWYzNDlhZGNiOWEyNTk5NWZlZTNmYzE2MmI5In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cat_red"
+      - "mobheads:cat cat_red"
+
+
+  #Optional skulls, because they also drop in vanilla when killed by a charged creeper.
+  Zombie:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZombie Head"
+    random_uuid: [vanilla]
+    textureCode: [vanilla]
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zombie"
+  Skeleton:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eSkeleton Skull"
+    random_uuid: [vanilla]
+    textureCode: [vanilla]
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 skeleton"
+  Creeper:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCreeper Head"
+    random_uuid: [vanilla]
+    textureCode: [vanilla]
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 creeper"
+  Ender_Dragon:
+    dropChance: 100%
+    lootingBonus: 0%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eDragon Head"
+    random_uuid: [vanilla]
+    textureCode: [vanilla]
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 ender_dragon"
+      - "mobheads:end_dimension ender_dragon"
+
+  #Skull codes are defined below
+  Wither:
+    dropChance: 5%
+    lootingBonus: 2.5%
+    dropOnChargedCreeperDeath: false
+    broadcastMessage: true
+    skullList:
+      Wither1:
+        displayName: "&eWither 1 Head"
+        random_uuid: 078a9627-18e4-4794-a241-2d47643e6219
+        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2RmNzRlMzIzZWQ0MTQzNjk2NWY1YzU3ZGRmMjgxNWQ1MzMyZmU5OTllNjhmYmI5ZDZjZjVjOGJkNDEzOWYifX19
         advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 pillager"
-
-    Mooshroom_Brown:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Mooshroom[Brown] Head"
-        random_uuid: 0fba3370-1812-40d3-b4a4-06636e068f8b
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTQ2MzA5MDksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYjg5YTZiMTdlMzRjNjBmMTE4ODlhMTBiOGY4NTkxNjk5YWRlNGEzY2I1NmZiNjc3ZWFkMzE4YmY1NGJhNDNjIn19fQ==
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 wither_1"
+          - "mobheads:wither wither_1"
+      Wither2:
+        displayName: "&eWither 2 Head"
+        random_uuid: 08c34ceb-d807-4447-adbc-212402e885b9
+        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTY0ZTFjM2UzMTVjOGQ4ZmZmYzM3OTg1YjY2ODFjNWJkMTZhNmY5N2ZmZDA3MTk5ZThhMDVlZmJlZjEwMzc5MyJ9fX0=
         advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 mooshroom_brown"
-
-    Ravager:
-        dropChance: 1%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Ravager Head"
-        random_uuid: f061c450-341c-4a7c-bdf7-2a74d45892f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ2MTUxMzQ1MzYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xZjNmNzQyNjI5MjhkNTZiNWI0MDY2OTQ1YjhjYjYzMGZlNTI0MzU0NzcwNjQ2ZDUzMDc3YWU5NWU1OTkwMWNjIn19fQ
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 wither_2"
+          - "mobheads:wither wither_2"
+      InvulnerableWither1:
+        displayName: "&eInvulnerable Wither 1 Head"
+        random_uuid: fc9c80e0-c0e8-4d3b-a630-cafaed52fbe0
+        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2U0ZjQ5NTM1YTI3NmFhY2M0ZGM4NDEzM2JmZTgxYmU1ZjJhNDc5OWE0YzA0ZDlhNGRkYjcyZDgxOWVjMmIyYiJ9fX0=
         advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 ravager"
-
-
-    Panda_Aggressive:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Agressive] Head"
-        random_uuid: f061c450-341c-4a7c-bdf7-2a71d45822f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM2MzkxNTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTBjODU1OTNmZTBkZDI3YjVmZWVjZTE5Y2Q3NjBhOTI2NWE5ZjE5NzEzN2UyMDFlMmNhZWFhMmY2N2E1ZWJmIn19fQ
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 invulnerable_wither_1"
+          - "mobheads:wither invulnerable_wither_1"
+      InvulnerableWither2:
+        displayName: "&eInvulnerable Wither 2 Head"
+        random_uuid: bb05d45e-d7f6-4f7f-8a34-9accf86823e8
+        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRhZmIyM2VmYzU3ZjI1MTg3OGU1MzI4ZDExY2IwZWVmODdiNzljODdiMjU0YTdlYzcyMjk2ZjkzNjNlZjdjIn19fQ==
         advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_agressive"
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 invulnerable_wither_2"
+          - "mobheads:wither invulnerable_wither_2"
 
 
-    Panda_Brown:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Brown] Head"
-        random_uuid: f061c450-341c-4a7c-bdf7-2a70d42222f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM4MTcwOTYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81ZmM1ZTlmOWJlYzlkNWQwY2ZiMTQ3MjI5OTlmOWExODI2YzljMjZmZmZiZmViYzFmZjBjZTMyMDY2ZTU4OWNkIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_brown"
-
-    Panda_Lazy:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Lazy] Head"
-        random_uuid: f061c450-341c-4a7c-bdf7-2a70d45822f9
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM4NTU2NDcsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iMWRiY2NmYzVlYzdiM2U5MTA5OTY5NGE4NjgwNGMzZjAzZDNmY2Y5MzY0ZmNmOWIzMTFlZmU5Y2Q2MTk0NjhkIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_lazy"
-
-    Panda_Normal:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Normal] Head"
-        random_uuid: f361c450-341c-4a7c-bdf7-2a73d45822f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM5MzMyOTMsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YzZmODliM2E3MDc3YWQ5N2M0NzY2ZDFjNzliYzk2MzMxOWI4MzVmMzgyMDI0ZGE0OTA1MWFhMzQzYWY2MmU5In19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_normal"
-
-    Panda_Playful:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Playful] Head"
-        random_uuid: f061c450-344c-4a7c-bdf9-2a70d45822f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTM5NjQyNjEsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85Y2U2NjkyNzVhZGFmYWFhYjMzODAzNmEyNTQzZDc1MmU1MTFmNTAxZjNhNTZjZTViZGE0YWM2NzVmOTJhNmZlIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_playful"
-
-    Panda_Weak:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Weak] Head"
-        random_uuid: f061c450-381c-4a7c-bdf7-2a70d45821f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQwMDA3MTMsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZTBhODBiNmU3YzljZWE2ZjIyOThhOTkxZjk2YmM3YmYwYzIxNzdlNWYwYjliNWNjODQzM2I2NmJiOTI1MDc2In19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_weak"
-
-    Panda_Worried:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Panda[Worried] Head"
-        random_uuid: f061c450-391c-4a7c-bdf7-2a70d45822f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQwMzkyMjksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYmVmZjEyNDExYzdhYmY1OWU4ZDNiZTc0ZjlhYThjMDU3NzQ5YTE3NDUyNzk5Zjk1Mjg5NTkzOWRjYzFlZTIwIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 panda_worried"
-
-
-
-    Fox_Normal:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Fox Head"
-        random_uuid: f061c110-391c-4a7c-bdf7-2a70d45822f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ3NTY0MjAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83Mzk4ZWQ5ZmExYzFjYzYxMTc2OWMxNDI3YmFmNzQwZGZkMzE1ZTdmNzQ4ZDYxMmYzYTYzYjUzNjA2ODY3YTlmIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 fox"
-
-
-    Fox_Snow:
-        dropChance: 0.2%
-        lootingBonus: 0.1%
-        dropOnChargedCreeperDeath: true
-        broadcastMessage: true
-        displayName: "Fox[Snow] Head"
-        random_uuid: f061c110-391c-4a7c-bdf7-2a70d41122f6
-        textureCode: eyJ0aW1lc3RhbXAiOjE1NjQ3MTQ4MDIyNTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yYWM5NTU0NWU1NDFiNDU0Y2NlNWRjYTcwNTZlNjIzZDI5NGM4NjZmM2I1MTM0NjVhYmE2NjQ2NTdmZDU2YTNiIn19fQ
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 fox_snow"
-
-
-    #Optional skulls, because they also drop in vanilla when killed by a charged creeper. 
-    Zombie:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
-        broadcastMessage: true
-        displayName: "Zombie Head"
-        random_uuid: [vanilla]
-        textureCode: [vanilla]
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 zombie"
-    Skeleton:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
-        broadcastMessage: true
-        displayName: "Skeleton Skull"
-        random_uuid: [vanilla]
-        textureCode: [vanilla]
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 skeleton"
-    Creeper:
-        dropChance: 0.1%
-        lootingBonus: 0.04%
-        dropOnChargedCreeperDeath: false
-        broadcastMessage: true
-        displayName: "Creeper Head"
-        random_uuid: [vanilla]
-        textureCode: [vanilla]
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 creeper"
-    Ender_Dragon:
-        dropChance: 100%
-        lootingBonus: 0%
-        dropOnChargedCreeperDeath: false
-        broadcastMessage: true
-        displayName: "Dragon Head"
-        random_uuid: [vanilla]
-        textureCode: [vanilla]
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 ender_dragon"
-            - "mobheads:end_dimension ender_dragon"
-        
-    #Skull codes are defined below
-    Wither:
-        dropChance: 5%
-        lootingBonus: 2.5%
-        dropOnChargedCreeperDeath: false
-        broadcastMessage: true
-        skullList:
-            Wither1:
-                displayName: "Wither 1 Head"
-                random_uuid: 078a9627-18e4-4794-a241-2d47643e6219
-                textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2RmNzRlMzIzZWQ0MTQzNjk2NWY1YzU3ZGRmMjgxNWQ1MzMyZmU5OTllNjhmYmI5ZDZjZjVjOGJkNDEzOWYifX19
-                advancements:
-                    - "mobheads:firstmobhead first_mob_head"
-                    - "mobheads:thelegend27 wither_1"
-                    - "mobheads:wither wither_1"
-            Wither2:
-                displayName: "Wither 2 Head"
-                random_uuid: 08c34ceb-d807-4447-adbc-212402e885b9
-                textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTY0ZTFjM2UzMTVjOGQ4ZmZmYzM3OTg1YjY2ODFjNWJkMTZhNmY5N2ZmZDA3MTk5ZThhMDVlZmJlZjEwMzc5MyJ9fX0=
-                advancements:
-                    - "mobheads:firstmobhead first_mob_head"
-                    - "mobheads:thelegend27 wither_2"
-                    - "mobheads:wither wither_2"
-            InvulnerableWither1:
-                displayName: "Invulnerable Wither 1 Head"
-                random_uuid: fc9c80e0-c0e8-4d3b-a630-cafaed52fbe0
-                textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2U0ZjQ5NTM1YTI3NmFhY2M0ZGM4NDEzM2JmZTgxYmU1ZjJhNDc5OWE0YzA0ZDlhNGRkYjcyZDgxOWVjMmIyYiJ9fX0=
-                advancements:
-                    - "mobheads:firstmobhead first_mob_head"
-                    - "mobheads:thelegend27 invulnerable_wither_1"
-                    - "mobheads:wither invulnerable_wither_1"
-            InvulnerableWither2:
-                displayName: "Invulnerable Wither 2 Head"
-                random_uuid: bb05d45e-d7f6-4f7f-8a34-9accf86823e8
-                textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRhZmIyM2VmYzU3ZjI1MTg3OGU1MzI4ZDExY2IwZWVmODdiNzljODdiMjU0YTdlYzcyMjk2ZjkzNjNlZjdjIn19fQ==
-                advancements:
-                    - "mobheads:firstmobhead first_mob_head"
-                    - "mobheads:thelegend27 invulnerable_wither_2"
-                    - "mobheads:wither invulnerable_wither_2"
-                  
-                  
 #List of all fish that are supported in this plugin.
 #You can obtain these fish by fishing. When you catch a fish, there is a chance (dropChance) that the player will also catch the corresponding fish head.
 #Instead of looting, the dropchance for fish can be increased by the "Luck of the Sea" enchantment.
 #All dropchances are on 0% on default, because since 1.13 you can kill the actual fishies in the ocean in order to obtain their heads.
 ListOfFish:
-    Cod:
-        dropChance: 0%
-        luckOfTheSeaBonus: 0%
-        broadcastMessage: true
-        displayName: "Cod Head"
-        random_uuid: 512d6218-cdf1-476c-9507-c9ea98574623
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg5MmQ3ZGQ2YWFkZjM1Zjg2ZGEyN2ZiNjNkYTRlZGRhMjExZGY5NmQyODI5ZjY5MTQ2MmE0ZmIxY2FiMCJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 cod"
-            - "mobheads:fish cod"
-            - "mobheads:watermobs cod"
-    Tropical_Fish:
-        dropChance: 0%
-        luckOfTheSeaBonus: 0%
-        broadcastMessage: true
-        displayName: "Tropical Fish Head"
-        random_uuid: 7da93a8e-c42c-4dff-b9c6-01f659807576
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc5ZTQ4ZDgxNGFhM2JjOTg0ZThhNmZkNGZiMTcwYmEwYmI0ODkzZjRiYmViZGU1ZmRmM2Y4Zjg3MWNiMjkyZiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 tropical_fish"
-            - "mobheads:fish tropical_fish"
-            - "mobheads:watermobs tropical_fish"
-    Salmon:
-        dropChance: 0%
-        luckOfTheSeaBonus: 0%
-        broadcastMessage: true
-        displayName: "Salmon Head"
-        random_uuid: 8c986470-776d-4991-9a4d-4ccd14888c06
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFlYjIxYTI1ZTQ2ODA2Y2U4NTM3ZmJkNjY2ODI4MWNmMTc2Y2VhZmU5NWFmOTBlOTRhNWZkODQ5MjQ4NzgifX19
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 salmon"
-            - "mobheads:fish salmon"
-            - "mobheads:watermobs salmon"
-    Pufferfish:
-        dropChance: 0%
-        luckOfTheSeaBonus: 0%
-        broadcastMessage: true
-        displayName: "Pufferfish Head"
-        random_uuid: f7e68f1e-3f55-4166-9e04-65d40663436c
-        textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxNTI4NzZiYzNhOTZkZDJhMjI5OTI0NWVkYjNiZWVmNjQ3YzhhNTZhYzg4NTNhNjg3YzNlN2I1ZDhiYiJ9fX0=
-        advancements:
-            - "mobheads:firstmobhead first_mob_head"
-            - "mobheads:thelegend27 pufferfish"
-            - "mobheads:fish pufferfish"
-            - "mobheads:watermobs pufferfish"
+  Cod:
+    dropChance: 0%
+    luckOfTheSeaBonus: 0%
+    broadcastMessage: true
+    displayName: "Cod Head"
+    random_uuid: 512d6218-cdf1-476c-9507-c9ea98574623
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg5MmQ3ZGQ2YWFkZjM1Zjg2ZGEyN2ZiNjNkYTRlZGRhMjExZGY5NmQyODI5ZjY5MTQ2MmE0ZmIxY2FiMCJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 cod"
+      - "mobheads:fish cod"
+      - "mobheads:watermobs cod"
+  Tropical_Fish:
+    dropChance: 0%
+    luckOfTheSeaBonus: 0%
+    broadcastMessage: true
+    displayName: "Tropical Fish Head"
+    random_uuid: 7da93a8e-c42c-4dff-b9c6-01f659807576
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc5ZTQ4ZDgxNGFhM2JjOTg0ZThhNmZkNGZiMTcwYmEwYmI0ODkzZjRiYmViZGU1ZmRmM2Y4Zjg3MWNiMjkyZiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 tropical_fish"
+      - "mobheads:fish tropical_fish"
+      - "mobheads:watermobs tropical_fish"
+  Salmon:
+    dropChance: 0%
+    luckOfTheSeaBonus: 0%
+    broadcastMessage: true
+    displayName: "Salmon Head"
+    random_uuid: 8c986470-776d-4991-9a4d-4ccd14888c06
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFlYjIxYTI1ZTQ2ODA2Y2U4NTM3ZmJkNjY2ODI4MWNmMTc2Y2VhZmU5NWFmOTBlOTRhNWZkODQ5MjQ4NzgifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 salmon"
+      - "mobheads:fish salmon"
+      - "mobheads:watermobs salmon"
+  Pufferfish:
+    dropChance: 0%
+    luckOfTheSeaBonus: 0%
+    broadcastMessage: true
+    displayName: "Pufferfish Head"
+    random_uuid: f7e68f1e-3f55-4166-9e04-65d40663436c
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxNTI4NzZiYzNhOTZkZDJhMjI5OTI0NWVkYjNiZWVmNjQ3YzhhNTZhYzg4NTNhNjg3YzNlN2I1ZDhiYiJ9fX0=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 pufferfish"
+      - "mobheads:fish pufferfish"
+      - "mobheads:watermobs pufferfish"
 
 #Whenever a player dies by another player
 Player:
-    dropChance: 100%
-    lootingBonus: 0%
-    dropOnChargedCreeperDeath: false
-    advancements:
-        - "mobheads:player first_player_head"
+  dropChance: 100%
+  lootingBonus: 0%
+  dropOnChargedCreeperDeath: false
+  advancements:
+    - "mobheads:player first_player_head"

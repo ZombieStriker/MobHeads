@@ -1,0 +1,4 @@
+To install the custom advancements for the mob heads plugin.
+Simply drop this zip file into your world/datapacks folder.
+
+So much easier than 1.12...

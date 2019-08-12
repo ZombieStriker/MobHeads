@@ -1,0 +1,50 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all nether dimension mob heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Nether dimension conquered!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "netherrack",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "zombie_pigman": {
+      "trigger": "minecraft:impossible"
+    },
+    "ghast": {
+      "trigger": "minecraft:impossible"
+    },
+    "blaze": {
+      "trigger": "minecraft:impossible"
+    },
+    "magma_cube": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "zombie_pigman"
+    ],
+    [
+      "ghast"
+    ],
+    [
+      "blaze"
+    ],
+    [
+      "magma_cube"
+    ]
+  ],
+  "filename": 10,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}

@@ -1,0 +1,68 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all rabbit heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "Wabbit season!",
+      "color": "white"
+    },
+    "icon": {
+      "item": "rabbit_foot",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "black_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "black_and_white_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "brown_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "gold_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "salt_and_pepper_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "toast_rabbit": {
+      "trigger": "minecraft:impossible"
+    },
+    "white_rabbit": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "black_rabbit"
+    ],
+    [
+      "black_and_white_rabbit"
+    ],
+    [
+      "brown_rabbit"
+    ],
+    [
+      "gold_rabbit"
+    ],
+    [
+      "salt_and_pepper_rabbit"
+    ],
+    [
+      "toast_rabbit"
+    ],
+    [
+      "white_rabbit"
+    ]
+  ],
+  "filename": 8,
+  "parent-count": 3,
+  "parent-type": "child",
+  "parent": "mobheads:firstmobhead"
+}

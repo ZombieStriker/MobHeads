@@ -1,0 +1,50 @@
+{
+  "display": {
+    "description": {
+      "text": "Obtain all wither heads",
+      "color": "white"
+    },
+    "title": {
+      "text": "I thought it only had 3 heads?",
+      "color": "white"
+    },
+    "icon": {
+      "item": "nether_star",
+      "tag": 0
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "wither_1": {
+      "trigger": "minecraft:impossible"
+    },
+    "wither_2": {
+      "trigger": "minecraft:impossible"
+    },
+    "invulnerable_wither_2": {
+      "trigger": "minecraft:impossible"
+    },
+    "invulnerable_wither_1": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {},
+  "requirements": [
+    [
+      "wither_1"
+    ],
+    [
+      "wither_2"
+    ],
+    [
+      "invulnerable_wither_2"
+    ],
+    [
+      "invulnerable_wither_1"
+    ]
+  ],
+  "filename": 18,
+  "parent-count": 3,
+  "parent-type": "parent",
+  "parent": "mobheads:firstmobhead"
+}
