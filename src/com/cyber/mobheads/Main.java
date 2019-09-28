@@ -8,7 +8,6 @@ import com.cyber.mobheads.Utilities.SkullFactory;
 import com.cyber.mobheads.listeners.EntityDeathListener;
 import com.cyber.mobheads.listeners.FishListener;
 import com.cyber.mobheads.listeners.SkullBreakListener;
-import com.sun.jdi.event.ExceptionEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -27,7 +26,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.jar.JarInputStream;
 
 public class Main
 		extends JavaPlugin {
@@ -58,11 +56,12 @@ public class Main
 
 		ConfigController.configurationCheck();
 
+		SpiGetUpdater.checkAutoUpdate(this, 70019, getConfig().getBoolean("auto-update") == true);
 		//Broadcaster.outputInfoConsole("Mob Heads enabled", 0);
 	}
 
 	public void onDisable() {
-		Broadcaster.outputInfoConsole("Mob Heads disabled", 0);
+		/*Broadcaster.outputInfoConsole("Mob Heads disabled", 0);*/
 	}
 
 	public void a(List<String> tabs, String test, String args) {
@@ -160,7 +159,7 @@ public class Main
 					try{
 						final JarFile jar = new JarFile(achievementsDir);
 						final Enumeration<JarEntry> entries = jar.entries(); //gives ALL entries in jar
-						while(((Enumeration) entries).hasMoreElements()) {
+						while(entries.hasMoreElements()) {
 							final String name = entries.nextElement().getName();
 
 							if (name.startsWith("achievements")) { //filter according to the path
@@ -241,9 +240,12 @@ public class Main
 
 
 						message = ConfigController.getMessage("Messages.Success.Head-probability-sender");
+						if(mobmeta.getDropChance()<=0){
+							message = ConfigController.getMessage("Messages.Success.Head-probability-sender-basegame");
+						}
 						if (!message.isEmpty()) {
 							String bonus = mobmeta.getDropBonus()*100 < 0.001? new DecimalFormat("0.##########").format(mobmeta.getDropBonus()*100) : mobmeta.getDropBonus()*100+"";
-							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getDisplayName()).replace("[probability]", mobmeta.getDropChance()*100 + "").replace("[probabilitylooting]", bonus));
+							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getUsedDisplayName()).replace("[probability]", mobmeta.getDropChance()*100 + "").replace("[probabilitylooting]", bonus));
 						}
 
 
@@ -253,7 +255,7 @@ public class Main
 							if (chance > 100) chance = 100;
 							int chanceB = (int) ((1.0 - Math.pow(1.0 - (mobmeta.getDropChance()+(mobmeta.getDropBonus()*3)), 100)) * 100);
 							if (chanceB > 100) chanceB = 100;
-							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getDisplayName()).replace("[probability]", chance + "").replace("[bonusprobability]",""+chanceB));
+							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getUsedDisplayName()).replace("[probability]", chance + "").replace("[bonusprobability]",""+chanceB));
 						}
 						if(mobmeta.isChargedCreeperDrop()) {
 							message = ConfigController.getMessage("Messages.Success.Head-probability-charged-sender");
@@ -337,7 +339,7 @@ public class Main
 
 						message = ConfigController.getMessage("Messages.Success.Head-given-sender");
 						if (!message.isEmpty()) {
-							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getDisplayName()).replace("[receiver]", player.getName()));
+							sender.sendMessage(message.replace("[name-of-head]", mobmeta.getUsedDisplayName()).replace("[receiver]", player.getName()));
 						}
 						giveMobSkull(player, mobmeta);
 						return true;
@@ -389,7 +391,7 @@ public class Main
 
 		String message = ConfigController.getMessage("Messages.Success.Mob-head-given-receiver");
 		if (!message.isEmpty()) {
-			player.sendMessage(message.replace("[mobname]", mobmeta.getDisplayName()));
+			player.sendMessage(message.replace("[mobname]", mobmeta.getUsedDisplayName()));
 		}
 
 		if (player.getInventory().firstEmpty() != -1) {

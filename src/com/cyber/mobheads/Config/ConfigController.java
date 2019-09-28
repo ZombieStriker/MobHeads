@@ -187,6 +187,8 @@ public class ConfigController {
 			bonus = "lootingBonus";
 		}
 		String input = CONFIGURATION.getString(root+"."+configName+".dropChance");
+		if(input.equals("NONE"))
+			return 0;
 		if(input.equals("DEFAULT"))
 			return percentageToDouble(CONFIGURATION.getString("default_looting_chance"));
 		return percentageToDouble(input);
@@ -201,6 +203,8 @@ public class ConfigController {
 			bonus = "lootingBonus";
 		}
 		String input = CONFIGURATION.getString(root+"."+configName+"."+bonus);
+		if(input.equals("NONE"))
+			return 0;
 		if(input.equals("DEFAULT"))
 			return percentageToDouble(CONFIGURATION.getString("default_looting_bonus"));
 		return percentageToDouble(input);

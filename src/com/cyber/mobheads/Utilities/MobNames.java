@@ -88,6 +88,7 @@ public enum MobNames {
 	Vindicator,
 	Witch,
 	Wither,
+	Wither_Skeleton,
 	Wild_Wolf,
 	Tamed_Wolf,
 	Zombie,
@@ -226,6 +227,8 @@ public enum MobNames {
 				return Witch;
 			case WITHER:
 				return Wither;
+			case WITHER_SKELETON:
+				return Wither_Skeleton;
 			case WOLF:
 				return getWolfName((Wolf) entity);
 			case ZOMBIE:
@@ -244,7 +247,6 @@ public enum MobNames {
 				return Tropical_Fish;
 			case ARROW:
 				return getFishName(entity);
-
 			case WANDERING_TRADER:
 				return Wandering_Trader;
 			case PILLAGER:

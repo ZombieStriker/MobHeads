@@ -31,6 +31,14 @@ public class MobMeta {
 	}
 
 
+
+	public String getUsedDisplayName() {
+		if(this.displayName.equals("[vanilla]")){
+			return SkullFactory.getVanillaName(this.mobName);
+		}
+		return this.displayName;
+	}
+
 	public String getDisplayName() {
 		return this.displayName;
 	}

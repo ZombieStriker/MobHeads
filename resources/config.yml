@@ -26,10 +26,10 @@ drop_player_heads_outside_inventory: false
 allow_self_player_head_farming: false
 
 #Sets the default looting chance/bonus chance for most default mobs. This makes it easier to tweak what the default value should be
-default_looting_chance: 0.15%
-default_looting_bonus: 0.075%
+default_looting_chance: 0.25%
+default_looting_bonus: 0.1%
 
-
+auto-update: true
 
 #These are the messages that are sent to players when the plugin is active.
 #For certain commands there will be extra variables such as [player], these will be mentioned for each message.
@@ -61,6 +61,9 @@ Messages:
 
     #Shown to the sender of the "/mobheads probability" command
     Head-probability-sender: "&3The probability of getting &b[name-of-head]&3 is &b[probability]%&3 (&b+[probabilitylooting]%&3 per looting level)!"
+
+    #Shown to the sender of the "/mobheads probability" command if head is set to 0 (only dropped by base-game)
+    Head-probability-sender-basegame: "&3The probability of getting &b[name-of-head]&3 is determined by the base-game"
 
     #Shown to the sender of the "/mobheads probability" command
     Head-probability-charged-sender: "&bThis mob will drop their head if killed by a charged creeper!"
@@ -113,8 +116,8 @@ Messages:
 #broadcastMessage = when a player kills a mob and it drops their head, it will broadcastMessage a message to the server. You might want to disable the broadcastMessage option for mobs that are easily farmable, such as an enderman farm.
 ListOfMobs:
   Bat:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 0.75%
+    lootingBonus: 1
     broadcastMessage: true
     dropOnChargedCreeperDeath: true
     displayName: "&eBat Head"
@@ -137,7 +140,7 @@ ListOfMobs:
       - "mobheads:nether_dimension blaze"
   #The old cats will no longer spawn
   Black_Cat:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -150,7 +153,7 @@ ListOfMobs:
       - "mobheads:cat cat_allblack"
   #The old cats will no longer spawn
   Ginger_Cat:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -163,7 +166,7 @@ ListOfMobs:
       - "mobheads:cat ginger_cat"
    #The old cats will no longer spawn
   Siamese_Cat:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -268,7 +271,7 @@ ListOfMobs:
       - "mobheads:watermobs drowned"
   Elder_Guardian:
     dropChance: 1%
-    lootingBonus: 0.5%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eElder Guardian Head"
@@ -293,7 +296,7 @@ ListOfMobs:
       - "mobheads:end_dimension enderman"
       - "mobheads:nether_dimension enderman"
   Endermite:
-    dropChance: DEFAULT
+    dropChance: 0.76
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -317,8 +320,8 @@ ListOfMobs:
       - "mobheads:thelegend27 evoker"
       - "mobheads:woodland_mansion evoker"
   Ghast:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eGhast Head"
@@ -342,7 +345,7 @@ ListOfMobs:
       - "mobheads:ocean_monument guardian"
       - "mobheads:watermobs guardian"
   Black_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -354,7 +357,7 @@ ListOfMobs:
       - "mobheads:thelegend27 black_horse"
       - "mobheads:horse black_horse"
   Brown_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -366,7 +369,7 @@ ListOfMobs:
       - "mobheads:thelegend27 brown_horse"
       - "mobheads:horse brown_horse"
   Chestnut_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -378,7 +381,7 @@ ListOfMobs:
       - "mobheads:thelegend27 chestnut_horse"
       - "mobheads:horse chestnut_horse"
   Creamy_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -390,7 +393,7 @@ ListOfMobs:
       - "mobheads:thelegend27 creamy_horse"
       - "mobheads:horse creamy_horse"
   Dark_Brown_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -402,7 +405,7 @@ ListOfMobs:
       - "mobheads:thelegend27 dark_brown_horse"
       - "mobheads:horse dark_brown_horse"
   Gray_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -414,7 +417,7 @@ ListOfMobs:
       - "mobheads:thelegend27 gray_horse"
       - "mobheads:horse gray_horse"
   White_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -426,7 +429,7 @@ ListOfMobs:
       - "mobheads:thelegend27 white_horse"
       - "mobheads:horse white_horse"
   Skeleton_Horse:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -472,8 +475,8 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:illusioner illusioner"
   Iron_Golem:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eIron Golem Head"
@@ -483,7 +486,7 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 iron_golem"
   Brown_Llama:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -495,7 +498,7 @@ ListOfMobs:
       - "mobheads:thelegend27 brown_llama"
       - "mobheads:llama brown_llama"
   Creamy_Llama:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -507,7 +510,7 @@ ListOfMobs:
       - "mobheads:thelegend27 creamy_llama"
       - "mobheads:llama creamy_llama"
   Gray_Llama:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -519,7 +522,7 @@ ListOfMobs:
       - "mobheads:thelegend27 gray_llama"
       - "mobheads:llama gray_llama"
   White_Llama:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -543,8 +546,8 @@ ListOfMobs:
       - "mobheads:thelegend27 magma_cube"
       - "mobheads:nether_dimension magma_cube"
   Mooshroom:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eMooshroom Head"
@@ -554,7 +557,7 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 mooshroom"
   Mule:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -577,7 +580,7 @@ ListOfMobs:
       - "mobheads:thelegend27 ocelot"
       - "mobheads:cat ocelot"
   Blue_Parrot:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -589,7 +592,7 @@ ListOfMobs:
       - "mobheads:thelegend27 blue_parrot"
       - "mobheads:parrot blue_parrot"
   Cyan_Parrot:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -601,7 +604,7 @@ ListOfMobs:
       - "mobheads:thelegend27 cyan_parrot"
       - "mobheads:parrot cyan_parrot"
   Gray_Parrot:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -613,7 +616,7 @@ ListOfMobs:
       - "mobheads:thelegend27 gray_parrot"
       - "mobheads:parrot gray_parrot"
   Green_Parrot:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -625,7 +628,7 @@ ListOfMobs:
       - "mobheads:thelegend27 green_parrot"
       - "mobheads:parrot green_parrot"
   Red_Parrot:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -637,8 +640,8 @@ ListOfMobs:
       - "mobheads:thelegend27 red_parrot"
       - "mobheads:parrot red_parrot"
   Phantom:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 0.4
+    lootingBonus: 0.15%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&ePhantom Head"
@@ -683,7 +686,7 @@ ListOfMobs:
       - "mobheads:fish pufferfish"
       - "mobheads:watermobs pufferfish"
   Black_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -695,7 +698,7 @@ ListOfMobs:
       - "mobheads:thelegend27 black_rabbit"
       - "mobheads:rabbit black_rabbit"
   Black_and_White_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -707,7 +710,7 @@ ListOfMobs:
       - "mobheads:thelegend27 black_and_white_rabbit"
       - "mobheads:rabbit black_and_white_rabbit"
   Brown_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -719,7 +722,7 @@ ListOfMobs:
       - "mobheads:thelegend27 brown_rabbit"
       - "mobheads:rabbit brown_rabbit"
   Gold_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -731,7 +734,7 @@ ListOfMobs:
       - "mobheads:thelegend27 gold_rabbit"
       - "mobheads:rabbit gold_rabbit"
   Salt_and_Pepper_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -780,7 +783,7 @@ ListOfMobs:
       - "mobheads:fish salmon"
       - "mobheads:watermobs salmon"
   White_Rabbit:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -792,7 +795,7 @@ ListOfMobs:
       - "mobheads:thelegend27 white_rabbit"
       - "mobheads:rabbit white_rabbit"
   Black_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -804,7 +807,7 @@ ListOfMobs:
       - "mobheads:thelegend27 black_sheep"
       - "mobheads:sheep black_sheep"
   Blue_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -816,7 +819,7 @@ ListOfMobs:
       - "mobheads:thelegend27 blue_sheep"
       - "mobheads:sheep blue_sheep"
   Brown_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -828,7 +831,7 @@ ListOfMobs:
       - "mobheads:thelegend27 brown_sheep"
       - "mobheads:sheep brown_sheep"
   Cyan_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -840,7 +843,7 @@ ListOfMobs:
       - "mobheads:thelegend27 cyan_sheep"
       - "mobheads:sheep cyan_sheep"
   Gray_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -852,7 +855,7 @@ ListOfMobs:
       - "mobheads:thelegend27 gray_sheep"
       - "mobheads:sheep gray_sheep"
   Green_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -864,7 +867,7 @@ ListOfMobs:
       - "mobheads:thelegend27 green_sheep"
       - "mobheads:sheep green_sheep"
   Light_Blue_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -876,7 +879,7 @@ ListOfMobs:
       - "mobheads:thelegend27 light_blue_sheep"
       - "mobheads:sheep light_blue_sheep"
   Lime_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -888,7 +891,7 @@ ListOfMobs:
       - "mobheads:thelegend27 lime_sheep"
       - "mobheads:sheep lime_sheep"
   Magenta_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -900,7 +903,7 @@ ListOfMobs:
       - "mobheads:thelegend27 magenta_sheep"
       - "mobheads:sheep magenta_sheep"
   Orange_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -912,7 +915,7 @@ ListOfMobs:
       - "mobheads:thelegend27 orange_sheep"
       - "mobheads:sheep orange_sheep"
   Pink_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -924,7 +927,7 @@ ListOfMobs:
       - "mobheads:thelegend27 pink_sheep"
       - "mobheads:sheep pink_sheep"
   Purple_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -936,7 +939,7 @@ ListOfMobs:
       - "mobheads:thelegend27 purple_sheep"
       - "mobheads:sheep purple_sheep"
   Rainbow_Sheep:
-    dropChance: 1%
+    dropChance: 2%
     lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -948,7 +951,7 @@ ListOfMobs:
       - "mobheads:thelegend27 rainbow_sheep"
       - "mobheads:sheep rainbow_sheep"
   Red_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -960,7 +963,7 @@ ListOfMobs:
       - "mobheads:thelegend27 red_sheep"
       - "mobheads:sheep red_sheep"
   Light_Gray_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -972,7 +975,7 @@ ListOfMobs:
       - "mobheads:thelegend27 light_gray_sheep"
       - "mobheads:sheep light_gray_sheep"
   White_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -984,7 +987,7 @@ ListOfMobs:
       - "mobheads:thelegend27 white_sheep"
       - "mobheads:sheep white_sheep"
   Yellow_Sheep:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -996,7 +999,7 @@ ListOfMobs:
       - "mobheads:thelegend27 yellow_sheep"
       - "mobheads:sheep yellow_sheep"
   Shulker:
-    dropChance: 2%
+    dropChance: 10%
     lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1030,8 +1033,8 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 slime"
   Snow_Golem:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 0.35%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eSnow Golem Head"
@@ -1100,8 +1103,8 @@ ListOfMobs:
       - "mobheads:thelegend27 turtle"
       - "mobheads:watermobs turtle"
   Vex:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eVex Head"
@@ -1157,8 +1160,8 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 wild_wolf"
   Tamed_Wolf:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 5%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eTamed Wolf Head"
@@ -1271,8 +1274,8 @@ ListOfMobs:
       - "mobheads:thelegend27 pillager"
 
   Mooshroom_Brown:
-    dropChance: DEFAULT
-    lootingBonus: DEFAULT
+    dropChance: 1%
+    lootingBonus: 1%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eMooshroom[Brown] Head"
@@ -1296,7 +1299,7 @@ ListOfMobs:
 
 
   Panda_Aggressive:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1310,7 +1313,7 @@ ListOfMobs:
 
 
   Panda_Brown:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1323,7 +1326,7 @@ ListOfMobs:
       - "mobheads:panda panda_brown"
 
   Panda_Lazy:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1336,7 +1339,7 @@ ListOfMobs:
       - "mobheads:panda panda_lazy"
 
   Panda_Normal:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1349,7 +1352,7 @@ ListOfMobs:
       - "mobheads:panda panda_normal"
 
   Panda_Playful:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1362,7 +1365,7 @@ ListOfMobs:
       - "mobheads:panda panda_playful"
 
   Panda_Weak:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1375,7 +1378,7 @@ ListOfMobs:
       - "mobheads:panda panda_weak"
 
   Panda_Worried:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1390,7 +1393,7 @@ ListOfMobs:
 
 
   Fox_Normal:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1403,7 +1406,7 @@ ListOfMobs:
 
 
   Fox_Snow:
-    dropChance: DEFAULT
+    dropChance: 0.3%
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
@@ -1417,7 +1420,7 @@ ListOfMobs:
 
   Cat_Siamese:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eSiamese Cat Head"
@@ -1430,7 +1433,7 @@ ListOfMobs:
 
   Cat_AllBack:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eAll-Black Cat Head"
@@ -1443,7 +1446,7 @@ ListOfMobs:
 
   Cat_British_ShortHair:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eBritish Shorthair Cat Head"
@@ -1456,7 +1459,7 @@ ListOfMobs:
 
   Cat_Ragdoll:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eRagdoll Cat Head"
@@ -1469,7 +1472,7 @@ ListOfMobs:
 
   Cat_Persian:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&ePersian Cat Head"
@@ -1482,7 +1485,7 @@ ListOfMobs:
 
   Cat_Jellie:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eJellie Cat Head"
@@ -1495,7 +1498,7 @@ ListOfMobs:
 
   Cat_Calico:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eCalico Cat Head"
@@ -1508,7 +1511,7 @@ ListOfMobs:
 
   Cat_White:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eWhite Cat Head"
@@ -1521,7 +1524,7 @@ ListOfMobs:
 
   Cat_Tabby:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eTabby Cat Head"
@@ -1534,7 +1537,7 @@ ListOfMobs:
 
   Cat_Black:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eBlack Cat Head"
@@ -1547,7 +1550,7 @@ ListOfMobs:
 
   Cat_Red:
     dropChance: 1%
-    lootingBonus: 0.02%
+    lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eRed Cat Head"
@@ -1558,14 +1561,13 @@ ListOfMobs:
       - "mobheads:thelegend27 cat_red"
       - "mobheads:cat cat_red"
 
-
   #Optional skulls, because they also drop in vanilla when killed by a charged creeper.
   Zombie:
     dropChance: DEFAULT
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
-    displayName: "&eZombie Head"
+    displayName: [vanilla]
     random_uuid: [vanilla]
     textureCode: [vanilla]
     advancements:
@@ -1576,18 +1578,29 @@ ListOfMobs:
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
-    displayName: "&eSkeleton Skull"
+    displayName: [vanilla]
     random_uuid: [vanilla]
     textureCode: [vanilla]
     advancements:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 skeleton"
+  Wither_Skeleton:
+    dropChance: NONE
+    lootingBonus: NONE
+    dropOnChargedCreeperDeath: false
+    broadcastMessage: true
+    displayName: [vanilla]
+    random_uuid: [vanilla]
+    textureCode: [vanilla]
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 wither_skeleton"
   Creeper:
     dropChance: DEFAULT
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
-    displayName: "&eCreeper Head"
+    displayName: [vanilla]
     random_uuid: [vanilla]
     textureCode: [vanilla]
     advancements:
@@ -1598,7 +1611,7 @@ ListOfMobs:
     lootingBonus: 0%
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
-    displayName: "&eDragon Head"
+    displayName: [vanilla]
     random_uuid: [vanilla]
     textureCode: [vanilla]
     advancements:
@@ -1608,8 +1621,8 @@ ListOfMobs:
 
   #Skull codes are defined below
   Wither:
-    dropChance: 5%
-    lootingBonus: 2.5%
+    dropChance: 25%
+    lootingBonus: 3%
     dropOnChargedCreeperDeath: false
     broadcastMessage: true
     skullList:

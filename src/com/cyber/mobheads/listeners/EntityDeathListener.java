@@ -5,6 +5,9 @@ import com.cyber.mobheads.Utilities.Broadcaster;
 import com.cyber.mobheads.Utilities.MobMeta;
 import com.cyber.mobheads.Utilities.MobNames;
 import com.cyber.mobheads.Utilities.SkullFactory;
+import com.cyber.mobheads.advancements.AdvancementsManager;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -65,14 +68,15 @@ public class EntityDeathListener
 				skull = getMobHead(killer, livingEntity, true);
 			}
 			boolean alreadyThere = false;
-			for(ItemStack is : event.getDrops()) {
-				if(is != null && is.getType()==skull.getType());{
+			for (ItemStack is : event.getDrops()) {
+				if (is != null && is.getType() == skull.getType()) ;
+				{
 					alreadyThere = true;
 					break;
 				}
 			}
-			if(!alreadyThere)
-			event.getDrops().add(skull);
+			if (!alreadyThere)
+				event.getDrops().add(skull);
 			return;
 		}
 
@@ -96,7 +100,24 @@ public class EntityDeathListener
 			}
 
 		} else {
+			for (ItemStack drops : event.getDrops()) {
+				if(drops!=null)
+				if (drops.getType() == Material.WITHER_SKELETON_SKULL) {
+					MobNames mobname = MobNames.getName(livingEntity);
+					MobMeta mobmeta = ConfigController.getRandomConfigMobMeta(mobname, false);
+					//TODO: Check if correct: This will show the advancements, but not duplicate head if already exists
+					AdvancementsManager.triggerAdvancement(killer, mobmeta.getAdvancements());
 
+					if (mobmeta.isShouldBroadcast()) {
+						String name = mobmeta.getUsedDisplayName();
+						if (name == null) {
+							name = SkullFactory.getVanillaName(livingEntity);
+						}
+						Broadcaster.broadCastMobHead(killer, name);
+					}
+					return;
+				}
+			}
 			event.getDrops().add(getMobHead(killer, livingEntity, false));
 		}
 	}
@@ -116,7 +137,8 @@ public class EntityDeathListener
 				return null;
 			}
 
-			Broadcaster.outputInfoConsole("This mob is not supported, please update!", 1);
+			Broadcaster.outputInfoConsole("The mob \"" +mob.getType().name()+
+					"\" is not supported, please update!", 1);
 			return null;
 		}
 
@@ -138,12 +160,12 @@ public class EntityDeathListener
 		}
 
 
-		ItemStack skull = (new SkullFactory()).getMobSkull(mobmeta, killer);
+		ItemStack skull = SkullFactory.getMobSkull(mobmeta, killer);
 
 		if (mobmeta.isShouldBroadcast() && !forceDrop) {
-			String name = mobmeta.getDisplayName();
+			String name = mobmeta.getUsedDisplayName();
 			if (name == null) {
-				name = getVanillaName(mob);
+				name = SkullFactory.getVanillaName(mob);
 			}
 			Broadcaster.broadCastMobHead(killer, name);
 		}
@@ -153,7 +175,7 @@ public class EntityDeathListener
 
 	private ItemStack getPlayerHead(Player deadPlayer, Player killer, boolean forceDrop) {
 		if (forceDrop) {
-			return (new SkullFactory()).getPlayerSkull(deadPlayer.getName(), killer);
+			return SkullFactory.getPlayerSkull(deadPlayer.getName(), killer);
 		}
 
 		if (!killer.hasPermission("com.cyber.mobheads.behead.players")) {
@@ -165,7 +187,7 @@ public class EntityDeathListener
 
 		if (willDrop(dropChance)) {
 			Broadcaster.broadCastPlayerHead(killer, deadPlayer);
-			return (new SkullFactory()).getPlayerSkull(deadPlayer.getName(), killer);
+			return SkullFactory.getPlayerSkull(deadPlayer.getName(), killer);
 		}
 		return null;
 	}
@@ -175,17 +197,4 @@ public class EntityDeathListener
 		return (randomDouble <= dropChance);
 	}
 
-	private String getVanillaName(Entity entity) {
-		switch (entity.getType()) {
-			case SKELETON:
-				return "Skeleton Head";
-			case CREEPER:
-				return "Creeper Head";
-			case ZOMBIE:
-				return "Zombie Head";
-			case ENDER_DRAGON:
-				return "Dragon Head";
-		}
-		return null;
-	}
 }

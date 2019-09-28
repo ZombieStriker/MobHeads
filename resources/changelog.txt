@@ -1,3 +1,14 @@
+v3.2
+    Increased looting chance for variant mobs (it is a pain killing all those dyed sheep for heads, when they are all basically the same)
+    Increased wither head drop chance (You should not have to kill them 100 times to get all their heads)
+    Slightly increased default looting/bonus chances.
+    Fixed looting chance for LootingIII for cats
+    Increased Tamed Wolf head drop rate. (those poor, poor puppers)
+    Increased Rainbow Sheep's head drop rate (those poor, poor nametags)
+    Added Award Advancements even if the head was dropped naturally.
+    Added Wither Skeleton heads to list
+    Added option for drop chance to be NONE, which disables drop chance
+
 v3.1
     Fixed Sheep Mob Head
     Added all cat heads!

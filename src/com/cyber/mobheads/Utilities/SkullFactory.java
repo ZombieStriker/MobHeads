@@ -9,6 +9,7 @@ import com.mojang.authlib.properties.Property;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,7 +19,7 @@ import java.lang.reflect.Field;
 import java.util.UUID;
 
 public class SkullFactory{
-	public ItemStack getMobSkull(MobMeta mobmeta, Player owner) {
+	public static ItemStack getMobSkull(MobMeta mobmeta, Player owner) {
 		String encodedTexture = mobmeta.getTextureCode();
 		String randomUUID = mobmeta.getUUID();
 		String displayName = mobmeta.getDisplayName();
@@ -26,7 +27,6 @@ public class SkullFactory{
 			return null;
 		}
 		if (encodedTexture.equalsIgnoreCase("[vanilla]") || randomUUID.equalsIgnoreCase("[vanilla]") || displayName.equalsIgnoreCase("[vanilla]")) {
-
 			if (owner != null) {
 				AdvancementsManager.triggerAdvancement(owner, mobmeta.getAdvancements());
 			}
@@ -59,7 +59,7 @@ public class SkullFactory{
 		return skull;
 	}
 
-	public ItemStack getPlayerSkull(String playername, Player killer) {
+	public static ItemStack getPlayerSkull(String playername, Player killer) {
 		ItemStack item = new ItemStack(Material.PLAYER_HEAD, 1);
 		ItemMeta itemMeta = item.getItemMeta();
 		((SkullMeta) itemMeta).setOwner(playername);
@@ -68,7 +68,7 @@ public class SkullFactory{
 		return item;
 	}
 
-	public ItemStack getVanillaSkull(MobNames mobname) {
+	public static ItemStack getVanillaSkull(MobNames mobname) {
 		Material mat;
 		switch (mobname) {
 			case Ender_Dragon:
@@ -83,6 +83,42 @@ public class SkullFactory{
 			case Creeper:
 				mat = Material.CREEPER_HEAD;
 				return new ItemStack(mat, 1);
+			case Wither_Skeleton:
+				mat = Material.WITHER_SKELETON_SKULL;
+				return new ItemStack(mat, 1);
+		}
+		return null;
+	}
+
+
+	public static String getVanillaName(MobNames mobname) {
+		Material mat;
+		switch (mobname) {
+			case Skeleton:
+				return "Skeleton Head";
+			case Creeper:
+				return "Creeper Head";
+			case Zombie:
+				return "Zombie Head";
+			case Ender_Dragon:
+				return "Dragon Head";
+			case Wither_Skeleton:
+				return "Wither Skeleton Head";
+		}
+		return null;
+	}
+	public static String getVanillaName(Entity entity) {
+		switch (entity.getType()) {
+			case SKELETON:
+				return "Skeleton Head";
+			case CREEPER:
+				return "Creeper Head";
+			case ZOMBIE:
+				return "Zombie Head";
+			case ENDER_DRAGON:
+				return "Dragon Head";
+			case WITHER_SKELETON:
+				return "Wither Skeleton Head";
 		}
 		return null;
 	}
