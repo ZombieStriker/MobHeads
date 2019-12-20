@@ -533,6 +533,54 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 white_llama"
       - "mobheads:llama white_llama"
+  Brown_Llama_Trader:
+    dropChance: 1%
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBrown Trader Llama Head"
+    random_uuid: aaa3b3aa-c25c-40ae-b9d4-216d61464cd0
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDYxODQ1MzgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mOGVkNmE1ZDcyMjQzNWRiNTE5YTA3YjJlMDJhNDQ4NzU1YWUzZDYxMDc3OTRlMDRhM2JiYWRhMThiNjYwMWMwIn19fQ=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 brown_llama"
+      - "mobheads:llama brown_llama"
+    Creamy_Llama_Trader:
+      dropChance: 1%
+      lootingBonus: DEFAULT
+      dropOnChargedCreeperDeath: true
+      broadcastMessage: true
+      displayName: "&eCreamy Trader Llama Head"
+      random_uuid: bbbbbbbb-aaa1-47c6-9e22-fff78ddf50e0
+      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDYzNjU3MjksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82NjJlMmZjMjZjMzVmNzA1MjVmMDkzYWQ4NmE1NjVjMzVhZDk1NDViZTllOTkxNzExOGNiNmM3ZTQ2MDdmMTg2In19fQ
+      advancements:
+        - "mobheads:firstmobhead first_mob_head"
+        - "mobheads:thelegend27 creamy_llama"
+        - "mobheads:llama creamy_llama"
+    Gray_Llama_Trader:
+      dropChance: 1%
+      lootingBonus: DEFAULT
+      dropOnChargedCreeperDeath: true
+      broadcastMessage: true
+      displayName: "&eGray Trader Llama Head"
+      random_uuid: 93f95ccc-c230-482b-a26a-8e2a74fe7690
+      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MDA3MzgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MjBjMWVmNzdiNmYzMGY3NzA1N2EyZDRlYjZhY2YxMDViMzM5M2IyNmJkMGQ1OGFjZTk3ZDc3YjAzMThmNDg2In19fQ
+      advancements:
+        - "mobheads:firstmobhead first_mob_head"
+        - "mobheads:thelegend27 gray_llama"
+        - "mobheads:llama gray_llama"
+    White_Llama_Trader:
+      dropChance: 1%
+      lootingBonus: DEFAULT
+      dropOnChargedCreeperDeath: true
+      broadcastMessage: true
+      displayName: "&eWhite Trader Llama Head"
+      random_uuid: 8b2cdddd-d666-445a-acb6-2477471a751c
+      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MzA4NjIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kMTBkY2U5MWM1ZDlhYWNmN2JmMjk3YTUxN2U2MDNjYTliNTIyNTU5MDRjYmQ2ZDg4YzI0MmVkNTI4ODhiYzE3In19fQ=
+      advancements:
+        - "mobheads:firstmobhead first_mob_head"
+        - "mobheads:thelegend27 white_llama"
+        - "mobheads:llama white_llama"
   Magma_Cube:
     dropChance: DEFAULT
     lootingBonus: DEFAULT
@@ -1115,13 +1163,123 @@ ListOfMobs:
       - "mobheads:thelegend27 vex"
       - "mobheads:woodland_mansion vex"
   Villager:
-    dropChance: DEFAULT
+    dropChance: 1
     lootingBonus: DEFAULT
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eVillager Head"
     random_uuid: 834e4f81-46d6-4e90-9e60-39bdf4a68c48
     textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIyZDhlNzUxYzhmMmZkNGM4OTQyYzQ0YmRiMmY1Y2E0ZDhhZThlNTc1ZWQzZWIzNGMxOGE4NmU5M2IifX19
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Armorer:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Armorer] Head"
+    random_uuid: bc30e3c3-47c3-4d23-86fc-06eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDc3MzMwMzIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83NWY1NmM3OWZjMDQ1NDI5NzE2NDYwYTVjZGZmZTYyNzQ2YmEwYTk5ZmRjZDBhODZjZWIzMjNlYjdiOTgwYzliIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Butcher:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Butcher] Head"
+    random_uuid: bc30e3c3-17c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDc4MjcwMjQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zZTA1OWRiNDc0Y2Y1OTFkM2Y4NDVhZTVhYzEyNWU3Mjc1OWZhYzlhZDc0YmM5ODQ3NjViNTRlMjdjMWI4MDMwIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Cartographer:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Cartographer] Head"
+    random_uuid: bc30e3c3-55c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDc4NjEwNzUsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zYWZkMDUzMDZkOTI3MGRjOGJmOWZkOGJjMzYyYzFlM2RkZjUyYzYzOWEwYzA1MmJmNmQwNWJmNDA1NDUzMWUyIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Cleric:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Cleric] Head"
+    random_uuid: bc30e3c3-55c3-4323-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDc4OTIzNTAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84NDc4OTQ4MzU4YTZmMmViMjgwNzVjY2Q5ODc5NWQ3ZTVkODMzYzlhZmNjODFkMWY3MWEzYjk1ODA4OGRmNmIzIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Farmer:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Farmer] Head"
+    random_uuid: bc3033c3-52c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDc5NTc2MzYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MDUzYjBhOTYwZjI1NTQyNDI4NzI5ODE1M2Y0YjU5ZGRjNTM0Mjc0ZDJlODA0Yzk4NWZmODYwOWJkZDQyMzI1In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Fisherman:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Fisherman] Head"
+    random_uuid: 3c8033c3-52c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDgwMTAzMjYsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYjQ0MjI1YmFjMjAzZDIwMzc2MWM5NDVlMjU2ZDFkYzU3YTI1OWNiZDdlOTkzMjY4MDdmMjIxOGNjNzE3MzBjIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Fletcher:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Fletcher] Head"
+    random_uuid: 3c8033c3-22c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDgwNDMzMTgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yZTUwN2VlZmMwZDFmMGY0NzExYjgyZmU5MzEwODU5MmRjNWI1ZGU2ZjgzZmZlMzhhNmE1ZjA3MDhjMTA0ODVkIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Librarian:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Librarian] Head"
+    random_uuid: a38033c3-22c3-4d23-86fc-03eaeb9aa014
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDgwNzQ5NTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kYzc4NGYwYWVhY2I4NjdhYjU2M2Q5NWRkNWVjNjQ5NmU4N2ZjMjFmZjc5OGNhYmNhMmE4OTc0Y2M0OWU4ZTU2In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Shepherd:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Shepherd] Head"
+    random_uuid: a38033c3-22c3-4d23-86fc-03eaeb9aa01b
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDgxMTg1MjQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mMDIzYjNhNDBjYTQ5Y2I1YjVlYTY1MzVlOTNmNzA5NGYxOGI3MjA0NGQ5NTU4MDU1NDE2MWJhYzg5NmFiMTVjIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 villager"
+  Villager_Weaponsmith:
+    dropChance: 1
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eVillager[Weaponsmith] Head"
+    random_uuid: a38033c3-2bc3-4d23-82fc-03eaeb9aa01b
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDgxNjUxMzUsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84N2YwY2YxMTQwMGUzZWVkODc2MTVlY2Q3YTA5OTg3MzhiNThlMzBmYzYzNjZmMDc3OTllMWQ3ZDY0YjkyNTMifX19
     advancements:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 villager"
@@ -1182,6 +1340,17 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 zombie_pigman"
       - "mobheads:nether_dimension zombie_pigman"
+  Bee:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eBee Head"
+    random_uuid: 3b08d8ef-beee-4bee-beee-a655302c389f
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDUzOTc5NjgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84NWVhODNjNTUyNGYyM2RjYWU4M2RmNTIzODRjMDllNTA3NmM3YmFhM2Q4MTI1NTBhMjA2MmMzYTJmNTA1MWQyIn19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 bee"
   Zombie_Butcher_Villager:
     dropChance: DEFAULT
     lootingBonus: DEFAULT

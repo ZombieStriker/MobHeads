@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="jdk" jdkName="9" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.14.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.15-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.mojang:authlib:1.5.25">
         <CLASSES>

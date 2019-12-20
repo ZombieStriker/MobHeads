@@ -1,3 +1,12 @@
+V3.4
+    Updated to 1.15
+    Added Trader Llamas (all four of them)
+    Added Bees
+    Added all Villager professions (will not add type by biome)
+
+v3.3
+    Fixed Zombie_Villager heads
+
 v3.2
     Increased looting chance for variant mobs (it is a pain killing all those dyed sheep for heads, when they are all basically the same)
     Increased wither head drop chance (You should not have to kill them 100 times to get all their heads)

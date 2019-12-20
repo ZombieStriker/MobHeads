@@ -37,6 +37,10 @@ public enum MobNames {
 	Creamy_Llama,
 	Gray_Llama,
 	White_Llama,
+	Brown_Llama_Trader,
+	Creamy_Llama_Trader,
+	Gray_Llama_Trader,
+	White_Llama_Trader,
 	Magma_Cube,
 	Mooshroom,
 	Mule,
@@ -84,7 +88,6 @@ public enum MobNames {
 	Stray,
 	Turtle,
 	Vex,
-	Villager,
 	Vindicator,
 	Witch,
 	Wither,
@@ -99,6 +102,19 @@ public enum MobNames {
 	Zombie_Librarian_Villager,
 	Zombie_Nitwit_Villager,
 	Zombie_Smith_Villager,
+	Bee,
+
+	Villager,
+	Villager_Armorer,
+	Villager_Butcher,
+	Villager_Cartographer,
+	Villager_Cleric,
+	Villager_Farmer,
+	Villager_Fisherman,
+	Villager_Fletcher,
+	Villager_Librarian,
+	Villager_Shepherd,
+	Villager_Weaponsmith,
 
 	Tropical_Fish,
 	Cod,
@@ -179,8 +195,9 @@ public enum MobNames {
 			case IRON_GOLEM:
 				return Iron_Golem;
 			case LLAMA:
-			case TRADER_LLAMA:
 				return getLLamaName((Llama) entity);
+			case TRADER_LLAMA:
+				return getLLamaTraderName((TraderLlama) entity);
 			case MAGMA_CUBE:
 				return Magma_Cube;
 			case MUSHROOM_COW:
@@ -220,7 +237,7 @@ public enum MobNames {
 			case VEX:
 				return Vex;
 			case VILLAGER:
-				return Villager;
+				return getVillagerName((Villager)entity);
 			case VINDICATOR:
 				return Vindicator;
 			case WITCH:
@@ -253,11 +270,12 @@ public enum MobNames {
 				return Pillager;
 			case RAVAGER:
 				return Ravager;
-
 			case CAT:
 				return getCatName((Cat) entity);
 			case PANDA:
 				return getPandaName((Panda) entity);
+			case BEE:
+				return Bee;
 			case FOX:
 				return getFoxName((Fox) entity);
 		}
@@ -380,6 +398,22 @@ public enum MobNames {
 				return Gray_Llama;
 			case WHITE:
 				return White_Llama;
+		}
+		return null;
+	}
+	private static MobNames getLLamaTraderName(TraderLlama llama) {
+		if (llama.getColor() == null) {
+			return null;
+		}
+		switch (llama.getColor()) {
+			case BROWN:
+				return Brown_Llama_Trader;
+			case CREAMY:
+				return Creamy_Llama_Trader;
+			case GRAY:
+				return Gray_Llama_Trader;
+			case WHITE:
+				return White_Llama_Trader;
 		}
 		return null;
 	}
@@ -515,52 +549,60 @@ public enum MobNames {
 	/*     */
 	/*     */
 	private static MobNames getZombieVillagerName(ZombieVillager zombieVillager) {
-		/* 439 */
 		if (zombieVillager.getVillagerProfession() == null) {
-			/* 440 */
-			return null;
-			/*     */
+			return Zombie_Nitwit_Villager;
 		}
 		/*     */
 		/* 443 */
 		switch (zombieVillager.getVillagerProfession()) {
-			/*     */
 			case TOOLSMITH:
-				/* 445 */
 				return Zombie_Smith_Villager;
-			/*     */
 			case BUTCHER:
-				/* 447 */
 				return Zombie_Butcher_Villager;
-			/*     */
 			case FARMER:
-				/* 449 */
 				return Zombie_Farmer_Villager;
-			/*     */
 			case LIBRARIAN:
-				/* 451 */
 				return Zombie_Librarian_Villager;
-			/*     */
 			case NITWIT:
-				/* 453 */
 				return Zombie_Nitwit_Villager;
-			/*     */
 			case CLERIC:
-				/* 455 */
 				return Zombie_Cleric_Villager;
-			/*     */
 		}
-		/* 457 */
 		return null;
-		/*     */
 	}
 
-	/*     */
-	/*     */
-	/*     */
-	/*     */
+
+	private static MobNames getVillagerName(Villager villager) {
+		if (villager.getProfession() == null) {
+			return Villager;
+		}
+		switch (villager.getProfession()) {
+			case ARMORER:
+				return Villager_Armorer;
+			case BUTCHER:
+				return Villager_Butcher;
+			case CARTOGRAPHER:
+				return Villager_Cartographer;
+			case CLERIC:
+				return Villager_Cleric;
+			case FARMER:
+				return Villager_Farmer;
+			case FISHERMAN:
+				return Villager_Fisherman;
+			case FLETCHER:
+				return Villager_Fletcher;
+			case LIBRARIAN:
+				return Villager_Librarian;
+			case SHEPHERD:
+				return Villager_Shepherd;
+			case WEAPONSMITH:
+				return Villager_Weaponsmith;
+			default:
+				return Villager;
+		}
+	}
+
 	private static MobNames getFishName(Entity entity) {
-		/* 463 */
 		if (entity.getName() == null) {
 			/* 464 */
 			return null;
