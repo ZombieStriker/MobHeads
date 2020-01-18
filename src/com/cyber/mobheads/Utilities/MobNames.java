@@ -567,8 +567,9 @@ public enum MobNames {
 				return Zombie_Nitwit_Villager;
 			case CLERIC:
 				return Zombie_Cleric_Villager;
+			default:
+				return Zombie_Nitwit_Villager;
 		}
-		return null;
 	}
 
 

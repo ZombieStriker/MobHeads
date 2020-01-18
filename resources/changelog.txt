@@ -1,3 +1,6 @@
+v3.5
+    Fixed zombie villager head issue
+
 V3.4
     Updated to 1.15
     Added Trader Llamas (all four of them)
