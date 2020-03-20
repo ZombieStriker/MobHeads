@@ -164,7 +164,7 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 ginger_cat"
       - "mobheads:cat ginger_cat"
-   #The old cats will no longer spawn
+    #The old cats will no longer spawn
   Siamese_Cat:
     dropChance: 0.3%
     lootingBonus: DEFAULT

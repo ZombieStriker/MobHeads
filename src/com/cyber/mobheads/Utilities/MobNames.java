@@ -543,17 +543,10 @@ public enum MobNames {
 		/*     */
 	}
 
-	/*     */
-	/*     */
-	/*     */
-	/*     */
-	/*     */
 	private static MobNames getZombieVillagerName(ZombieVillager zombieVillager) {
 		if (zombieVillager.getVillagerProfession() == null) {
 			return Zombie_Nitwit_Villager;
 		}
-		/*     */
-		/* 443 */
 		switch (zombieVillager.getVillagerProfession()) {
 			case TOOLSMITH:
 				return Zombie_Smith_Villager;
@@ -563,8 +556,6 @@ public enum MobNames {
 				return Zombie_Farmer_Villager;
 			case LIBRARIAN:
 				return Zombie_Librarian_Villager;
-			case NITWIT:
-				return Zombie_Nitwit_Villager;
 			case CLERIC:
 				return Zombie_Cleric_Villager;
 			default:
@@ -605,40 +596,19 @@ public enum MobNames {
 
 	private static MobNames getFishName(Entity entity) {
 		if (entity.getName() == null) {
-			/* 464 */
 			return null;
-			/*     */
 		}
-		/*     */
-		/* 467 */
 		switch (entity.getName()) {
-			/*     */
 			case "Raw Cod":
-				/* 469 */
 				return Cod;
-			/*     */
 			case "Raw Salmon":
-				/* 471 */
 				return Salmon;
-			/*     */
 			case "Pufferfish":
-				/* 473 */
 				return Pufferfish;
-			/*     */
 			case "Tropical Fish":
-				/* 475 */
 				return Tropical_Fish;
-			/*     */
 		}
-		/* 477 */
 		return null;
-		/*     */
 	}
-	/*     */
 }
 
-
-/* Location:              F:\Minecraft Servers\SpigotLobby\plugins\MobHeads 2.4.jar!\com\cyber\mobheads\Utilities\MobNames.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.0.7
- */

@@ -1,10 +1,7 @@
 package com.cyber.mobheads;
 
 import com.cyber.mobheads.Config.ConfigController;
-import com.cyber.mobheads.Utilities.Broadcaster;
-import com.cyber.mobheads.Utilities.MinecraftAccountValidator;
-import com.cyber.mobheads.Utilities.MobMeta;
-import com.cyber.mobheads.Utilities.SkullFactory;
+import com.cyber.mobheads.Utilities.*;
 import com.cyber.mobheads.listeners.EntityDeathListener;
 import com.cyber.mobheads.listeners.FishListener;
 import com.cyber.mobheads.listeners.SkullBreakListener;
@@ -39,6 +36,16 @@ public class Main
 
 	public static Plugin getPlugin() {
 		return plugin;
+	}
+
+	@Override
+	public void onLoad() {
+		try{
+			Plugin p = Bukkit.getPluginManager().getPlugin("WorldGuard");
+			if(p!=null){
+				WorldGuardSupport.initiate();
+			}
+		}catch (Error|Exception r54){}
 	}
 
 	public void onEnable() {

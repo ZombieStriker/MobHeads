@@ -1,10 +1,7 @@
 package com.cyber.mobheads.listeners;
 
 import com.cyber.mobheads.Config.ConfigController;
-import com.cyber.mobheads.Utilities.Broadcaster;
-import com.cyber.mobheads.Utilities.MobMeta;
-import com.cyber.mobheads.Utilities.MobNames;
-import com.cyber.mobheads.Utilities.SkullFactory;
+import com.cyber.mobheads.Utilities.*;
 import com.cyber.mobheads.advancements.AdvancementsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -50,6 +47,12 @@ public class EntityDeathListener
 		LivingEntity livingEntity = event.getEntity();
 		Player killer = event.getEntity().getKiller();
 
+		try{
+			if(!WorldGuardSupport.canDropHeads(livingEntity.getLocation()))
+					return;
+		}catch (Error|Exception e4){
+
+		}
 
 		try {
 			if (livingEntity instanceof Ageable)
