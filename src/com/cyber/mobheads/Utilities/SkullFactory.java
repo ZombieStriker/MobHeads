@@ -19,6 +19,7 @@ import java.lang.reflect.Field;
 import java.util.UUID;
 
 public class SkullFactory{
+
 	public static ItemStack getMobSkull(MobMeta mobmeta, Player owner) {
 		String encodedTexture = mobmeta.getTextureCode();
 		String randomUUID = mobmeta.getUUID();
@@ -39,7 +40,10 @@ public class SkullFactory{
 			vanillaSkull.setItemMeta(meta);
 			return vanillaSkull;
 		}
-		SkullMeta meta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
+
+		ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1,(short)3);
+
+		SkullMeta meta = (SkullMeta)skull.getItemMeta();
 		GameProfile profile = new GameProfile(UUID.fromString(randomUUID), null);
 		profile.getProperties().put("textures", new Property("textures", encodedTexture));
 		Field profileField = null;
@@ -50,7 +54,7 @@ public class SkullFactory{
 		} catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
 			e1.printStackTrace();
 		}
-		ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+
 		meta.setDisplayName(ChatColor.RESET + displayName);
 		if (owner != null) {
 			AdvancementsManager.triggerAdvancement(owner, mobmeta.getAdvancements());

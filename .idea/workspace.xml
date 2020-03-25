@@ -2,42 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_commandbook_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_intake_intake_4_2_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_squirrelid_0_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_bukkit_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_core_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_bukkit_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_core_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_core_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldguard_worldguard_legacy_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_schlichtherle_truezip_6_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bstats_bstats_bukkit_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_flywaydb_flyway_core_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_khelekore_prtree_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__rhino_js_1_7R2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/WorldGuardSupport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MobHeads.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MobHeads.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/changelog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobMeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/SkullFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/SkullFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/EntityDeathListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/EntityDeathListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/SkullBreakListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/listeners/SkullBreakListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,25 +146,25 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser" timestamp="1584746524966">
+    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser" timestamp="1585165744222">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1584746524966" />
-    <state width="1876" height="316" key="GridCell.Tab.0.bottom" timestamp="1584747906530">
+    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1585165744222" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1585172150780">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1584747906530" />
-    <state width="1876" height="316" key="GridCell.Tab.0.center" timestamp="1584747906530">
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1585172150780" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1585172150780">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="316" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1584747906530" />
-    <state width="1876" height="316" key="GridCell.Tab.0.left" timestamp="1584747906530">
+    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1585172150780" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1585172150780">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="316" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1584747906530" />
-    <state width="1876" height="316" key="GridCell.Tab.0.right" timestamp="1584747906530">
+    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1585172150780" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1585172150780">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="316" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1584747906530" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1585172150780" />
   </component>
 </project>

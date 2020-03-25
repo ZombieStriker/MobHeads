@@ -72,9 +72,3 @@ public class SkullBreakListener implements Listener {
 		event.getEntity().getItemStack().setItemMeta(itemMeta);
 	}
 }
-
-
-/* Location:              F:\Minecraft Servers\SpigotLobby\plugins\MobHeads 2.4.jar!\com\cyber\mobheads\listeners\SkullBreakListener.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.0.7
- */

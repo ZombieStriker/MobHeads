@@ -1,6 +1,7 @@
 package com.cyber.mobheads.listeners;
 
 import com.cyber.mobheads.Config.ConfigController;
+import com.cyber.mobheads.Main;
 import com.cyber.mobheads.Utilities.*;
 import com.cyber.mobheads.advancements.AdvancementsManager;
 import org.bukkit.Bukkit;
@@ -13,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class EntityDeathListener
 	private final List<UUID> killedByChargedCreeper = new ArrayList();
 
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onChargedCreeperDeath(EntityDamageByEntityEvent event) {
 		if (event.getEntity() instanceof LivingEntity) {
 			LivingEntity le = (LivingEntity) event.getEntity();
@@ -68,8 +70,9 @@ public class EntityDeathListener
 			if (livingEntity instanceof Player) {
 				skull = getPlayerHead((Player) livingEntity, null, true);
 			} else {
-				skull = getMobHead(killer, livingEntity, true);
+				skull = getMobHead(null, livingEntity, true);
 			}
+
 			boolean alreadyThere = false;
 			for (ItemStack is : event.getDrops()) {
 				if (is != null && is.getType() == skull.getType()) ;
@@ -78,10 +81,49 @@ public class EntityDeathListener
 					break;
 				}
 			}
-			if (!alreadyThere)
-				event.getDrops().add(skull);
+			final boolean alreadyThere2 = alreadyThere;
+				new BukkitRunnable(){
+
+					@Override
+					public void run() {
+
+						MobNames mobName = MobNames.getName(event.getEntity());
+						MobMeta mobmeta = ConfigController.getRandomConfigMobMeta(mobName, false);
+
+						Player nearest = null;
+						double nearestLoc = Double.MAX_VALUE;
+								for(Player player : livingEntity.getWorld().getPlayers()){
+									double dist = player.getLocation().distanceSquared(livingEntity.getLocation());
+									if(nearestLoc > dist){
+										nearestLoc=dist;
+										nearest=player;
+									}
+								}
+
+						if(nearest != null) {
+							AdvancementsManager.triggerAdvancement(nearest, mobmeta.getAdvancements());
+							if (mobmeta.isShouldBroadcast()) {
+								String name = mobmeta.getUsedDisplayName();
+								if (name == null) {
+									name = SkullFactory.getVanillaName(livingEntity);
+								}
+								Broadcaster.broadCastMobHead(nearest, name);
+								livingEntity.getWorld().dropItem(livingEntity.getLocation(), skull);
+								//	if(nearest.getInventory().firstEmpty()>=0){
+								//		nearest.getInventory().addItem(skull);
+								//	}else {
+								//		livingEntity.getWorld().dropItem(nearest.getLocation(), skull);
+								//	}
+							}
+						}
+
+
+					}
+				}.runTaskLater(Main.getPlugin(),1);
 			return;
 		}
+
+
 
 		if (killer == null)
 			return;
@@ -149,7 +191,6 @@ public class EntityDeathListener
 		MobMeta mobmeta = ConfigController.getRandomConfigMobMeta(mobName, false);
 
 		if (!forceDrop) {
-
 			int lootingValue = killer.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS);
 			double dropBonus = mobmeta.getDropBonus();
 			double dropChance = mobmeta.getDropChance();

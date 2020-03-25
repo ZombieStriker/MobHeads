@@ -31,6 +31,8 @@ default_looting_bonus: 0.1%
 
 auto-update: true
 
+enable_worldguard_support: false
+
 #These are the messages that are sent to players when the plugin is active.
 #For certain commands there will be extra variables such as [player], these will be mentioned for each message.
 #Color formats are allowed! For a list of format codes, see: https://minecraft.gamepedia.com/Formatting_codes
