@@ -1608,7 +1608,7 @@ ListOfMobs:
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eAll-Black Cat Head"
-    random_uuid: 2030a11c-81ab-49b5-3332-49552f799d73
+    random_uuid: 2b64711c-81ab-bbbb-3bb2-49552f799d73
     textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE0Mzk4NDAsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82M2RlYjk1MmFlMmQxMDc2OGM5ZjE4NTY4MGJhY2Y3MWY2MzljMzY3MWE2MzU2MjljODNiNzRhZTc2YzVlN2M2In19fQ
     advancements:
       - "mobheads:firstmobhead first_mob_head"
@@ -1712,7 +1712,7 @@ ListOfMobs:
     dropOnChargedCreeperDeath: true
     broadcastMessage: true
     displayName: "&eBlack Cat Head"
-    random_uuid: 2030affc-81ab-49b0-3132-49552f799d73
+    random_uuid: 2030affc-81ab-49b0-3bb2-49552f799d73
     textureCode: eyJ0aW1lc3RhbXAiOjE1NjUzMjE3MjUxMTQsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81M2UyYTZhOGFhOTZmZmQ5ZWUyNDkwOWIxMGY0ZGZjYzA1YzQyN2IwMjFkNzgyMWQxNDFlZDNmYzY4YTEwNjc4In19fQ
     advancements:
       - "mobheads:firstmobhead first_mob_head"

@@ -1,3 +1,6 @@
+v3.7.b
+    Fixed worldguard support
+
 v3.7
     Fixed head drops from explosion
 
