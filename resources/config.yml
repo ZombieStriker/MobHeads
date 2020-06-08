@@ -1330,6 +1330,64 @@ ListOfMobs:
     advancements:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 tamed_wolf"
+  Piglin:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePiglin Head"
+    random_uuid: 3b084444-4c34-4be4-b0a7-a655344c389f
+    textureCode: ewogICJ0aW1lc3RhbXAiIDogMTU5MTY1NTgyMjM1MCwKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOGNjYTgyNjQyYjlkMmFkMWQ3YzQyMjU1OTdkYmY0NjVkZmEwZTAwNjc2Y2JlNGY1OWZhOGIzYWIyMjE1Yzg2IgogICAgfQogIH0KfQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 piglin"
+      - "mobheads:nether_dimension piglin"
+  Zoglin:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eZoglin Head"
+    random_uuid: 3b084554-4c34-4be4-b0a7-a655344c389f
+    textureCode: ewogICJ0aW1lc3RhbXAiIDogMTU5MTY1NjgwNzI1MywKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yNGVkZTkwOTgxOGM0NWVhMDFhY2U4MDU2YTdmNTgyOWU0NmY4M2Y1MDdkNWI5NjM4MDcxZTY5ZTVjZTc0YWE5IgogICAgfQogIH0KfQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 zoglin"
+      - "mobheads:nether_dimension zoglin"
+  Hoglin:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eHoglin Head"
+    random_uuid: 3b086664-4c34-4be4-b0a7-a655344c389f
+    textureCode: ewogICJ0aW1lc3RhbXAiIDogMTU5MTY1Njg5NTc1NSwKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YmE2ZTI0MDViNDNlNzc4MTRmZGYyMDgyOGRhM2RhMjQyY2YzMDQxYzgzZDlkNGJkYmY3YmRhN2ViN2VjMzU3IgogICAgfQogIH0KfQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 hoglin"
+      - "mobheads:nether_dimension hoglin"
+  Strider:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: false
+    broadcastMessage: true
+    skullList:
+      StriderHot:
+        displayName: "&eStrider(Hot) Head"
+        random_uuid: 078a9b27-18e4-4714-a241-2d47643e62dd
+        textureCode: ewogICJ0aW1lc3RhbXAiIDogMTU5MTY1NzA3ODQ5OCwKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xN2FmMDc5YjE0NTZiNTUyOGRjMWE2MmRiMTJjZjdiMjlhMThkYWNhOTFiMTMzMzAzZGJmMWRmYzk5ZTE2MWY0IgogICAgfQogIH0KfQ==
+        advancements:
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 striderhot"
+          - "mobheads:nether_dimension striderhot"
+      StriderCold:
+        displayName: "&eStrider(Cold) Head"
+        random_uuid: 08c34ceb-dd07-4447-adbc-21d402e885b9
+        textureCode: ewogICJ0aW1lc3RhbXAiIDogMTU5MTY1NzEzMzM2NSwKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81MDZlMzllMDM2M2FkNGM5YTE3MzlkZmQ2MTUzNzc1NGIxMWIxNzI1ODYwYzM4MDEyMTM3MDg0YTA3NTkwZDYiCiAgICB9CiAgfQp9
+        advancements:
+          - "mobheads:firstmobhead first_mob_head"
+          - "mobheads:thelegend27 stridercold"
+          - "mobheads:nether_dimension stridercold"
   Zombie_Pigman:
     dropChance: DEFAULT
     lootingBonus: DEFAULT

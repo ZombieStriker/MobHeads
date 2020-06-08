@@ -142,6 +142,11 @@ public enum MobNames {
 	Cat_Siamese,
 	Cat_Tabby,
 	Cat_White,
+
+	Hoglin,
+	Zoglin,
+	Piglin,
+	Strider,
 	;
 
 

@@ -63,7 +63,7 @@ public class Main
 
 		ConfigController.configurationCheck();
 
-		SpiGetUpdater.checkAutoUpdate(this, 70019, getConfig().getBoolean("auto-update") == true);
+		//SpiGetUpdater.checkAutoUpdate(this, 70019, getConfig().getBoolean("auto-update") == true);
 		//Broadcaster.outputInfoConsole("Mob Heads enabled", 0);
 	}
 

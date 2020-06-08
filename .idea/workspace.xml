@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/changelog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/WorldGuardSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/WorldGuardSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/SpiGetUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cyber/mobheads/Utilities/MobNames.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,13 +21,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -32,7 +28,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
@@ -103,18 +98,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -133,34 +116,37 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser" timestamp="1585165744222">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1585165744222" />
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1585383420709">
+    <state x="690" y="326" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591654155373">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1585383420709" />
-    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1585383420709">
+    <state x="690" y="326" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1591654155373" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1591657383125">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1585383420709" />
-    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1585383420709">
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1591657383125" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1591657383125">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1585383420709" />
-    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1585383420709">
+    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1591657383125" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1591657383125">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1585383420709" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1591657383125" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1591657383125">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1591657383125" />
   </component>
 </project>

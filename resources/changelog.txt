@@ -1,3 +1,7 @@
+v3.8
+    - Removed SpiGet
+    - Added 1.16 support
+
 v3.7.b
     Fixed worldguard support
 
