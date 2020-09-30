@@ -1,3 +1,10 @@
+V4.0
+    - Added Giant
+    - Added Piglin Brute
+
+v3.9
+    Added official 1.16 support.
+
 v3.8
     - Removed SpiGet
     - Added 1.16 support

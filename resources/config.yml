@@ -321,6 +321,16 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 evoker"
       - "mobheads:woodland_mansion evoker"
+  Giant:
+    dropChance: 50%
+    lootingBonus: 1%
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGiant Head"
+    random_uuid: e8c871a0-dba4-4d75-99f7-f1b9c0e8d27e
+    textureCode: ewogICJ0aW1lc3RhbXAiIDogMTYwMTQ5MDk4NzAxNiwKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83OTcxNWM2OGI3ODFjMGFkNGViMTZmOWQ3Y2Y0NTkwYzM4NTAzNDkwYzkwNTRkMTUwOGUyMzJkMjRiMGJhYmE5IgogICAgfQogIH0KfQ==
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
   Ghast:
     dropChance: 1%
     lootingBonus: 1%
@@ -1342,6 +1352,18 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 piglin"
       - "mobheads:nether_dimension piglin"
+  Piglin_Brute:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&ePiglin Brute Head"
+    random_uuid: 3b084bb4-4c14-4be4-b0a7-a6553c4c389f
+    textureCode: ewogICJ0aW1lc3RhbXAiIDogMTYwMTQ5MTEwMjYyNywKICAicHJvZmlsZUlkIiA6ICI4NGY5NmYwZmE1ZGM0ZTU5YmRjNTlmM2JlYTAwYTQ5MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJab21iaWVfU3RyaWtlciIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OTY1YWY4OWM4ZTQzYjI1MDc5OGQ0Njk4M2E0Y2QxY2U0M2U5MDk4OTJiYmNiMmFlZTNkYzAxN2Q2MzljODYiCiAgICB9CiAgfQp9
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 piglin_brute"
+      - "mobheads:nether_dimension piglin_brute"
   Zoglin:
     dropChance: DEFAULT
     lootingBonus: DEFAULT
@@ -1789,6 +1811,7 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 cat_red"
       - "mobheads:cat cat_red"
+
 
   #Optional skulls, because they also drop in vanilla when killed by a charged creeper.
   Zombie:

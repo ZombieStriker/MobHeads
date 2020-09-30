@@ -6,7 +6,7 @@
 
     <groupId>com.cyber</groupId>
     <artifactId>MobHeads</artifactId>
-    <version>3.8</version>
+    <version>4.0</version>
 
 
 
@@ -81,8 +81,8 @@
         <!--You only need one of the two, don't put both. Spigot is recommended.-->
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.15-R0.1-SNAPSHOT</version>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- WorldGuard API -->

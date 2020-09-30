@@ -1,5 +1,6 @@
 package com.cyber.mobheads.Utilities;
 
+import org.bukkit.Material;
 import org.bukkit.entity.*;
 
 
@@ -146,11 +147,16 @@ public enum MobNames {
 	Hoglin,
 	Zoglin,
 	Piglin,
+	Piglin_Brute,
+	Giant,
 	Strider,
 	;
 
 
 	public static MobNames getName(Entity entity) {
+		if(entity.getType().name().equals("PIG_ZOMBIE"))
+			return Zombie_Pigman;
+
 		switch (entity.getType()) {
 			case BAT:
 				return Bat;
@@ -185,6 +191,8 @@ public enum MobNames {
 				return Evoker;
 			case GHAST:
 				return Ghast;
+			case GIANT:
+				return Giant;
 			case GUARDIAN:
 				return Guardian;
 			case HORSE:
@@ -255,8 +263,6 @@ public enum MobNames {
 				return getWolfName((Wolf) entity);
 			case ZOMBIE:
 				return Zombie;
-			case PIG_ZOMBIE:
-				return Zombie_Pigman;
 			case ZOMBIE_VILLAGER:
 				return getZombieVillagerName((ZombieVillager) entity);
 			case COD:
@@ -283,6 +289,18 @@ public enum MobNames {
 				return Bee;
 			case FOX:
 				return getFoxName((Fox) entity);
+			case ZOMBIFIED_PIGLIN:
+				return Zombie_Pigman;
+			case PIGLIN:
+				return Piglin;
+			case PIGLIN_BRUTE:
+				return Piglin_Brute;
+			case STRIDER:
+				return Strider;
+			case ZOGLIN:
+				return Zoglin;
+			case HOGLIN:
+				return Hoglin;
 		}
 		return null;
 	}
@@ -319,7 +337,6 @@ public enum MobNames {
 		return null;
 
 	}
-
 	private static MobNames getFoxName(Fox ocelot) {
 
 		if (ocelot.getFoxType() == null) {
