@@ -62,6 +62,13 @@ public enum MobNames {
 	The_Killer_Bunny,
 	Toast_Rabbit,
 	White_Rabbit,
+	Goat,
+	Screaming_Goat,
+	Lucy_Axolotl,
+	Wild_Axolotl,
+	Gold_Axolotl,
+	Cyan_Axolotl,
+	Blue_Axolotl,
 	Black_Sheep,
 	Blue_Sheep,
 	Brown_Sheep,
@@ -301,7 +308,36 @@ public enum MobNames {
 				return Zoglin;
 			case HOGLIN:
 				return Hoglin;
+			case AXOLOTL:
+				return getAxolotlName((Axolotl) entity);
+			case GOAT:
+				return getGoatName((Goat) entity);
 		}
+		return null;
+	}
+
+
+	private static MobNames getGoatName(Goat goat) {
+		if (goat.isScreaming()) {
+			return Screaming_Goat;
+		}
+		return Goat;
+	}
+
+	private static MobNames getAxolotlName(Axolotl axolotl) {
+		switch (axolotl.getVariant()) {
+			case BLUE:
+				return Blue_Axolotl;
+			case WILD:
+				return Wild_Axolotl;
+			case GOLD:
+				return Gold_Axolotl;
+			case CYAN:
+				return Cyan_Axolotl;
+			case LUCY:
+				return Lucy_Axolotl;
+		}
+		
 		return null;
 	}
 
