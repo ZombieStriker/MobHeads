@@ -86,6 +86,7 @@ public enum MobNames {
 	Snow_Golem,
 	Spider,
 	Squid,
+	Glow_Squid,
 	Stray,
 	Turtle,
 	Vex,
@@ -243,6 +244,8 @@ public enum MobNames {
 				return Spider;
 			case SQUID:
 				return Squid;
+			case GLOW_SQUID:
+				return Glow_Squid;
 			case STRAY:
 				return Stray;
 			case TURTLE:
