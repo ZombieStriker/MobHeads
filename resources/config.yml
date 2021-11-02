@@ -26,7 +26,7 @@ drop_player_heads_outside_inventory: false
 allow_self_player_head_farming: false
 
 #Sets the default looting chance/bonus chance for most default mobs. This makes it easier to tweak what the default value should be
-default_looting_chance: 100%
+default_looting_chance: 0.25%
 default_looting_bonus: 0.1%
 
 auto-update: true
