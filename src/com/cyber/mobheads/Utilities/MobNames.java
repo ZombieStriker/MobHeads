@@ -96,7 +96,7 @@ public enum MobNames {
 	Wild_Wolf,
 	Tamed_Wolf,
 	Zombie,
-	Zombie_Pigman,
+	zombified_piglin,
 	Zombie_Butcher_Villager,
 	Zombie_Cleric_Villager,
 	Zombie_Farmer_Villager,
@@ -104,6 +104,9 @@ public enum MobNames {
 	Zombie_Nitwit_Villager,
 	Zombie_Smith_Villager,
 	Bee,
+	glow_squid,
+	Normal_Goat,
+	Screaming_Goat,
 
 	Villager,
 	Villager_Armorer,
@@ -121,6 +124,7 @@ public enum MobNames {
 	Cod,
 	Salmon,
 	Pufferfish,
+	Axolotl_blue,Axolotl_cyan,Axolotl_gold,Axolotl_lucy,Axolotl_wild,
 
 	Wandering_Trader,
 	Pillager,
@@ -155,7 +159,7 @@ public enum MobNames {
 
 	public static MobNames getName(Entity entity) {
 		if(entity.getType().name().equals("PIG_ZOMBIE"))
-			return Zombie_Pigman;
+			return zombified_piglin;
 
 		switch (entity.getType()) {
 			case BAT:
@@ -290,7 +294,7 @@ public enum MobNames {
 			case FOX:
 				return getFoxName((Fox) entity);
 			case ZOMBIFIED_PIGLIN:
-				return Zombie_Pigman;
+				return zombified_piglin;
 			case PIGLIN:
 				return Piglin;
 			case PIGLIN_BRUTE:
@@ -301,6 +305,13 @@ public enum MobNames {
 				return Zoglin;
 			case HOGLIN:
 				return Hoglin;
+			case GLOW_SQUID:
+				return glow_squid;
+			case GOAT:
+			//return Normal_Goat;
+				return getGoatType((Goat) entity);
+			case AXOLOTL:
+				return getAxolotlName((Axolotl) entity);
 		}
 		return null;
 	}
@@ -350,6 +361,35 @@ public enum MobNames {
 		}
 		return null;
 
+	}
+
+	private static MobNames getAxolotlName(Axolotl Axolotl) {
+
+		if (Axolotl.getVariant() == null){
+			return null;
+		}
+		switch (Axolotl.getVariant()) {
+			case BLUE:
+				return Axolotl_blue;
+			case CYAN:
+				return Axolotl_cyan;
+			case GOLD:
+				return Axolotl_gold;
+			case LUCY:
+				return Axolotl_lucy;
+			case WILD:
+				return Axolotl_wild;
+		}
+		return null;
+	}
+	private static MobNames getGoatType(Goat Goat) {
+
+		if (Goat.isScreaming() == false){
+			return Normal_Goat;
+		}else if(Goat.isScreaming() == true){
+			return Screaming_Goat;
+		}
+		return null;
 	}
 
 	private static MobNames getCatName(Ocelot ocelot) {

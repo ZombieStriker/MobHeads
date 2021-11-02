@@ -6,7 +6,7 @@
 
     <groupId>com.cyber</groupId>
     <artifactId>MobHeads</artifactId>
-    <version>4.0</version>
+    <version>4.1</version>
 
 
 
@@ -23,7 +23,7 @@
 
 
     <build>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name}_${project.version}</finalName>
         <defaultGoal>install</defaultGoal>
         <!-- Uses the properties in this file for plugin.yml and config.yml -->
         <resources>
@@ -82,7 +82,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.3-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- WorldGuard API -->

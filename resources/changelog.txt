@@ -1,3 +1,8 @@
+v4.1
+    - Added Goat
+    - Added Axolotl
+    - Renamed Zombie_Pigman to zombified_piglin
+
 V4.0
     - Added Giant
     - Added Piglin Brute

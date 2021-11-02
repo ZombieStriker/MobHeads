@@ -4,7 +4,8 @@ version: ${project.version}
 authors:
     - CyberDrain
     - Zombie_Striker
-api-version: 1.13
+    - Marcoonline
+api-version: 1.17
 description: Allows players to behead mobs and other players!
 commands:
     mobheads:
