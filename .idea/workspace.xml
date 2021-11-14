@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Mobheads_4.2" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="497eea3d-d0e5-476e-ba8d-8182b03037e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_15_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_16_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_3_R0_1_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MobHeads.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MobHeads.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -22,6 +33,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.17-R0.1-SNAPSHOT/spigot-api-1.17-R0.1-20210706.122143-68.jar!/org/bukkit/entity/EntityType.class" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -33,20 +47,22 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="shared-indexes" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\GitHub\MobHeads\libs" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cyber.mobheads.Utilities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\GitHub\MobHeads\achievements\achievements\data\mobheads\advancements" />
@@ -55,8 +71,22 @@
       <recent name="F:\GitHub\MobHeads\achievements\achievements\l\" />
       <recent name="F:\GitHub\MobHeads\achievements\achievements\" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cyber.mobheads.Utilities" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.StandAlone">
+    <configuration name="StandAlone" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/../../Minecraft/StandAlone/paper-1.17.1.jar" />
+      <option name="PROGRAM_PARAMETERS" value="--nogui" />
+      <option name="WORKING_DIRECTORY" value="E:\Minecraft\StandAlone" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Mobheads_4.2" />
+        </option>
+      </method>
+    </configuration>
     <configuration name="MobHeads [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -98,7 +128,12 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JAR Application.StandAlone" />
+      <item itemvalue="Maven.MobHeads [clean,package]" />
+    </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -124,30 +159,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser" timestamp="1585165744222">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="765" y="288" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1585165744222" />
-    <state x="690" y="326" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591654155373">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="690" y="326" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1591654155373" />
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1593214266403">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1593214266403" />
-    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1593214266403">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1593214266403" />
-    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1593214266403">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1593214266403" />
-    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1593214266403">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1593214266403" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

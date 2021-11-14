@@ -557,42 +557,42 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 brown_llama"
       - "mobheads:llama brown_llama"
-    Creamy_Llama_Trader:
-      dropChance: 1%
-      lootingBonus: DEFAULT
-      dropOnChargedCreeperDeath: true
-      broadcastMessage: true
-      displayName: "&eCreamy Trader Llama Head"
-      random_uuid: bbbbbbbb-aaa1-47c6-9e22-fff78ddf50e0
-      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDYzNjU3MjksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82NjJlMmZjMjZjMzVmNzA1MjVmMDkzYWQ4NmE1NjVjMzVhZDk1NDViZTllOTkxNzExOGNiNmM3ZTQ2MDdmMTg2In19fQ
-      advancements:
-        - "mobheads:firstmobhead first_mob_head"
-        - "mobheads:thelegend27 creamy_llama"
-        - "mobheads:llama creamy_llama"
-    Gray_Llama_Trader:
-      dropChance: 1%
-      lootingBonus: DEFAULT
-      dropOnChargedCreeperDeath: true
-      broadcastMessage: true
-      displayName: "&eGray Trader Llama Head"
-      random_uuid: 93f95ccc-c230-482b-a26a-8e2a74fe7690
-      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MDA3MzgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MjBjMWVmNzdiNmYzMGY3NzA1N2EyZDRlYjZhY2YxMDViMzM5M2IyNmJkMGQ1OGFjZTk3ZDc3YjAzMThmNDg2In19fQ
-      advancements:
-        - "mobheads:firstmobhead first_mob_head"
-        - "mobheads:thelegend27 gray_llama"
-        - "mobheads:llama gray_llama"
-    White_Llama_Trader:
-      dropChance: 1%
-      lootingBonus: DEFAULT
-      dropOnChargedCreeperDeath: true
-      broadcastMessage: true
-      displayName: "&eWhite Trader Llama Head"
-      random_uuid: 8b2cdddd-d666-445a-acb6-2477471a751c
-      textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MzA4NjIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kMTBkY2U5MWM1ZDlhYWNmN2JmMjk3YTUxN2U2MDNjYTliNTIyNTU5MDRjYmQ2ZDg4YzI0MmVkNTI4ODhiYzE3In19fQ=
-      advancements:
-        - "mobheads:firstmobhead first_mob_head"
-        - "mobheads:thelegend27 white_llama"
-        - "mobheads:llama white_llama"
+  Creamy_Llama_Trader:
+    dropChance: 1%
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCreamy Trader Llama Head"
+    random_uuid: bbbbbbbb-aaa1-47c6-9e22-fff78ddf50e0
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDYzNjU3MjksInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82NjJlMmZjMjZjMzVmNzA1MjVmMDkzYWQ4NmE1NjVjMzVhZDk1NDViZTllOTkxNzExOGNiNmM3ZTQ2MDdmMTg2In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 creamy_llama"
+      - "mobheads:llama creamy_llama"
+  Gray_Llama_Trader:
+    dropChance: 1%
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eGray Trader Llama Head"
+    random_uuid: 93f95ccc-c230-482b-a26a-8e2a74fe7690
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MDA3MzgsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MjBjMWVmNzdiNmYzMGY3NzA1N2EyZDRlYjZhY2YxMDViMzM5M2IyNmJkMGQ1OGFjZTk3ZDc3YjAzMThmNDg2In19fQ
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 gray_llama"
+      - "mobheads:llama gray_llama"
+  White_Llama_Trader:
+    dropChance: 1%
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWhite Trader Llama Head"
+    random_uuid: 8b2cdddd-d666-445a-acb6-2477471a751c
+    textureCode: eyJ0aW1lc3RhbXAiOjE1NzY4MDY0MzA4NjIsInByb2ZpbGVJZCI6Ijg0Zjk2ZjBmYTVkYzRlNTliZGM1OWYzYmVhMDBhNDkwIiwicHJvZmlsZU5hbWUiOiJab21iaWVfU3RyaWtlciIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kMTBkY2U5MWM1ZDlhYWNmN2JmMjk3YTUxN2U2MDNjYTliNTIyNTU5MDRjYmQ2ZDg4YzI0MmVkNTI4ODhiYzE3In19fQ=
+    advancements:
+      - "mobheads:firstmobhead first_mob_head"
+      - "mobheads:thelegend27 white_llama"
+      - "mobheads:llama white_llama"
   Magma_Cube:
     dropChance: DEFAULT
     lootingBonus: DEFAULT
@@ -1510,8 +1510,6 @@ ListOfMobs:
     advancements:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 wandering_trader"
-
-
   Pillager:
     dropChance: 0.4%
     lootingBonus: 0.2%
@@ -1812,7 +1810,6 @@ ListOfMobs:
       - "mobheads:thelegend27 cat_red"
       - "mobheads:cat cat_red"
 
-
   #Optional skulls, because they also drop in vanilla when killed by a charged creeper.
   Zombie:
     dropChance: DEFAULT
@@ -2019,13 +2016,6 @@ ListOfMobs:
       - "mobheads:firstmobhead first_mob_head"
       - "mobheads:thelegend27 Wild Axolotl"
       - "mobheads:watermobs Wild Axolotl"
-
-
-
-
-
-
-
 
 #List of all fish that are supported in this plugin.
 #You can obtain these fish by fishing. When you catch a fish, there is a chance (dropChance) that the player will also catch the corresponding fish head.

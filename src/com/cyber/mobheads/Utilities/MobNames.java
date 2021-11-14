@@ -276,9 +276,7 @@ public enum MobNames {
 			case SALMON:
 				return Salmon;
 			case TROPICAL_FISH:
-				return Tropical_Fish;
-			case ARROW:
-				return getFishName(entity);
+				return getFishName((Fish) entity);
 			case WANDERING_TRADER:
 				return Wandering_Trader;
 			case PILLAGER:
@@ -316,12 +314,12 @@ public enum MobNames {
 		return null;
 	}
 
-	private static MobNames getCatName(Cat ocelot) {
+	private static MobNames getCatName(Cat Cat) {
 
-		if (ocelot.getCatType() == null) {
+		if (Cat.getCatType() == null) {
 			return null;
 		}
-		switch (ocelot.getCatType()) {
+		switch (Cat.getCatType()) {
 			case ALL_BLACK:
 				return Cat_AllBack;
 			case BRITISH_SHORTHAIR:
@@ -348,12 +346,12 @@ public enum MobNames {
 		return null;
 
 	}
-	private static MobNames getFoxName(Fox ocelot) {
+	private static MobNames getFoxName(Fox Fox) {
 
-		if (ocelot.getFoxType() == null) {
+		if (Fox.getFoxType() == null) {
 			return null;
 		}
-		switch (ocelot.getFoxType()) {
+		switch (Fox.getFoxType()) {
 			case RED:
 				return Fox_Normal;
 			case SNOW:
@@ -463,22 +461,23 @@ public enum MobNames {
 		}
 		return null;
 	}
-	private static MobNames getLLamaTraderName(TraderLlama llama) {
-		if (llama.getColor() == null) {
+	private static MobNames getLLamaTraderName(TraderLlama traderLlama){
+		if (traderLlama.getColor() == null){
 			return null;
 		}
-		switch (llama.getColor()) {
-			case BROWN:
-				return Brown_Llama_Trader;
-			case CREAMY:
-				return Creamy_Llama_Trader;
+		switch (traderLlama.getColor()){
 			case GRAY:
 				return Gray_Llama_Trader;
+			case BROWN:
+				return Brown_Llama_Trader;
 			case WHITE:
 				return White_Llama_Trader;
+			case CREAMY:
+				return Creamy_Llama_Trader;
 		}
 		return null;
 	}
+
 
 	private static MobNames getParrotName(Parrot parrot) {
 		if (parrot.getVariant() == null) {
@@ -525,11 +524,11 @@ public enum MobNames {
 		return null;
 	}
 
-	private static MobNames getPandaName(Panda rabbit) {
-		if (rabbit.getMainGene() == null) {
+	private static MobNames getPandaName(Panda Panda) {
+		if (Panda.getMainGene() == null) {
 			return null;
 		}
-		switch (rabbit.getMainGene()) {
+		switch (Panda.getMainGene()) {
 			case LAZY:
 				return Panda_Lazy;
 			case WEAK:
@@ -656,11 +655,11 @@ public enum MobNames {
 		}
 	}
 
-	private static MobNames getFishName(Entity entity) {
-		if (entity.getName() == null) {
+	private static MobNames getFishName(Fish Fish) {
+		if (Fish.getName() == null) {
 			return null;
 		}
-		switch (entity.getName()) {
+		switch (Fish.getName()) {
 			case "Raw Cod":
 				return Cod;
 			case "Raw Salmon":
