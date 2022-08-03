@@ -6,7 +6,7 @@
 
     <groupId>com.cyber</groupId>
     <artifactId>MobHeads</artifactId>
-    <version>4.2</version>
+    <version>4.3</version>
 
 
 
@@ -17,7 +17,7 @@
         </repository>
         <repository>
             <id>sk89q-repo</id>
-            <url>http://maven.sk89q.com/repo/</url>
+            <url>https://maven.enginehub.org/repo/</url>
         </repository>
     </repositories>
 
@@ -82,7 +82,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.17-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- WorldGuard API -->
