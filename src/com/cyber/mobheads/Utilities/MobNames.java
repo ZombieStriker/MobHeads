@@ -107,7 +107,10 @@ public enum MobNames {
 	glow_squid,
 	Normal_Goat,
 	Screaming_Goat,
-
+	Allay,
+	Frog,Frog_Temperate,Frog_Warm,Frog_Cold,
+	Tadpole,
+	Warden,
 	Villager,
 	Villager_Armorer,
 	Villager_Butcher,
@@ -305,9 +308,21 @@ public enum MobNames {
 				return Hoglin;
 			case GLOW_SQUID:
 				return glow_squid;
+			case ALLAY:
+				return Allay;
+			case TADPOLE:
+				return Tadpole;
+			case WARDEN:
+				return Warden;
+
+			case FROG:
+			//	return Frog;
+				return getFrogType((Frog) entity);
+
 			case GOAT:
 			//return Normal_Goat;
 				return getGoatType((Goat) entity);
+
 			case AXOLOTL:
 				return getAxolotlName((Axolotl) entity);
 		}
@@ -386,6 +401,22 @@ public enum MobNames {
 			return Normal_Goat;
 		}else if(Goat.isScreaming() == true){
 			return Screaming_Goat;
+		}
+		return null;
+	}
+
+	private static MobNames getFrogType(Frog Frog) {
+
+		if (Frog.getVariant() == null){
+			return null;
+		}
+		switch (Frog.getVariant()) {
+			case COLD:
+				return Frog_Cold;
+			case WARM:
+				return Frog_Warm;
+			case TEMPERATE:
+				return Frog_Temperate;
 		}
 		return null;
 	}

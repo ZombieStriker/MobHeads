@@ -2017,6 +2017,51 @@ ListOfMobs:
       - "mobheads:thelegend27 Wild Axolotl"
       - "mobheads:watermobs Wild Axolotl"
 
+  Frog_Cold:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eCold Frog Head"
+    random_uuid: f4bc85f7-29ff-436c-a251-d667835716c1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjdiY2NjYzEyNWE0MTEwNDM0YTg1YzQwYWRhMDM5ZDA1MGYxNGVmN2RiMzRhMzQ0NDA2NzMxMGY4Y2U2OTYwNiJ9fX0=
+
+  Frog_Warm:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWarm Frog Head"
+    random_uuid: f4bc85f7-29ff-436c-a251-d667835716c1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWU5MzEyYjViMmJhYjlhZDUxZWE0YjZhNDA3ZDZkMzkwYmI1MDQzNDA4NzU3Yjk3NmE3NTU2ODk4YWM0M2RlMCJ9fX0=
+
+  Frog_Temperate:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTemperate Frog Head"
+    random_uuid: f4bc85f7-29ff-436c-a251-d667835716c1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWYzZTI5ZGQ5NDdhMTc3ODk1ZjYxMjFkMjMzMWI2NWFjM2Y4OTZmZGE0YmRkMTE1MTQ5MWU0MGI4MDQ5NTJhNyJ9fX0=
+
+  Tadpole:
+    dropChance: DEFAULT
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eTadpole Head"
+    random_uuid: f4bc85f7-29ff-436c-a251-d667835716c1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTg3MDM1ZjUzNTIzMzRjMmNiYTZhYzRjNjVjMmI5MDU5NzM5ZDZkMGU4MzljMWRkOThkNzVkMmU3Nzk1Nzg0NyJ9fX0=
+
+  Warden:
+    dropChance: 100%
+    lootingBonus: DEFAULT
+    dropOnChargedCreeperDeath: true
+    broadcastMessage: true
+    displayName: "&eWarden Head"
+    random_uuid: f4bc85f7-29ff-436c-a251-d667835716c1
+    textureCode: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Y2NDgxYzdjNDM1YzM0ZjIxZGZmMTA0M2E0YzcwMzRjNDQ1YTM4M2E1NDM1ZmExZjJhNTAzYTM0OGFmZDYyZiJ9fX0=
+
 #List of all fish that are supported in this plugin.
 #You can obtain these fish by fishing. When you catch a fish, there is a chance (dropChance) that the player will also catch the corresponding fish head.
 #Instead of looting, the dropchance for fish can be increased by the "Luck of the Sea" enchantment.
